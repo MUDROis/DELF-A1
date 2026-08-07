@@ -4,8 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>МУДРО · DELF A1 — Autoévaluation</title>
-<link rel="icon" href="favicon.ico">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-400-normal.css">
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-400-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-700-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-800-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-400-normal.css">
@@ -171,8 +172,8 @@ footer{max-width:880px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font
 <body>
 
 <header>
-  <a class="home" href="index.html" title="Главная">🏠</a>
-  <img class="logo" src="logo.png" alt="МУДРО" onerror="this.outerHTML='<span class=\'logo-fallback\'>🦉</span>'">
+  <a class="home" href="index.html" title="Главная"><i class="fa-solid fa-house" aria-hidden="true"></i></a>
+  <img class="logo" src="logo.png" alt="МУДРО" onerror="this.outerHTML='<span class=\'logo-fallback\'><i class="fa-solid fa-owl" aria-hidden="true"></i></span>'">
   <div class="brand">Интерактивная школа «МУДРО»<small>тренажёры DELF · уровень A1</small></div>
   <div class="progress-wrap">
     <div class="progress-bar"><div class="progress-fill" id="pfill"></div></div>
@@ -182,15 +183,15 @@ footer{max-width:880px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font
 
 <main>
   <span class="skill-badge">Autoévaluation</span>
-  <h1>🪞 Автооценка · DELF A1</h1>
-  <p class="intro">Пройди <b>4 блока</b>, как на настоящем экзамене: аудирование, чтение, письмо и устная речь. Это не экзамен — можно слушать запись несколько раз и открывать подсказки! В конце каждого блока отметь смайликом, как ты себя чувствуешь. 😊</p>
+  <h1><i class="fa-solid fa-face-smile" aria-hidden="true"></i> Автооценка · DELF A1</h1>
+  <p class="intro">Пройди <b>4 блока</b>, как на настоящем экзамене: аудирование, чтение, письмо и устная речь. Это не экзамен — можно слушать запись несколько раз и открывать подсказки! В конце каждого блока отметь смайликом, как ты себя чувствуешь. <i class="fa-solid fa-face-smile" aria-hidden="true"></i></p>
 
   <div id="blocks"></div>
 </main>
 
 <footer>
   <span>© Интерактивная школа «МУДРО» · подготовка к DELF A1</span>
-  <button class="reset" id="resetBtn">🔄 Сбросить прогресс</button>
+  <button class="reset" id="resetBtn"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Сбросить прогресс</button>
 </footer>
 
 <script>
@@ -208,9 +209,9 @@ var IMG = {
 
 var BLOCKS = [
   {
-    id:"co", num:1, name:"Аудирование", fr:"Compréhension de l'oral", icon:"🎧",
+    id:"co", num:1, name:"Аудирование", fr:"Compréhension de l'oral", icon:'<i class="fa-solid fa-headphones" aria-hidden="true"></i>',
     color:"#2fb871", dark:"#1f9d5d", soft:"#e6f7ee",
-    intro:"Сначала прочитай вопросы, потом нажми ▶ и послушай запись. Слушать можно несколько раз!",
+    intro:'Сначала прочитай вопросы, потом нажми <i class="fa-solid fa-circle-play" aria-hidden="true"></i> и послушай запись. Слушать можно несколько раз!',
     statements:[
       "Я понимаю, куда люди идут и что они делают.",
       "Я понимаю цены и время.",
@@ -221,7 +222,7 @@ var BLOCKS = [
         id:"co1", num:1,
         title_ru:"Личное сообщение на автоответчике",
         consigne_fr:"Lisez les questions. Écoutez l'enregistrement puis répondez. Vous entendez ce message sur votre répondeur.",
-        instruction_ru:"Прочитай вопросы, нажми ▶ и послушай сообщение. Слушать можно несколько раз!",
+        instruction_ru:'Прочитай вопросы, нажми <i class="fa-solid fa-circle-play" aria-hidden="true"></i> и послушай сообщение. Слушать можно несколько раз!',
         tts:"Bonjour, c'est Léa ! Samedi, mes parents ne sont pas à la maison, ils vont au cinéma. Alors, j'organise une petite fête avec mes copains. On va préparer des crêpes. Tu peux apporter un gâteau ? La fête commence à 15 heures et finit à 18 heures. Tu peux venir avec ton frère si tu veux. Allez, à samedi !",
         questions:[
           { id:"co1q1", type:"qcm-image",
@@ -254,7 +255,7 @@ var BLOCKS = [
         id:"co2", num:2,
         title_ru:"Объявление в парке аттракционов",
         consigne_fr:"Lisez les questions. Écoutez l'enregistrement puis répondez. Vous entendez cette annonce dans un parc d'attractions en France.",
-        instruction_ru:"Прочитай вопросы, нажми ▶ и послушай объявление. Числа и двери — слушай особенно внимательно!",
+        instruction_ru:'Прочитай вопросы, нажми <i class="fa-solid fa-circle-play" aria-hidden="true"></i> и послушай объявление. Числа и двери — слушай особенно внимательно!',
         tts:"Mesdames et Messieurs, bonjour et bienvenue au Parc Aventura ! Le parc ouvre ses portes à 9 heures et ferme à 19 heures. Les caisses sont à côté de la cafétéria, porte C. Un billet adulte coûte 25 euros. Et aujourd'hui, pour deux billets adulte achetés, un billet enfant est gratuit ! Attention, l'entrée du parc se fait par la porte A. Une boutique et une cafétéria sont à votre disposition dans le parc. Nous vous souhaitons une très bonne journée !",
         questions:[
           { id:"co2q1", type:"qcm",
@@ -304,9 +305,9 @@ var BLOCKS = [
     ]
   },
   {
-    id:"ce", num:2, name:"Чтение", fr:"Compréhension des écrits", icon:"📖",
+    id:"ce", num:2, name:"Чтение", fr:"Compréhension des écrits", icon:'<i class="fa-solid fa-book-open" aria-hidden="true"></i>',
     color:"#4a90e2", dark:"#2f6fb5", soft:"#e8f1fb",
-    intro:"Читай вопрос ПЕРЕД текстом! Потом читай текст и ищи ключевые слова — не нужно понимать всё подряд. Непонятные слова смотри в переводе (🇷🇺).",
+    intro:'Читай вопрос ПЕРЕД текстом! Потом читай текст и ищи ключевые слова — не нужно понимать всё подряд. Непонятные слова смотри в переводе (<i class="fa-solid fa-language" aria-hidden="true"></i>).',
     statements:[
       "Я понимаю правила и запреты (règlement).",
       "Я понимаю информационные объявления.",
@@ -391,7 +392,7 @@ var BLOCKS = [
     ]
   },
   {
-    id:"pe", num:3, name:"Письмо", fr:"Production écrite", icon:"✍️",
+    id:"pe", num:3, name:"Письмо", fr:"Production écrite", icon:'<i class="fa-solid fa-pen-nib" aria-hidden="true"></i>',
     color:"#f39c12", dark:"#b37400", soft:"#fdf3e0",
     intro:"Заполни анкету и напиши короткое сообщение другу. Это тренировка — анкета проверяется автоматически, а сообщение анализирует умный помощник.",
     statements:[
@@ -430,20 +431,20 @@ var BLOCKS = [
         consigne_fr:"Vous êtes en vacances. Vous écrivez un message à un(e) ami(e) français(e) : où vous êtes, avec qui, quelles activités vous faites et quel temps il fait. (40 mots minimum)",
         instruction_ru:"Умные маркеры — помощник сам найдёт в твоём тексте пункты задания. Минимум 40 слов!",
         markers:[
-          { key:"ou", label:"📍 Où ? (где ты)", re:/(à la mer|à la montagne|à la campagne|en ville|en france|chez (ma|mon|mes)|à [a-zà-ÿ]*[a-zà-ÿ])/i },
-          { key:"avec", label:"👥 Avec qui ? (с кем)", re:/avec/i },
-          { key:"act", label:"🎾 Activités (что делаешь)", re:/je (nage|joue|fais|visite|mange|danse|regarde|lis|vais|aime|adore)|on va/i },
-          { key:"meteo", label:"🌦 Météo (погода)", re:/il fait|il pleut|il y a du soleil|chaud|froid|beau|nuageux|du vent/i },
-          { key:"conn", label:"🔗 Et / alors (связки)", re:/\bet\b|\balors\b|\bmais\b|parce que/i },
-          { key:"form", label:"👋 Привет и прощание", re:/salut|bonjour|coucou|à bientôt|a bientot|bisous/i }
+          { key:"ou", label:'<i class="fa-solid fa-location-dot" aria-hidden="true"></i> Où ? (где ты)', re:/(à la mer|à la montagne|à la campagne|en ville|en france|chez (ma|mon|mes)|à [a-zà-ÿ]*[a-zà-ÿ])/i },
+          { key:"avec", label:'<i class="fa-solid fa-users" aria-hidden="true"></i> Avec qui ? (с кем)', re:/avec/i },
+          { key:"act", label:'<i class="fa-solid fa-table-tennis-paddle-ball" aria-hidden="true"></i> Activités (что делаешь)', re:/je (nage|joue|fais|visite|mange|danse|regarde|lis|vais|aime|adore)|on va/i },
+          { key:"meteo", label:'<i class="fa-solid fa-cloud-sun" aria-hidden="true"></i> Météo (погода)', re:/il fait|il pleut|il y a du soleil|chaud|froid|beau|nuageux|du vent/i },
+          { key:"conn", label:'<i class="fa-solid fa-link" aria-hidden="true"></i> Et / alors (связки)', re:/\bet\b|\balors\b|\bmais\b|parce que/i },
+          { key:"form", label:'<i class="fa-solid fa-hand-sparkles" aria-hidden="true"></i> Привет и прощание', re:/salut|bonjour|coucou|à bientôt|a bientot|bisous/i }
         ]
       }
     ]
   },
   {
-    id:"po", num:4, name:"Говорение", fr:"Production orale", icon:"🗣️",
+    id:"po", num:4, name:"Говорение", fr:"Production orale", icon:'<i class="fa-solid fa-comments" aria-hidden="true"></i>',
     color:"#e84393", dark:"#c02672", soft:"#fdeef5",
-    intro:"Запиши свой голос 🎙, послушай себя и отметь «✅ Я ответил(а)». Это не экзамен — репетируй столько, сколько нужно!",
+    intro:'Запиши свой голос <i class="fa-solid fa-microphone" aria-hidden="true"></i>, послушай себя и отметь «<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Я ответил(а)». Это не экзамен — репетируй столько, сколько нужно!',
     statements:[
       "Я могу представиться и рассказать о себе.",
       "Я могу отвечать на вопросы о семье и друзьях.",
@@ -488,12 +489,12 @@ var BLOCKS = [
         consigne_fr:"Vous êtes en vacances en France. Pour un pique-nique, vous allez au marché : vous demandez les prix et les quantités. Vous avez 20 euros. L'examinateur joue le rôle du vendeur.",
         instruction_ru:"1 минута на подготовку, потом сыграй диалог и запиши себя!",
         market:[
-          { emo:"🍅", name:"les tomates", price:"3 € le kilo" },
-          { emo:"🥕", name:"les carottes", price:"2 € le kilo" },
-          { emo:"🥔", name:"les pommes de terre", price:"1,5 € le kilo" },
-          { emo:"🥬", name:"la salade", price:"1 €" },
-          { emo:"🍎", name:"les pommes", price:"4 € le kilo" },
-          { emo:"🍌", name:"les bananes", price:"2,5 € le kilo" }
+          { emo:'<i class="fa-solid fa-pepper-hot" aria-hidden="true"></i>', name:"les tomates", price:"3 € le kilo" },
+          { emo:'<i class="fa-solid fa-carrot" aria-hidden="true"></i>', name:"les carottes", price:"2 € le kilo" },
+          { emo:'<i class="fa-solid fa-bowl-food" aria-hidden="true"></i>', name:"les pommes de terre", price:"1,5 € le kilo" },
+          { emo:'<i class="fa-solid fa-seedling" aria-hidden="true"></i>', name:"la salade", price:"1 €" },
+          { emo:'<i class="fa-solid fa-apple-whole" aria-hidden="true"></i>', name:"les pommes", price:"4 € le kilo" },
+          { emo:'<i class="fa-solid fa-basket-shopping" aria-hidden="true"></i>', name:"les bananes", price:"2,5 € le kilo" }
         ],
         support:{
           client:["Bonjour ! Je voudrais un kilo de tomates, s'il vous plaît.","C'est combien, les carottes ?","Ça fait combien en tout ?","Voici 20 euros."],
@@ -501,14 +502,14 @@ var BLOCKS = [
         },
         hints:[
           "Начни с приветствия: «Bonjour !» Потом: «Je voudrais…» + продукт + количество (un kilo de…, trois…).",
-          "Обязательно спроси цену: «C'est combien ?» и посчитай итог: «Ça fait combien en tout ?» У тебя 20 евро — хватит ли? 😉"
+          'Обязательно спроси цену: «C\'est combien ?» и посчитай итог: «Ça fait combien en tout ?» У тебя 20 евро — хватит ли? <i class="fa-solid fa-face-smile-wink" aria-hidden="true"></i>'
         ]
       }
     ]
   }
 ];
 
-var SMILES = ["😕","😐","😃"];
+var SMILES = ['<i class="fa-solid fa-face-meh" aria-hidden="true"></i>','<i class="fa-solid fa-face-meh-blank" aria-hidden="true"></i>','<i class="fa-solid fa-face-smile" aria-hidden="true"></i>'];
 var SMILE_TITLES = ["пока сложно","нормально","отлично"];
 var LETTERS = ["A","B","C"];
 var RES_KEY = "mudro_ae_results", AUTO_KEY = "mudro_ae_auto";
@@ -544,7 +545,7 @@ function pickVoice(){
 }
 if("speechSynthesis" in window){ pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
 function speak(text, rate){
-  if(!("speechSynthesis" in window)){ alert("Твой браузер не умеет озвучивать текст. Попробуй Chrome 🙂"); return; }
+  if(!("speechSynthesis" in window)){ alert("Твой браузер не умеет озвучивать текст. Попробуй Chrome"); return; }
   speechSynthesis.cancel();
   var u = new SpeechSynthesisUtterance(text);
   u.lang = "fr-FR"; u.rate = rate || 1;
@@ -593,14 +594,14 @@ function lockQuestion(wrap, q, sel, ok){
   var exEl = wrap.querySelector(".explain");
   exEl.hidden = false;
   exEl.classList.add(ok ? "ok" : "badx");
-  exEl.innerHTML = (ok ? "🎉 <b>Верно! +1 балл.</b> " : "❌ <b>Пока неверно.</b> ") + q.explain;
+  exEl.innerHTML = (ok ? '<i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i> <b>Верно! +1 балл.</b> ' : '<i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> <b>Пока неверно.</b> ') + q.explain;
 }
 function updateScore(ex){
   var s = document.getElementById("score-" + ex.id);
   if(!s) return;
   var ok = 0;
   ex.items.forEach(function(it){ var r = results[it.id]; if(r && r.ok) ok++; });
-  s.textContent = "⭐ " + ok + " / " + ex.items.length;
+  s.innerHTML = '<i class="fa-solid fa-star" aria-hidden="true"></i> ' + ok + " / " + ex.items.length;
   var allDone = ex.items.every(function(it){ return results[it.id]; });
   var banner = document.getElementById("done-" + ex.id);
   if(banner) banner.hidden = !allDone;
@@ -615,7 +616,7 @@ function updateBlockScore(b){
       var r = results[it.id]; if(r && r.ok) ok++;
     });
   });
-  s.textContent = "⭐ " + ok + " / " + n;
+  s.innerHTML = '<i class="fa-solid fa-star" aria-hidden="true"></i> ' + ok + " / " + n;
 }
 function updateProgress(){
   var done = Object.keys(results).length;
@@ -638,7 +639,7 @@ function buildQuestion(q, idx, ex){
              '<span class="letter">'+LETTERS[i]+'</span>'+
              '<select class="match-sel" data-i="'+i+'"><option value="">— выбери —</option>'+
              '<option value="1">Диалог 1</option><option value="2">Диалог 2</option>'+
-             '<option value="0">Лишняя 🙈</option></select></div>';
+             '<option value="0">Лишняя <i class="fa-solid fa-eye-slash" aria-hidden="true"></i></option></select></div>';
     }).join("") + '</div>';
   } else {
     body = '<div class="opts">' + q.options.map(function(o,i){
@@ -649,9 +650,9 @@ function buildQuestion(q, idx, ex){
   wrap.innerHTML =
     '<p class="q-fr"><span class="qnum">'+(idx+1)+'</span><span class="q-text">'+q.q_fr+'</span><span class="pts">/ 1 балл</span></p>'+
     body+
-    '<div class="q-actions"><button class="btn hint-btn">💡 Подсказка</button>'+
-    '<button class="btn check-btn">✅ Проверить</button></div>'+
-    '<p class="warn" hidden>Сначала выбери ответ! ✋</p>'+
+    '<div class="q-actions"><button class="btn hint-btn"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Подсказка</button>'+
+    '<button class="btn check-btn"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Проверить</button></div>'+
+    '<p class="warn" hidden>Сначала выбери ответ! <i class="fa-solid fa-hand" aria-hidden="true"></i></p>'+
     '<div class="hint-box" hidden></div><div class="explain" hidden></div>';
 
   wrap.querySelectorAll("input[type=radio]").forEach(function(r){
@@ -671,8 +672,8 @@ function buildQuestion(q, idx, ex){
     if(lvl > q.hints.length) return;
     hintBox.dataset.lvl = lvl; hintBox.hidden = false;
     hintBox.innerHTML = q.hints.slice(0,lvl).map(function(h,i){
-      return '<p style="margin:4px 0">💡 <b>Подсказка '+(i+1)+':</b> '+h+'</p>';
-    }).join("") + (lvl < q.hints.length ? '<p class="hint-more">Нужна ещё помощь? Нажми «Подсказка» ещё раз 😉</p>' : "");
+      return '<p style="margin:4px 0"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <b>Подсказка '+(i+1)+':</b> '+h+'</p>';
+    }).join("") + (lvl < q.hints.length ? '<p class="hint-more">Нужна ещё помощь? Нажми «Подсказка» ещё раз <i class="fa-solid fa-face-smile-wink" aria-hidden="true"></i></p>' : "");
   });
 
   wrap.querySelector(".check-btn").addEventListener("click", function(){
@@ -711,9 +712,9 @@ function buildExercise(ex, b){
       bar.innerHTML = '<audio controls src="'+ex.audio+'" style="width:100%"></audio>';
     } else {
       bar.innerHTML =
-        '<button class="btn tts" data-rate="1">▶ Послушать</button>'+
-        '<button class="btn tts slow" data-rate="0.7">🐢 Медленнее</button>'+
-        '<button class="btn tts stop">⏹ Стоп</button>';
+        '<button class="btn tts" data-rate="1"><i class="fa-solid fa-circle-play" aria-hidden="true"></i> Послушать</button>'+
+        '<button class="btn tts slow" data-rate="0.7"><i class="fa-solid fa-forward" aria-hidden="true"></i> Медленнее</button>'+
+        '<button class="btn tts stop"><i class="fa-solid fa-stop" aria-hidden="true"></i> Стоп</button>';
       bar.querySelectorAll("[data-rate]").forEach(function(btn){
         btn.addEventListener("click", function(){ speak(ex.tts, parseFloat(btn.dataset.rate)); });
       });
@@ -730,13 +731,15 @@ function buildExercise(ex, b){
     extras.appendChild(content);
     if(ex.translation){
       var tBtn = el("button","trans-toggle");
-      tBtn.textContent = "🇷🇺 Показать перевод";
+      tBtn.innerHTML = '<i class="fa-solid fa-language" aria-hidden="true"></i> Показать перевод';
       var tContent = el("div","trans-content");
       tContent.id = "trans-" + ex.id;
       tContent.innerHTML = ex.translation.replace(/\n/g,"<br>");
       tBtn.addEventListener("click", function(){
         tContent.classList.toggle("open");
-        tBtn.textContent = tContent.classList.contains("open") ? "🙈 Скрыть перевод" : "🇷🇺 Показать перевод";
+        tBtn.innerHTML = tContent.classList.contains("open")
+          ? '<i class="fa-solid fa-eye-slash" aria-hidden="true"></i> Скрыть перевод'
+          : '<i class="fa-solid fa-language" aria-hidden="true"></i> Показать перевод';
       });
       extras.appendChild(tBtn);
       extras.appendChild(tContent);
@@ -745,12 +748,12 @@ function buildExercise(ex, b){
   sec.appendChild(extras);
 
   var instr = el("p","instr-ru");
-  instr.textContent = "💡 " + ex.instruction_ru;
+  instr.innerHTML = '<i class="fa-solid fa-lightbulb" aria-hidden="true"></i> ' + ex.instruction_ru;
   sec.appendChild(instr);
 
   var banner = el("div","ex-done");
   banner.id = "done-" + ex.id; banner.hidden = true;
-  banner.textContent = "🎉 Упражнение пройдено! Молодец!";
+  banner.innerHTML = '<i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i> Упражнение пройдено! Молодец!';
   sec.appendChild(banner);
 
   if(ex.type){
@@ -777,7 +780,7 @@ function setResult(id, ok){
 function wireRecord(rec, stop, audio){
   var recObj = null, chunks = [];
   rec.addEventListener("click", function(){
-    if(!navigator.mediaDevices){ alert("Нужен браузер с доступом к микрофону 🙂"); return; }
+    if(!navigator.mediaDevices){ alert("Нужен браузер с доступом к микрофону"); return; }
     navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){
       recObj = new MediaRecorder(stream); chunks = [];
       recObj.ondataavailable = function(e){ chunks.push(e.data); };
@@ -787,13 +790,13 @@ function wireRecord(rec, stop, audio){
         stream.getTracks().forEach(function(t){ t.stop(); });
       };
       recObj.start();
-      rec.disabled = true; rec.textContent = "🔴 Идёт запись…";
+      rec.disabled = true; rec.innerHTML = '<i class="fa-solid fa-circle" style="color:#e74c3c" aria-hidden="true"></i> Идёт запись…';
       stop.disabled = false;
-    }).catch(function(){ alert("Разреши доступ к микрофону, пожалуйста 🎙"); });
+    }).catch(function(){ alert("Разреши доступ к микрофону, пожалуйста"); });
   });
   stop.addEventListener("click", function(){
     if(recObj && recObj.state !== "inactive") recObj.stop();
-    rec.disabled = false; rec.textContent = "🎙 Записать";
+    rec.disabled = false; rec.innerHTML = '<i class="fa-solid fa-microphone" aria-hidden="true"></i> Записать';
     stop.disabled = true;
   });
 }
@@ -818,7 +821,7 @@ function buildForm(ex, b, sec){
   });
   var act = el("div","q-actions");
   var btn = el("button","btn check-btn");
-  btn.textContent = "✅ Проверить анкету";
+  btn.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Проверить анкету';
   act.appendChild(btn);
   card.appendChild(act);
   var expl = el("div","explain"); expl.hidden = true;
@@ -834,15 +837,15 @@ function buildForm(ex, b, sec){
       setResult(ex.id+"-f"+(i+1), ok);
       d.classList.remove("good","bad"); d.classList.add(ok?"good":"bad");
       var m = d.querySelector(".field-msg");
-      m.textContent = ok ? "✅ "+f.good : "❌ "+f.err;
+      m.innerHTML = (ok ? '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> ' : '<i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> ') + (ok ? f.good : f.err);
       m.className = "field-msg "+(ok?"ok":"err");
       if(!ok){ okAll = false; msgs.push(f.err); }
     });
     expl.hidden = false;
     expl.className = "explain "+(okAll?"ok":"badx");
     expl.innerHTML = okAll
-      ? "🎉 <b>5 / 5!</b> Анкета заполнена идеально: имя, класс, адрес с номером, телефон из 10 цифр и активность. Так и на экзамене!"
-      : "❌ <b>Исправь:</b> "+msgs.join(" ");
+      ? '<i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i> <b>5 / 5!</b> Анкета заполнена идеально: имя, класс, адрес с номером, телефон из 10 цифр и активность. Так и на экзамене!'
+      : '<i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> <b>Исправь:</b> '+msgs.join(" ");
     updateScore(ex); updateBlockScore(b); updateProgress();
   });
 
@@ -870,7 +873,7 @@ function buildMessage(ex, b, sec){
   sec.appendChild(chips);
   var act = el("div","q-actions");
   var btn = el("button","btn check-btn");
-  btn.textContent = "✅ Готово ли сообщение?";
+  btn.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Готово ли сообщение?';
   act.appendChild(btn);
   sec.appendChild(act);
   var expl = el("div","explain"); expl.hidden = true;
@@ -886,7 +889,7 @@ function buildMessage(ex, b, sec){
       chipEls[m.key].classList.toggle("on", m.re.test(t));
     });
     var w = countWords(t);
-    wc.textContent = "Nombre de mots : "+w+" (minimum "+ex.minWords+")"+(w>=ex.minWords?" ✅":"");
+    wc.textContent = "Nombre de mots : "+w+" (minimum "+ex.minWords+")"+(w>=ex.minWords?" — OK":"");
     wc.classList.toggle("ok", w>=ex.minWords);
   }
   ta.addEventListener("input", function(){
@@ -903,13 +906,13 @@ function buildMessage(ex, b, sec){
     expl.hidden = false;
     expl.className = "explain "+(ok?"ok":"badx");
     if(ok){
-      expl.innerHTML = "🎉 <b>Сообщение готово!</b> "+w+" слов, все пункты на месте. Покажи учителю — это отличная работа!";
+      expl.innerHTML = '<i class="fa-solid fa-champagne-glasses" aria-hidden="true"></i> <b>Сообщение готово!</b> '+w+" слов, все пункты на месте. Покажи учителю — это отличная работа!";
     } else {
       var missing = ex.markers.filter(function(m){ return !m.re.test(ta.value); });
       var parts = [];
       if(w<ex.minWords) parts.push("мало слов ("+w+" из "+ex.minWords+") — добавь предложения с «et» и «alors»");
       if(missing.length) parts.push("не хватает: "+missing.map(function(m){return m.label;}).join(", "));
-      expl.innerHTML = "❌ <b>Что исправить:</b> "+parts.join("; ");
+      expl.innerHTML = '<i class="fa-solid fa-circle-xmark" aria-hidden="true"></i> <b>Что исправить:</b> '+parts.join("; ");
     }
     updateScore(ex); updateBlockScore(b); updateProgress();
   });
@@ -922,11 +925,11 @@ function buildOralQ(ex, b, sec){
     var card = el("div","qcard");
     card.innerHTML = '<p class="q-fr">'+(i+1)+'. '+item.q+'</p>';
     var act = el("div","actions");
-    var sup = el("button","btn btn-ghost"); sup.textContent = "💬 Опора";
-    var hint = el("button","btn hint-btn"); hint.textContent = "💡 Подсказка";
-    var rec = el("button","btn btn-rec"); rec.textContent = "🎙 Записать";
-    var stop = el("button","btn btn-stop"); stop.disabled = true; stop.textContent = "⏹ Стоп";
-    var done = el("button","btn done-toggle"); done.textContent = "✅ Я ответил(а)";
+    var sup = el("button","btn btn-ghost"); sup.innerHTML = '<i class="fa-solid fa-comment-dots" aria-hidden="true"></i> Опора';
+    var hint = el("button","btn hint-btn"); hint.innerHTML = '<i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Подсказка';
+    var rec = el("button","btn btn-rec"); rec.innerHTML = '<i class="fa-solid fa-microphone" aria-hidden="true"></i> Записать';
+    var stop = el("button","btn btn-stop"); stop.disabled = true; stop.innerHTML = '<i class="fa-solid fa-stop" aria-hidden="true"></i> Стоп';
+    var done = el("button","btn done-toggle"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Я ответил(а)';
     act.appendChild(sup); act.appendChild(hint); act.appendChild(rec); act.appendChild(stop); act.appendChild(done);
     card.appendChild(act);
     var supBox = el("div","support"); supBox.hidden = true; card.appendChild(supBox);
@@ -936,25 +939,25 @@ function buildOralQ(ex, b, sec){
 
     sup.addEventListener("click", function(){
       supBox.hidden = !supBox.hidden;
-      supBox.innerHTML = "<b>💬 Фразы-опоры:</b><br>• "+item.support.join("<br>• ");
+      supBox.innerHTML = '<b><i class="fa-solid fa-comments" aria-hidden="true"></i> Фразы-опоры:</b><br>• '+item.support.join("<br>• ");
     });
     hint.addEventListener("click", function(){
       var lvl = parseInt(hintBox.dataset.lvl||"0",10)+1;
       if(lvl>item.hints.length) return;
       hintBox.dataset.lvl = lvl; hintBox.hidden = false;
       hintBox.innerHTML = item.hints.slice(0,lvl).map(function(h,j){
-        return '<p style="margin:4px 0">💡 <b>Подсказка '+(j+1)+':</b> '+h+'</p>';
+        return '<p style="margin:4px 0"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <b>Подсказка '+(j+1)+':</b> '+h+'</p>';
       }).join("");
     });
     wireRecord(rec, stop, audio);
 
     var r = results[ex.id+"-q"+(i+1)];
-    if(r){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
+    if(r){ done.classList.add("done"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Отмечено'; }
     done.addEventListener("click", function(){
       var has = !!results[ex.id+"-q"+(i+1)];
       setResult(ex.id+"-q"+(i+1), !has);
-      if(!has){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
-      else { done.classList.remove("done"); done.textContent = "✅ Я ответил(а)"; }
+      if(!has){ done.classList.add("done"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Отмечено'; }
+      else { done.classList.remove("done"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Я ответил(а)'; }
       updateScore(ex); updateBlockScore(b); updateProgress();
     });
   });
@@ -968,35 +971,35 @@ function buildWords(ex, b, sec){
     c.addEventListener("click", function(){
       cards.querySelectorAll(".wcard").forEach(function(x){ x.classList.remove("open"); });
       c.classList.add("open");
-      idea.innerHTML = '<div class="idea">🃏 <b>'+item.word+'</b> → '+item.idea+'<br><b>Примеры вопросов:</b><br>• '+item.qs.join("<br>• ")+'</div>';
+      idea.innerHTML = '<div class="idea"><i class="fa-solid fa-layer-group" aria-hidden="true"></i> <b>'+item.word+'</b> → '+item.idea+'<br><b>Примеры вопросов:</b><br>• '+item.qs.join("<br>• ")+'</div>';
     });
     cards.appendChild(c);
   });
   sec.appendChild(cards);
   sec.appendChild(idea);
   var act = el("div","actions");
-  var rec = el("button","btn btn-rec"); rec.textContent = "🎙 Записать";
-  var stop = el("button","btn btn-stop"); stop.disabled = true; stop.textContent = "⏹ Стоп";
-  var done = el("button","btn done-toggle"); done.textContent = "✅ Я задал(а) вопрос";
+  var rec = el("button","btn btn-rec"); rec.innerHTML = '<i class="fa-solid fa-microphone" aria-hidden="true"></i> Записать';
+  var stop = el("button","btn btn-stop"); stop.disabled = true; stop.innerHTML = '<i class="fa-solid fa-stop" aria-hidden="true"></i> Стоп';
+  var done = el("button","btn done-toggle"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Я задал(а) вопрос';
   act.appendChild(rec); act.appendChild(stop); act.appendChild(done);
   sec.appendChild(act);
   var audio = el("audio"); audio.controls = true; audio.hidden = true; sec.appendChild(audio);
   wireRecord(rec, stop, audio);
 
   var r = results[ex.id];
-  if(r){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
+  if(r){ done.classList.add("done"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Отмечено'; }
   done.addEventListener("click", function(){
     var has = !!results[ex.id];
     setResult(ex.id, !has);
-    if(!has){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
-    else { done.classList.remove("done"); done.textContent = "✅ Я задал(а) вопрос"; }
+    if(!has){ done.classList.add("done"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Отмечено'; }
+    else { done.classList.remove("done"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Я задал(а) вопрос'; }
     updateScore(ex); updateBlockScore(b); updateProgress();
   });
 }
 
 function buildMarket(ex, b, sec){
   var tAct = el("div","actions");
-  var tBtn = el("button","btn btn-ghost"); tBtn.textContent = "⏱ 1 минута на подготовку";
+  var tBtn = el("button","btn btn-ghost"); tBtn.innerHTML = '<i class="fa-solid fa-stopwatch" aria-hidden="true"></i> 1 минута на подготовку';
   var tVal = el("span","timer"); tVal.hidden = true;
   tAct.appendChild(tBtn); tAct.appendChild(tVal);
   sec.appendChild(tAct);
@@ -1010,11 +1013,11 @@ function buildMarket(ex, b, sec){
   sec.appendChild(mk);
 
   var act = el("div","actions");
-  var hint = el("button","btn hint-btn"); hint.textContent = "💡 Подсказка";
-  var sup = el("button","btn btn-ghost"); sup.textContent = "💬 Фразы-опоры";
-  var rec = el("button","btn btn-rec"); rec.textContent = "🎙 Записать";
-  var stop = el("button","btn btn-stop"); stop.disabled = true; stop.textContent = "⏹ Стоп";
-  var done = el("button","btn done-toggle"); done.textContent = "✅ Я сыграл(а) диалог";
+  var hint = el("button","btn hint-btn"); hint.innerHTML = '<i class="fa-solid fa-lightbulb" aria-hidden="true"></i> Подсказка';
+  var sup = el("button","btn btn-ghost"); sup.innerHTML = '<i class="fa-solid fa-comment-dots" aria-hidden="true"></i> Фразы-опоры';
+  var rec = el("button","btn btn-rec"); rec.innerHTML = '<i class="fa-solid fa-microphone" aria-hidden="true"></i> Записать';
+  var stop = el("button","btn btn-stop"); stop.disabled = true; stop.innerHTML = '<i class="fa-solid fa-stop" aria-hidden="true"></i> Стоп';
+  var done = el("button","btn done-toggle"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Я сыграл(а) диалог';
   act.appendChild(hint); act.appendChild(sup); act.appendChild(rec); act.appendChild(stop); act.appendChild(done);
   sec.appendChild(act);
   var hintBox = el("div","hint-box"); hintBox.hidden = true; sec.appendChild(hintBox);
@@ -1026,11 +1029,11 @@ function buildMarket(ex, b, sec){
     tVal.hidden = false;
     var s = 60;
     if(tInt) clearInterval(tInt);
-    tVal.textContent = "⏱ 0:" + (s<10?"0":"") + s;
+    tVal.textContent = "0:" + (s<10?"0":"") + s;
     tInt = setInterval(function(){
       s--;
-      if(s<=0){ clearInterval(tInt); tVal.textContent = "🎙 Action ! Говори!"; return; }
-      tVal.textContent = "⏱ 0:" + (s<10?"0":"") + s;
+      if(s<=0){ clearInterval(tInt); tVal.textContent = "Action ! Говори!"; return; }
+      tVal.textContent = "0:" + (s<10?"0":"") + s;
     },1000);
   });
   hint.addEventListener("click", function(){
@@ -1038,23 +1041,23 @@ function buildMarket(ex, b, sec){
     if(lvl>ex.hints.length) return;
     hintBox.dataset.lvl = lvl; hintBox.hidden = false;
     hintBox.innerHTML = ex.hints.slice(0,lvl).map(function(h,j){
-      return '<p style="margin:4px 0">💡 <b>Подсказка '+(j+1)+':</b> '+h+'</p>';
+      return '<p style="margin:4px 0"><i class="fa-solid fa-lightbulb" aria-hidden="true"></i> <b>Подсказка '+(j+1)+':</b> '+h+'</p>';
     }).join("");
   });
   sup.addEventListener("click", function(){
     supBox.hidden = !supBox.hidden;
-    supBox.innerHTML = "<b>🛒 Покупатель:</b><br>• "+ex.support.client.join("<br>• ")+
-      "<br><br><b>🧑‍🌾 Продавец (для партнёра):</b><br>• "+ex.support.vendeur.join("<br>• ");
+    supBox.innerHTML = '<b><i class="fa-solid fa-cart-shopping" aria-hidden="true"></i> Покупатель:</b><br>• '+ex.support.client.join("<br>• ")+
+      '<br><br><b><i class="fa-solid fa-user-tie" aria-hidden="true"></i> Продавец (для партнёра):</b><br>• '+ex.support.vendeur.join("<br>• ");
   });
   wireRecord(rec, stop, audio);
 
   var r = results[ex.id];
-  if(r){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
+  if(r){ done.classList.add("done"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Отмечено'; }
   done.addEventListener("click", function(){
     var has = !!results[ex.id];
     setResult(ex.id, !has);
-    if(!has){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
-    else { done.classList.remove("done"); done.textContent = "✅ Я сыграл(а) диалог"; }
+    if(!has){ done.classList.add("done"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Отмечено'; }
+    else { done.classList.remove("done"); done.innerHTML = '<i class="fa-solid fa-circle-check" aria-hidden="true"></i> Я сыграл(а) диалог'; }
     updateScore(ex); updateBlockScore(b); updateProgress();
   });
 }
@@ -1074,7 +1077,7 @@ BLOCKS.forEach(function(b){
 
   if(b.intro){
     var intro = el("p","b-intro");
-    intro.textContent = b.intro;
+    intro.innerHTML = b.intro;
     block.appendChild(intro);
   }
 
@@ -1083,13 +1086,13 @@ BLOCKS.forEach(function(b){
     b.exercises.forEach(function(ex){ exWrap.appendChild(buildExercise(ex, b)); });
   } else {
     var soon = el("div","soon-box");
-    soon.innerHTML = "🚧 Задания блока появятся здесь скоро.<br><span style=\"font-weight:700;color:#aab2bf\">А пока можно честно оценить свои умения ниже 👇</span>";
+    soon.innerHTML = '<i class="fa-solid fa-construction" aria-hidden="true"></i> Задания блока появятся здесь скоро.<br><span style="font-weight:700;color:#aab2bf">А пока можно честно оценить свои умения ниже <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></span>';
     exWrap.appendChild(soon);
   }
   block.appendChild(exWrap);
 
   var sc = el("div","selfcheck");
-  sc.innerHTML = '<h3>🪞 Как ты себя чувствуешь?</h3>';
+  sc.innerHTML = '<h3><i class="fa-solid fa-face-smile" aria-hidden="true"></i> Как ты себя чувствуешь?</h3>';
   var bState = autoState[b.id] || {};
   b.statements.forEach(function(st, ri){
     var row = el("div","ae-row");
@@ -1097,7 +1100,7 @@ BLOCKS.forEach(function(b){
     var smiles = row.querySelector(".ae-smiles");
     SMILES.forEach(function(sm, si){
       var btn = el("button","ae-btn");
-      btn.textContent = sm; btn.title = SMILE_TITLES[si];
+      btn.innerHTML = sm; btn.title = SMILE_TITLES[si];
       if(bState[ri] === si) btn.classList.add("on");
       btn.addEventListener("click", function(){
         bState[ri] = si;
