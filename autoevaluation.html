@@ -416,9 +416,9 @@ var BLOCKS = [
           { id:"adresse", label:"Adresse :", placeholder:"12, rue des Fleurs…",
             ok:function(v){ return /\d/.test(v) && v.trim().length>3; },
             err:"Адрес начинается с номера дома: «12, rue…» — добавь цифру!", good:"Адрес с номером дома — супер!" },
-          { id:"tel", label:"Numéro de téléphone des parents :", placeholder:"06 12 34 56 78",
-            ok:function(v){ return (v.match(/\d/g)||[]).length===10; },
-            err:"Во Франции в номере 10 цифр: 06 12 34 56 78. Проверь!", good:"Номер из 10 цифр — правильно!" },
+          { id:"tel", label:"Numéro de téléphone des parents :", placeholder:"8 912 345 67 89",
+            ok:function(v){ return (v.match(/\d/g)||[]).length===11; },
+            err:"В номере должно быть 11 цифр: 8 912 345 67 89. Проверь!", good:"Номер из 11 цифр — правильно!" },
           { id:"activite", label:"Activité choisie :", placeholder:"danse, football, théâtre…",
             ok:function(v){ return v.trim().length>1; },
             err:"Выбери активность: danse, football, théâtre, dessin…", good:"Активность выбрана — отлично!" }
@@ -841,7 +841,7 @@ function buildForm(ex, b, sec){
     expl.hidden = false;
     expl.className = "explain "+(okAll?"ok":"badx");
     expl.innerHTML = okAll
-      ? "🎉 <b>5 / 5!</b> Анкета заполнена идеально: имя, класс, адрес с номером, телефон из 10 цифр и активность. Так и на экзамене!"
+      ? "🎉 <b>5 / 5!</b> Анкета заполнена идеально: имя, класс, адрес с номером, телефон из 11 цифр и активность. Так и на экзамене!"
       : "❌ <b>Исправь:</b> "+msgs.join(" ");
     updateScore(ex); updateBlockScore(b); updateProgress();
   });
