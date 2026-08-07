@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>МУДРО · DELF A1 — Autoévaluation</title>
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-700-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-800-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-700-normal.css">
+<style>
+:root{
+  --ink:#273449; --muted:#7a8699; --bg:#f4f6fb; --card:#fff;
+  --yellow:#ffc93c; --yellow-soft:#fff6dd; --red:#ff6b6b; --red-soft:#ffecec;
+  --radius:20px; --shadow:0 6px 20px rgba(39,52,73,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{position:sticky;top:0;background:#fff;box-shadow:var(--shadow);z-index:10;display:flex;align-items:center;gap:12px;padding:10px 20px}
+.home{text-decoration:none;font-size:20px;background:#eef0f5;border:2px solid #dfe3ea;border-radius:50%;width:42px;height:42px;flex:0 0 42px;display:flex;align-items:center;justify-content:center}
+.logo{height:42px;width:auto}
+.logo-fallback{font-size:34px}
+.brand{font-weight:900;font-size:17px;line-height:1.15}
+.brand small{display:block;font-weight:700;color:var(--muted);font-size:12px}
+.progress-wrap{margin-left:auto;text-align:right;min-width:150px}
+.progress-bar{height:10px;background:#e8eef5;border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#2fb871,#4a90e2,#e84393);border-radius:99px;transition:width .4s}
+.progress-text{font-size:12px;font-weight:800;color:var(--muted)}
+main{max-width:880px;margin:0 auto;padding:20px 16px 40px}
+.skill-badge{display:inline-block;background:#ffc93c;color:#5c4a10;font-weight:900;padding:6px 14px;border-radius:99px;font-size:14px}
+h1{font-size:26px;margin:10px 0 8px}
+.intro{background:#fff;border:2px dashed #e3c24a;border-radius:var(--radius);padding:12px 16px;font-size:15px;font-weight:700}
+.intro b{color:#8a6d1a}
+/* ---- блок ---- */
+.block{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-top:26px;padding:18px;border-top:6px solid var(--c)}
+.block .b-head{display:flex;gap:12px;align-items:center}
+.b-num{flex:0 0 42px;height:42px;background:var(--c);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:19px}
+.block .b-head h2{margin:0;font-size:20px}
+.block .fr{font-style:italic;color:var(--muted);font-weight:700;font-size:13px;margin:2px 0 0}
+.block .b-score{margin-left:auto;background:var(--soft);color:var(--dark);font-weight:900;padding:6px 14px;border-radius:99px;font-size:14px;white-space:nowrap}
+.block .b-intro{background:var(--soft);border:2px dashed var(--c);border-radius:14px;padding:10px 14px;margin:12px 0 4px;font-size:14px;font-weight:700}
+.soon-box{border:3px dashed #dfe3ea;border-radius:14px;padding:22px;margin:14px 0;text-align:center;font-weight:800;color:var(--muted);font-size:15px}
+/* ---- упражнение ---- */
+.exercise{background:var(--bg);border-radius:16px;padding:16px;margin-top:18px;border:2px solid var(--soft)}
+.ex-head{display:flex;gap:10px;align-items:flex-start}
+.ex-num{flex:0 0 34px;height:34px;background:var(--c);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:17px}
+.ex-head h3{margin:0;font-size:16.5px}
+.consigne{margin:3px 0 0;font-style:italic;font-size:14px;color:var(--muted);font-weight:700}
+.ex-score{margin-left:auto;background:var(--soft);color:var(--dark);font-weight:900;padding:5px 11px;border-radius:99px;font-size:13px;white-space:nowrap}
+.ex-done{border:2px solid var(--c);background:var(--soft);color:var(--dark);font-weight:800;padding:8px 12px;border-radius:12px;margin-top:12px;font-size:14px;text-align:center}
+.tts-bar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 4px}
+.btn{font-family:inherit;font-weight:800;border:none;border-radius:99px;cursor:pointer;padding:10px 18px;font-size:14.5px;transition:transform .1s}
+.btn:active{transform:scale(.96)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn.tts{background:var(--c);color:#fff}
+.btn.tts.slow{background:var(--soft);color:var(--dark);border:2px solid var(--c)}
+.btn.tts.stop{background:#fff;color:var(--muted);border:2px solid #dfe7ef}
+.instr-ru{color:var(--muted);font-size:14px;margin:6px 0 0;font-weight:700}
+.text-toggle{background:var(--soft);color:var(--dark);border:2px solid var(--c);border-radius:14px;padding:11px 15px;margin:12px 0 0;cursor:pointer;font-family:inherit;font-weight:800;font-size:14px;width:100%}
+.text-toggle:hover{background:var(--c);color:#fff}
+.text-content{display:none;background:#fff;border-left:4px solid var(--c);border-radius:0 14px 14px 0;padding:14px 18px;margin:0 0 4px;white-space:pre-wrap;font-size:14.5px;line-height:1.55}
+.text-content.open{display:block}
+.text-content strong{color:var(--dark);text-decoration:underline wavy}
+/* ---- вопрос ---- */
+.question{border-top:2px dashed #e3ebf2;margin-top:16px;padding-top:13px}
+.q-fr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800;font-size:15.5px;margin:0}
+.q-fr .qnum{background:var(--yellow);border-radius:8px;padding:2px 9px;font-weight:900}
+.q-fr .q-text{flex:1}
+.pts{color:var(--muted);font-weight:700;font-size:12px}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.opt{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid #e3ebf2;border-radius:14px;padding:10px 12px;cursor:pointer;font-weight:700}
+.opt input,.opt-img input{display:none}
+.letter{flex:0 0 28px;height:28px;border-radius:50%;background:#fff;border:2px solid #dfe7ef;display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--muted)}
+.opt.sel{border-color:var(--c);background:var(--soft)}
+.opt.sel .letter{background:var(--c);border-color:var(--c);color:#fff}
+.opt.good{border-color:var(--c);background:var(--soft)}
+.opt.good .letter{background:var(--c);border-color:var(--c);color:#fff}
+.opt.bad{border-color:var(--red);background:var(--red-soft)}
+.opt.bad .letter{background:var(--red);border-color:var(--red);color:#fff}
+.opts-img{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.opt-img{position:relative;border:2px solid #e3ebf2;border-radius:16px;overflow:hidden;cursor:pointer;background:#fff}
+.opt-img img{width:100%;height:130px;object-fit:cover;display:block}
+.opt-img .letter{position:absolute;top:8px;left:8px}
+.opt-img .cap{display:block;font-weight:700;font-size:12.5px;padding:8px;text-align:center}
+.opt-img.sel{border-color:var(--c);box-shadow:0 0 0 3px var(--soft)}
+.opt-img.good{border-color:var(--c);box-shadow:0 0 0 3px var(--c)}
+.opt-img.bad{border-color:var(--red);box-shadow:0 0 0 3px var(--red)}
+.match-list{display:flex;flex-direction:column;gap:10px;margin-top:10px}
+.match-row{display:flex;align-items:center;gap:10px;background:#fff;border:2px solid #e3ebf2;border-radius:16px;padding:8px}
+.match-row img{width:86px;height:86px;object-fit:cover;border-radius:12px}
+.match-sel{margin-left:auto;font-family:inherit;font-weight:800;font-size:14px;padding:8px 10px;border-radius:12px;border:2px solid #dfe7ef;background:#fff;max-width:170px}
+.match-row.good{border-color:var(--c);background:var(--soft)}
+.match-row.bad{border-color:var(--red);background:var(--red-soft)}
+.q-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.hint-btn{background:var(--yellow-soft);color:#8a6d1a;border:2px solid var(--yellow)}
+.check-btn{background:var(--c);color:#fff}
+.warn{color:var(--red);font-weight:800;font-size:13px;margin:6px 0 0}
+.hint-box{background:var(--yellow-soft);border:2px dashed var(--yellow);border-radius:14px;padding:10px 14px;margin-top:10px;font-size:14px;font-weight:700}
+.hint-more{color:var(--muted);font-size:12.5px;margin:4px 0 0}
+.explain{border-radius:14px;padding:10px 14px;margin-top:10px;font-size:14.5px;font-weight:700}
+.explain.ok{background:var(--soft);border:2px solid var(--c)}
+.explain.badx{background:var(--red-soft);border:2px solid var(--red)}
+/* ---- самооценка ---- */
+.selfcheck{margin-top:20px}
+.selfcheck h3{margin:0 0 4px;font-size:16px}
+.ae-row{display:flex;align-items:center;gap:10px;border-top:2px dashed #e3ebf2;padding:10px 0;font-weight:700;font-size:14px}
+.ae-smiles{margin-left:auto;display:flex;gap:6px}
+.ae-btn{font-size:21px;background:#f7fafc;border:2px solid #e3ebf2;border-radius:12px;padding:4px 9px;cursor:pointer;transition:transform .1s}
+.ae-btn.on{border-color:var(--yellow);background:var(--yellow-soft);transform:scale(1.15)}
+footer{max-width:880px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px;font-weight:700;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.reset{background:none;border:2px solid #dfe7ef;border-radius:99px;padding:6px 14px;font-weight:800;color:var(--muted);cursor:pointer;font-family:inherit}
+@media(max-width:640px){
+  .opts-img{grid-template-columns:1fr}
+  .opt-img img{height:180px}
+  .match-row img{width:64px;height:64px}
+  .match-sel{max-width:130px}
+  .block .b-score{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home" href="index.html" title="Главная">🏠</a>
+  <img class="logo" src="logo.png" alt="МУДРО" onerror="this.outerHTML='<span class=\'logo-fallback\'>🦉</span>'">
+  <div class="brand">Интерактивная школа «МУДРО»<small>тренажёры DELF · уровень A1</small></div>
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="pfill"></div></div>
+    <div class="progress-text" id="ptext">Прогресс: 0 из 0</div>
+  </div>
+</header>
+
+<main>
+  <span class="skill-badge">Autoévaluation</span>
+  <h1>🪞 Автооценка · DELF A1</h1>
+  <p class="intro">Пройди <b>4 блока</b>, как на настоящем экзамене: аудирование, чтение, письмо и устная речь. Это не экзамен — можно слушать запись несколько раз и открывать подсказки! В конце каждого блока отметь смайликом, как ты себя чувствуешь. Блоки 3 и 4 скоро появятся. 😊</p>
+
+  <div id="blocks"></div>
+</main>
+
+<footer>
+  <span>© Интерактивная школа «МУДРО» · подготовка к DELF A1</span>
+  <button class="reset" id="resetBtn">🔄 Сбросить прогресс</button>
+</footer>
+
+<script>
+var IMG = {
+  theatre:"https://image.qwenlm.ai/public_source/b73c13c6-97be-474c-a418-5375eeea902e/1ab202d8a-25fe-4ea2-90d0-11703ffe3c91.png",
+  cinema:"https://image.qwenlm.ai/public_source/b73c13c6-97be-474c-a418-5375eeea902e/107d82583-deb0-42bd-8d43-e83cda516ef4.png",
+  restaurant:"https://image.qwenlm.ai/public_source/b73c13c6-97be-474c-a418-5375eeea902e/1c5c62d91-d28e-4ea5-b1a8-996aaf35e922.png",
+  dance:"https://image.qwenlm.ai/public_source/b73c13c6-97be-474c-a418-5375eeea902e/1960659aa-7319-4850-9bb6-1ab78db8a534.png",
+  crepes:"https://image.qwenlm.ai/public_source/b73c13c6-97be-474c-a418-5375eeea902e/19d044908-05ea-42d8-97b6-a0b93f7c611f.png",
+  games:"https://image.qwenlm.ai/public_source/b73c13c6-97be-474c-a418-5375eeea902e/127902630-3520-448d-83fa-2a5b53876e66.png",
+  foot:"https://image.qwenlm.ai/public_source/b73c13c6-97be-474c-a418-5375eeea902e/126d4494b-497e-4ec1-9e54-fb0812215947.png",
+  pool:"https://image.qwenlm.ai/public_source/b73c13c6-97be-474c-a418-5375eeea902e/13819f07c-1e7c-4091-a77a-b1fa88167338.png",
+  museum:"https://image.qwenlm.ai/public_source/b73c13c6-97be-474c-a418-5375eeea902e/19436e9ba-c1f2-4129-a3f8-3ec9bb444673.png"
+};
+
+var BLOCKS = [
+  {
+    id:"co", num:1, name:"Аудирование", fr:"Compréhension de l'oral", icon:"🎧",
+    color:"#2fb871", dark:"#1f9d5d", soft:"#e6f7ee",
+    intro:"Сначала прочитай вопросы, потом нажми ▶ и послушай запись. Слушать можно несколько раз!",
+    statements:[
+      "Я понимаю, куда люди идут и что они делают.",
+      "Я понимаю цены и время.",
+      "Я могу соотнести диалог с картинкой."
+    ],
+    exercises:[
+      {
+        id:"co1", num:1,
+        title_ru:"Личное сообщение на автоответчике",
+        consigne_fr:"Lisez les questions. Écoutez l'enregistrement puis répondez. Vous entendez ce message sur votre répondeur.",
+        instruction_ru:"Прочитай вопросы, нажми ▶ и послушай сообщение. Слушать можно несколько раз!",
+        tts:"Bonjour, c'est Léa ! Samedi, mes parents ne sont pas à la maison, ils vont au cinéma. Alors, j'organise une petite fête avec mes copains. On va préparer des crêpes. Tu peux apporter un gâteau ? La fête commence à 15 heures et finit à 18 heures. Tu peux venir avec ton frère si tu veux. Allez, à samedi !",
+        questions:[
+          { id:"co1q1", type:"qcm-image",
+            q_fr:"Où vont les parents de Léa samedi ?",
+            options:[ {label:"au théâtre", img:IMG.theatre}, {label:"au cinéma", img:IMG.cinema}, {label:"au restaurant", img:IMG.restaurant} ],
+            correct:1,
+            hints:["Речь о родителях (mes parents). Слушай, КУДА они идут.","Ключевая фраза: «ils vont au cinéma»."],
+            explain:"В сообщении: «mes parents ne sont pas à la maison, ils vont au cinéma» → ответ B." },
+          { id:"co1q2", type:"qcm-image",
+            q_fr:"Que fait Léa samedi ?",
+            options:[ {label:"elle danse à une fête", img:IMG.dance}, {label:"elle prépare des crêpes avec des copains", img:IMG.crepes}, {label:"elle joue aux jeux vidéo", img:IMG.games} ],
+            correct:1,
+            hints:["Что Леа делает дома с друзьями (mes copains)?","Ключевая фраза: «on va préparer des crêpes»."],
+            explain:"В сообщении: «j'organise une petite fête… on va préparer des crêpes» → ответ B." },
+          { id:"co1q3", type:"qcm",
+            q_fr:"Que devez-vous apporter ?",
+            options:["Un gâteau.","Une boisson.","Un plat."],
+            correct:0,
+            hints:["apporter = принести. Что Леа просит принести?","«Tu peux apporter un gâteau ?»"],
+            explain:"В сообщении: «Tu peux apporter un gâteau ?» → принести торт, ответ A." },
+          { id:"co1q4", type:"qcm",
+            q_fr:"À quelle heure commence la fête ?",
+            options:["18 h.","17 h.","15 h."],
+            correct:2,
+            hints:["В сообщении два времени: начало и конец. Вопрос — про НАЧАЛО (commence)!"],
+            explain:"«La fête commence à 15 heures et finit à 18 heures» → начало в 15:00, ответ C. 18 h — ловушка (это конец)." }
+        ]
+      },
+      {
+        id:"co2", num:2,
+        title_ru:"Объявление в парке аттракционов",
+        consigne_fr:"Lisez les questions. Écoutez l'enregistrement puis répondez. Vous entendez cette annonce dans un parc d'attractions en France.",
+        instruction_ru:"Прочитай вопросы, нажми ▶ и послушай объявление. Числа и двери — слушай особенно внимательно!",
+        tts:"Mesdames et Messieurs, bonjour et bienvenue au Parc Aventura ! Le parc ouvre ses portes à 9 heures et ferme à 19 heures. Les caisses sont à côté de la cafétéria, porte C. Un billet adulte coûte 25 euros. Et aujourd'hui, pour deux billets adulte achetés, un billet enfant est gratuit ! Attention, l'entrée du parc se fait par la porte A. Une boutique et une cafétéria sont à votre disposition dans le parc. Nous vous souhaitons une très bonne journée !",
+        questions:[
+          { id:"co2q1", type:"qcm",
+            q_fr:"Où sont les caisses du parc ?",
+            options:["À côté de la cafétéria.","Après le parking.","À l'accueil."],
+            correct:0,
+            hints:["caisses = кассы. Слушай сразу после «Les caisses sont…»","«à côté de la cafétéria, porte C»."],
+            explain:"В записи: «Les caisses sont à côté de la cafétéria, porte C» → ответ A." },
+          { id:"co2q2", type:"qcm",
+            q_fr:"Combien coûte un billet adulte ?",
+            options:["19 euros.","25 euros.","15 euros."],
+            correct:1,
+            hints:["Слушай число перед словом «euros»."],
+            explain:"В записи: «Un billet adulte coûte 25 euros» → ответ B." },
+          { id:"co2q3", type:"qcm",
+            q_fr:"Aujourd'hui, pour avoir un billet enfant gratuit, il faut acheter...",
+            options:["un billet adulte.","deux billets enfant.","deux billets adulte."],
+            correct:2,
+            hints:["Сколько ВЗРОСЛЫХ билетов нужно купить? Слушай число перед «billets adulte»."],
+            explain:"В записи: «pour deux billets adulte achetés, un billet enfant est gratuit» → ответ C." },
+          { id:"co2q4", type:"qcm",
+            q_fr:"Quelle porte faut-il prendre pour entrer dans le parc ?",
+            options:["La porte A.","La porte C.","La porte B."],
+            correct:0,
+            hints:["Ловушка: в записи ДВЕ двери! Porte C — это кассы. А вход (l'entrée) — ?"],
+            explain:"«L'entrée du parc se fait par la porte A» → ответ A. Porte C — ловушка (там кассы)." }
+        ]
+      },
+      {
+        id:"co3", num:3,
+        title_ru:"Соотнеси диалоги и ситуации",
+        consigne_fr:"Associez chaque dialogue à une image. Attention : il y a 3 images (A, B, C) mais seulement 2 dialogues !",
+        instruction_ru:"Послушай 2 диалога и соотнеси их с картинками. Одна картинка — лишняя!",
+        tts:"Dialogue numéro 1. — Regarde, il fait beau ! On va nager à la piscine ? — D'accord ! Je prends mon maillot de bain ! Dialogue numéro 2. — Demain, avec l'école, on va visiter le musée. — C'est super ! N'oublie pas ton appareil photo !",
+        questions:[
+          { id:"co3q1", type:"match-extra",
+            q_fr:"Situation A, B, C → Dialogue 1, 2 ou aucune ?",
+            items:[
+              { img:IMG.foot, answer:0 },
+              { img:IMG.pool, answer:1 },
+              { img:IMG.museum, answer:2 }
+            ],
+            hints:["Сначала опиши картинки: A = футбол, B = бассейн, C = музей. Ищи ключевые слова в диалогах.","Диалог 1: «nager à la piscine», «maillot de bain». Диалог 2: «visiter le musée», «appareil photo»."],
+            explain:"Диалог 1 — бассейн (B), диалог 2 — музей (C). Картинка A (футбол) — лишняя." }
+        ]
+      }
+    ]
+  },
+  {
+    id:"ce", num:2, name:"Чтение", fr:"Compréhension des écrits", icon:"📖",
+    color:"#4a90e2", dark:"#2f6fb5", soft:"#e8f1fb",
+    intro:"Читай вопрос ПЕРЕД текстом! Потом нажимай «📄 Показать текст» и ищи ключевые слова — не нужно понимать всё подряд.",
+    statements:[
+      "Я понимаю правила и запреты (règlement).",
+      "Я понимаю информационные объявления.",
+      "Я могу найти путь по карте (entre, derrière).",
+      "Я понимаю часы и длительность."
+    ],
+    exercises:[
+      {
+        id:"ce1", num:1,
+        title_ru:"Правила парка «Эоль»",
+        consigne_fr:"Vous êtes à l'entrée d'un parc en France. Lisez le règlement et répondez aux questions.",
+        instruction_ru:"Читай вопросы ПЕРЕД текстом! Ищи ключевые слова — не нужно понимать всё подряд.",
+        texte_fr:"<b>RÈGLEMENT INTÉRIEUR DU PARC ÉOLE</b>\n1. Respectez les horaires : de 9 h à 18 h en hiver, de 7 h 30 à <b>21 h en été</b>.\n2. Ne jetez pas de déchets par terre, utilisez les poubelles.\n3. Pour manger, utilisez les aires de pique-nique.\n4. Marcher sur les pelouses est autorisé.\n5. Les animaux doivent être <b>tenus en laisse</b>.\n6. Les <b>vélos et les trottinettes sont interdits</b> dans le parc, même sur les allées.\n7. Les jeux de ballon sont autorisés <b>uniquement dans les zones indiquées</b>.",
+        questions:[
+          { id:"ce1q1", type:"qcm",
+            q_fr:"En été, le parc reste ouvert jusqu'à...",
+            options:["18 h.","19 h 30.","21 h."],
+            correct:2,
+            hints:["Ищи в тексте слово «été» (лето) — рядом будут часы.","Смотри пункт 1: «de 7 h 30 à 21 h en été»."],
+            explain:"В пункте 1: «de 7 h 30 à 21 h en été» → ответ C. 18 h — это зимние часы!" },
+          { id:"ce1q2", type:"qcm-image",
+            q_fr:"Vous pouvez venir au parc avec un animal...",
+            options:[ {label:"petit", img:"assets/img/ce1q2a.png"}, {label:"dans un sac", img:"assets/img/ce1q2b.png"}, {label:"en laisse", img:"assets/img/ce1q2c.png"} ],
+            correct:2,
+            hints:["Ищи слово «animal» или «animaux».","Пункт 5: «Les animaux doivent être tenus en laisse»."],
+            explain:"В пункте 5: «Les animaux doivent être tenus en laisse» → на поводке, ответ C. Размер и сумка не упоминаются — ловушка!" },
+          { id:"ce1q3", type:"qcm-image",
+            q_fr:"Qu'est-ce qui est interdit dans le parc ?",
+            options:[ {label:"marcher", img:"assets/img/ce1q3a.png"}, {label:"les vélos", img:"assets/img/ce1q3b.png"}, {label:"pique-niquer", img:"assets/img/ce1q3c.png"} ],
+            correct:1,
+            hints:["interdit = запрещено. Ищи это слово.","Пункт 6: «Les vélos et les trottinettes sont interdits»."],
+            explain:"В пункте 6: «Les vélos et les trottinettes sont interdits» → велосипеды запрещены, ответ B. Пикник и ходьба — разрешены!" },
+          { id:"ce1q4", type:"qcm",
+            q_fr:"Vous pouvez jouer au ballon...",
+            options:["sur les allées.","partout dans le parc.","dans les zones indiquées."],
+            correct:2,
+            hints:["Ищи слово «ballon» в тексте.","Пункт 7: «uniquement dans les zones indiquées»."],
+            explain:"В пункте 7: «Les jeux de ballon sont autorisés uniquement dans les zones indiquées» → только в специальных зонах, ответ C." }
+        ]
+      },
+      {
+        id:"ce2", num:2,
+        title_ru:"Объявление в колледже",
+        consigne_fr:"Vous êtes au collège en France. Lisez cette information sur le tableau d'affichage et répondez.",
+        instruction_ru:"Тут много чисел и названий мест — не пугайся! Сначала вопрос, потом ищи ключ в тексте.",
+        texte_fr:"<b>INFORMATION</b>\nNous informons les élèves que la bibliothèque du collège a changé d'emplacement. Elle est maintenant <b>beaucoup plus grande</b> et se trouve <b>derrière la cour de récréation, entre la salle 2 et la vie scolaire</b>. Elle est ouverte tous les jours de <b>9 h à 18 h</b>.\n<b>NOUVEAUTÉS :</b>\n• <b>Dix ordinateurs</b> sont à votre disposition dans la salle d'étude.\n• Vous pouvez maintenant garder les livres chez vous pendant <b>15 jours</b>.\n• Rappel : pour emprunter des livres, vous devez <b>vous inscrire à l'accueil</b> de la bibliothèque.",
+        questions:[
+          { id:"ce2q1", type:"qcm",
+            q_fr:"La nouvelle bibliothèque est plus...",
+            options:["petite.","grande.","colorée."],
+            correct:1,
+            hints:["Сравнивают старую и новую — ищи «plus».","«Elle est maintenant beaucoup plus grande»."],
+            explain:"В тексте: «Elle est maintenant beaucoup plus grande» → больше, ответ B. Про цвет ничего нет." },
+          { id:"ce2q2", type:"qcm-image",
+            q_fr:"Quel chemin mène de l'entrée du collège à la bibliothèque ?",
+            options:[ {label:"Chemin A", img:"assets/img/ce2q2a.png"}, {label:"Chemin B", img:"assets/img/ce2q2b.png"}, {label:"Chemin C", img:"assets/img/ce2q2c.png"} ],
+            correct:1,
+            hints:["Ищи предлоги места: derrière (позади), entre (между).","«derrière la cour de récréation, entre la salle 2 et la vie scolaire»."],
+            explain:"Библиотека за школьным двором (derrière la cour) между кабинетом 2 и vie scolaire → маршрут B." },
+          { id:"ce2q3", type:"qcm",
+            q_fr:"À quelle heure ferme la bibliothèque ?",
+            options:["17 h.","18 h.","19 h."],
+            correct:1,
+            hints:["ferme = закрывается. Ищи часы работы.","«ouverte tous les jours de 9 h à 18 h»."],
+            explain:"В тексте: «ouverte tous les jours de 9 h à 18 h» → закрывается в 18:00, ответ B." },
+          { id:"ce2q4", type:"qcm",
+            q_fr:"Combien de jours peut-on garder les livres ?",
+            options:["15 jours.","20 jours.","30 jours."],
+            correct:0,
+            hints:["Ищи число рядом со словом «jours».","«garder les livres chez vous pendant 15 jours»."],
+            explain:"В тексте: «garder les livres chez vous pendant 15 jours» → 15 дней, ответ A." },
+          { id:"ce2q5", type:"qcm",
+            q_fr:"Que faut-il faire pour emprunter des livres ?",
+            options:["Payer dix euros.","Remplir un formulaire sur ordinateur.","S'inscrire à l'accueil de la bibliothèque."],
+            correct:2,
+            hints:["Ищи слово «pour» (чтобы) и глагол.","«pour emprunter des livres, vous devez vous inscrire à l'accueil»."],
+            explain:"В тексте: «pour emprunter des livres, vous devez vous inscrire à l'accueil de la bibliothèque» → записаться на ресепшене, ответ C. 10 компьютеров есть, но они не для регистрации!" }
+        ]
+      }
+    ]
+  },
+  {
+    id:"pe", num:3, name:"Письмо", fr:"Production écrite", icon:"✍️",
+    color:"#f39c12", dark:"#b37400", soft:"#fdf3e0",
+    intro:"",
+    statements:[
+      "Я могу написать короткое письмо или открытку.",
+      "Я могу заполнить анкету (имя, возраст, адрес).",
+      "Я могу написать, что я делал(а) на выходных.",
+      "Я могу написать приглашение на праздник."
+    ],
+    exercises:[]
+  },
+  {
+    id:"po", num:4, name:"Говорение", fr:"Production orale", icon:"🗣️",
+    color:"#e84393", dark:"#c02672", soft:"#fdeef5",
+    intro:"",
+    statements:[
+      "Я могу представиться и рассказать о себе.",
+      "Я могу отвечать на вопросы о семье и друзьях.",
+      "Я могу заказать еду в кафе или купить билет.",
+      "Я могу рассказать о своих любимых занятиях."
+    ],
+    exercises:[]
+  }
+];
+
+var SMILES = ["😕","😐","😃"];
+var SMILE_TITLES = ["пока сложно","нормально","отлично"];
+var LETTERS = ["A","B","C"];
+var RES_KEY = "mudro_ae_results", AUTO_KEY = "mudro_ae_auto";
+
+var results = {}; try { results = JSON.parse(localStorage.getItem(RES_KEY)) || {}; } catch(e) { results = {}; }
+var autoState = {}; try { autoState = JSON.parse(localStorage.getItem(AUTO_KEY)) || {}; } catch(e) { autoState = {}; }
+
+var TOTAL = 0;
+BLOCKS.forEach(function(b){ TOTAL += b.exercises.reduce(function(s,ex){ return s + ex.questions.length; }, 0); });
+
+/* ---------- TTS ---------- */
+var frVoice = null;
+function pickVoice(){
+  if(!("speechSynthesis" in window)) return;
+  var vs = speechSynthesis.getVoices();
+  for (var i=0;i<vs.length;i++){ if(vs[i].lang && vs[i].lang.toLowerCase().indexOf("fr")===0){ frVoice = vs[i]; break; } }
+}
+if("speechSynthesis" in window){ pickVoice(); speechSynthesis.onvoiceschanged = pickVoice; }
+function speak(text, rate){
+  if(!("speechSynthesis" in window)){ alert("Твой браузер не умеет озвучивать текст. Попробуй Chrome 🙂"); return; }
+  speechSynthesis.cancel();
+  var u = new SpeechSynthesisUtterance(text);
+  u.lang = "fr-FR"; u.rate = rate || 1;
+  if(frVoice) u.voice = frVoice;
+  speechSynthesis.speak(u);
+}
+
+function el(tag, cls){ var d = document.createElement(tag); if(cls) d.className = cls; return d; }
+
+/* ---------- вопросы ---------- */
+function getSel(wrap, q){
+  if(q.type === "match-extra"){
+    var sels = wrap.querySelectorAll(".match-sel");
+    var arr = [];
+    for(var i=0;i<sels.length;i++){
+      if(sels[i].value === "") return null;
+      arr.push(parseInt(sels[i].value,10));
+    }
+    return arr;
+  }
+  var r = wrap.querySelector("input[type=radio]:checked");
+  return r ? parseInt(r.value,10) : null;
+}
+function isOk(q, sel){
+  if(q.type === "match-extra"){
+    for(var i=0;i<q.items.length;i++){ if(sel[i] !== q.items[i].answer) return false; }
+    return true;
+  }
+  return sel === q.correct;
+}
+function lockQuestion(wrap, q, sel, ok){
+  var controls = wrap.querySelectorAll("input,select,button");
+  for(var i=0;i<controls.length;i++) controls[i].disabled = true;
+  if(q.type === "match-extra"){
+    var rows = wrap.querySelectorAll(".match-row");
+    for(var i=0;i<rows.length;i++){
+      rows[i].classList.add(sel[i] === q.items[i].answer ? "good" : "bad");
+    }
+  } else {
+    wrap.querySelectorAll(".opt,.opt-img").forEach(function(l){
+      var idx = parseInt(l.dataset.i,10);
+      if(idx === q.correct) l.classList.add("good");
+      else if(sel === idx) l.classList.add("bad");
+    });
+  }
+  var exEl = wrap.querySelector(".explain");
+  exEl.hidden = false;
+  exEl.classList.add(ok ? "ok" : "badx");
+  exEl.innerHTML = (ok ? "🎉 <b>Верно! +1 балл.</b> " : "❌ <b>Пока неверно.</b> ") + q.explain;
+}
+function updateScore(ex){
+  var s = document.getElementById("score-" + ex.id);
+  if(!s) return;
+  var ok = 0;
+  ex.questions.forEach(function(q){ var r = results[q.id]; if(r && r.ok) ok++; });
+  s.textContent = "⭐ " + ok + " / " + ex.questions.length;
+  var allDone = ex.questions.every(function(q){ return results[q.id]; });
+  var banner = document.getElementById("done-" + ex.id);
+  if(banner) banner.hidden = !allDone;
+}
+function updateBlockScore(b){
+  var s = document.getElementById("bscore-" + b.id);
+  if(!s) return;
+  var ok = 0, n = 0;
+  b.exercises.forEach(function(ex){
+    ex.questions.forEach(function(q){
+      n++;
+      var r = results[q.id]; if(r && r.ok) ok++;
+    });
+  });
+  s.textContent = "⭐ " + ok + " / " + n;
+}
+function updateProgress(){
+  var done = Object.keys(results).length;
+  document.getElementById("pfill").style.width = (TOTAL ? (done/TOTAL*100) : 0) + "%";
+  document.getElementById("ptext").textContent = "Прогресс: " + done + " из " + TOTAL;
+}
+
+function buildQuestion(q, idx, ex){
+  var wrap = el("div","question");
+  var body = "";
+  if(q.type === "qcm-image"){
+    body = '<div class="opts-img">' + q.options.map(function(o,i){
+      return '<label class="opt-img" data-i="'+i+'"><input type="radio" name="'+q.id+'" value="'+i+'">'+
+             '<span class="letter">'+LETTERS[i]+'</span><img src="'+o.img+'" alt="'+o.label+'" onerror="this.onerror=null;this.src=\'https://placehold.co/300x200/e8f1fb/2f6fb5?text=\'+encodeURIComponent(this.alt)">'+
+             '<span class="cap">'+o.label+'</span></label>';
+    }).join("") + '</div>';
+  } else if(q.type === "match-extra"){
+    body = '<div class="match-list">' + q.items.map(function(it,i){
+      return '<div class="match-row" data-i="'+i+'"><img src="'+it.img+'" alt="" onerror="this.onerror=null;this.src=\'https://placehold.co/86x86/e8f1fb/2f6fb5?text='+LETTERS[i]+'\'">'+
+             '<span class="letter">'+LETTERS[i]+'</span>'+
+             '<select class="match-sel" data-i="'+i+'"><option value="">— выбери —</option>'+
+             '<option value="1">Диалог 1</option><option value="2">Диалог 2</option>'+
+             '<option value="0">Лишняя 🙈</option></select></div>';
+    }).join("") + '</div>';
+  } else {
+    body = '<div class="opts">' + q.options.map(function(o,i){
+      return '<label class="opt" data-i="'+i+'"><input type="radio" name="'+q.id+'" value="'+i+'">'+
+             '<span class="letter">'+LETTERS[i]+'</span><span>'+o+'</span></label>';
+    }).join("") + '</div>';
+  }
+  wrap.innerHTML =
+    '<p class="q-fr"><span class="qnum">'+(idx+1)+'</span><span class="q-text">'+q.q_fr+'</span><span class="pts">/ 1 балл</span></p>'+
+    body+
+    '<div class="q-actions"><button class="btn hint-btn">💡 Подсказка</button>'+
+    '<button class="btn check-btn">✅ Проверить</button></div>'+
+    '<p class="warn" hidden>Сначала выбери ответ! ✋</p>'+
+    '<div class="hint-box" hidden></div><div class="explain" hidden></div>';
+
+  wrap.querySelectorAll("input[type=radio]").forEach(function(r){
+    r.addEventListener("change", function(){
+      wrap.querySelectorAll(".opt,.opt-img").forEach(function(l){ l.classList.remove("sel"); });
+      r.closest("label").classList.add("sel");
+      wrap.querySelector(".warn").hidden = true;
+    });
+  });
+  wrap.querySelectorAll(".match-sel").forEach(function(s){
+    s.addEventListener("change", function(){ wrap.querySelector(".warn").hidden = true; });
+  });
+
+  var hintBox = wrap.querySelector(".hint-box");
+  wrap.querySelector(".hint-btn").addEventListener("click", function(){
+    var lvl = parseInt(hintBox.dataset.lvl || "0", 10) + 1;
+    if(lvl > q.hints.length) return;
+    hintBox.dataset.lvl = lvl; hintBox.hidden = false;
+    hintBox.innerHTML = q.hints.slice(0,lvl).map(function(h,i){
+      return '<p style="margin:4px 0">💡 <b>Подсказка '+(i+1)+':</b> '+h+'</p>';
+    }).join("") + (lvl < q.hints.length ? '<p class="hint-more">Нужна ещё помощь? Нажми «Подсказка» ещё раз 😉</p>' : "");
+  });
+
+  wrap.querySelector(".check-btn").addEventListener("click", function(){
+    var sel = getSel(wrap, q);
+    if(sel === null){ wrap.querySelector(".warn").hidden = false; return; }
+    var ok = isOk(q, sel);
+    lockQuestion(wrap, q, sel, ok);
+    results[q.id] = { sel: sel, ok: ok };
+    localStorage.setItem(RES_KEY, JSON.stringify(results));
+    updateScore(ex); updateBlockScore(q.__block); updateProgress();
+  });
+
+  var saved = results[q.id];
+  if(saved){
+    if(q.type === "match-extra"){
+      wrap.querySelectorAll(".match-sel").forEach(function(s,i){ s.value = String(saved.sel[i]); });
+    } else {
+      var r = wrap.querySelector('input[value="'+saved.sel+'"]');
+      if(r){ r.checked = true; r.closest("label").classList.add("sel"); }
+    }
+    lockQuestion(wrap, q, saved.sel, saved.ok);
+  }
+  return wrap;
+}
+
+function buildExercise(ex, b){
+  var sec = el("section","exercise");
+  sec.innerHTML =
+    '<div class="ex-head"><div class="ex-num">'+ex.num+'</div>'+
+    '<div><h3>'+ex.title_ru+'</h3><p class="consigne">'+ex.consigne_fr+'</p></div>'+
+    '<span class="ex-score" id="score-'+ex.id+'"></span></div>';
+  var extras = el("div");
+  if(ex.tts){
+    var bar = el("div","tts-bar");
+    if(ex.audio){
+      bar.innerHTML = '<audio controls src="'+ex.audio+'" style="width:100%"></audio>';
+    } else {
+      bar.innerHTML =
+        '<button class="btn tts" data-rate="1">▶ Послушать</button>'+
+        '<button class="btn tts slow" data-rate="0.7">🐢 Медленнее</button>'+
+        '<button class="btn tts stop">⏹ Стоп</button>';
+      bar.querySelectorAll("[data-rate]").forEach(function(btn){
+        btn.addEventListener("click", function(){ speak(ex.tts, parseFloat(btn.dataset.rate)); });
+      });
+      bar.querySelector(".stop").addEventListener("click", function(){
+        if("speechSynthesis" in window) speechSynthesis.cancel();
+      });
+    }
+    extras.appendChild(bar);
+  }
+  if(ex.texte_fr){
+    var toggle = el("button","text-toggle");
+    toggle.textContent = "📄 Показать текст";
+    var content = el("div","text-content");
+    content.id = "txt-" + ex.id;
+    content.innerHTML = ex.texte_fr.replace(/\n/g,"<br>");
+    toggle.addEventListener("click", function(){
+      content.classList.toggle("open");
+      toggle.textContent = content.classList.contains("open") ? "📄 Скрыть текст" : "📄 Показать текст";
+    });
+    extras.appendChild(toggle);
+    extras.appendChild(content);
+  }
+  sec.appendChild(extras);
+
+  var instr = el("p","instr-ru");
+  instr.textContent = "💡 " + ex.instruction_ru;
+  sec.appendChild(instr);
+
+  var banner = el("div","ex-done");
+  banner.id = "done-" + ex.id; banner.hidden = true;
+  banner.textContent = "🎉 Упражнение пройдено! Молодец!";
+  sec.appendChild(banner);
+
+  ex.questions.forEach(function(q,i){
+    q.__block = b;
+    sec.appendChild(buildQuestion(q,i,ex));
+  });
+  return sec;
+}
+
+/* ---------- страница ---------- */
+var wrap = document.getElementById("blocks");
+BLOCKS.forEach(function(b){
+  var block = el("section","block");
+  block.id = "block-" + b.id;
+  block.style.setProperty("--c", b.color);
+  block.style.setProperty("--dark", b.dark);
+  block.style.setProperty("--soft", b.soft);
+  block.innerHTML =
+    '<div class="b-head"><div class="b-num">'+b.num+'</div>'+
+    '<div><h2>'+b.icon+' '+b.name+'</h2><p class="fr">'+b.fr+'</p></div>'+
+    '<span class="b-score" id="bscore-'+b.id+'"></span></div>';
+
+  if(b.intro){
+    var intro = el("p","b-intro");
+    intro.textContent = b.intro;
+    block.appendChild(intro);
+  }
+
+  var exWrap = el("div");
+  if(b.exercises.length){
+    b.exercises.forEach(function(ex){ exWrap.appendChild(buildExercise(ex, b)); });
+  } else {
+    var soon = el("div","soon-box");
+    soon.innerHTML = "🚧 Задания блока появятся здесь скоро.<br><span style=\"font-weight:700;color:#aab2bf\">А пока можно честно оценить свои умения ниже 👇</span>";
+    exWrap.appendChild(soon);
+  }
+  block.appendChild(exWrap);
+
+  var sc = el("div","selfcheck");
+  sc.innerHTML = '<h3>🪞 Как ты себя чувствуешь?</h3>';
+  var bState = autoState[b.id] || {};
+  b.statements.forEach(function(st, ri){
+    var row = el("div","ae-row");
+    row.innerHTML = '<span>'+st+'</span><span class="ae-smiles"></span>';
+    var smiles = row.querySelector(".ae-smiles");
+    SMILES.forEach(function(sm, si){
+      var btn = el("button","ae-btn");
+      btn.textContent = sm; btn.title = SMILE_TITLES[si];
+      if(bState[ri] === si) btn.classList.add("on");
+      btn.addEventListener("click", function(){
+        bState[ri] = si;
+        autoState[b.id] = bState;
+        localStorage.setItem(AUTO_KEY, JSON.stringify(autoState));
+        smiles.querySelectorAll(".ae-btn").forEach(function(x){ x.classList.remove("on"); });
+        btn.classList.add("on");
+      });
+      smiles.appendChild(btn);
+    });
+    sc.appendChild(row);
+  });
+  block.appendChild(sc);
+  wrap.appendChild(block);
+  updateBlockScore(b);
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){
+  localStorage.removeItem(RES_KEY); localStorage.removeItem(AUTO_KEY);
+  location.reload();
+});
+updateProgress();
+</script>
+</body>
+</html>

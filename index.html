@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>МУДРО · Тренажёры DELF A1</title>
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-700-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-800-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-900-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-700-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-800-normal.css">
+<style>
+:root{
+  --ink:#273449; --muted:#7a8699; --bg:#f4f6fb; --card:#fff;
+  --yellow:#ffc93c; --yellow-soft:#fff6dd;
+  --co:#2fb871; --ce:#4a90e2; --pe:#f39c12; --po:#e84393;
+  --radius:20px; --shadow:0 6px 20px rgba(39,52,73,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{position:sticky;top:0;background:#fff;box-shadow:var(--shadow);z-index:10;display:flex;align-items:center;gap:12px;padding:10px 20px}
+.logo{height:42px;width:auto}
+.logo-fallback{font-size:34px}
+.brand{font-weight:900;font-size:17px;line-height:1.15}
+.brand small{display:block;font-weight:700;color:var(--muted);font-size:12px}
+.progress-wrap{margin-left:auto;text-align:right;min-width:150px}
+.progress-bar{height:10px;background:#e8eef5;border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,#4a90e2,#2fb871);border-radius:99px;transition:width .4s}
+.progress-text{font-size:12px;font-weight:800;color:var(--muted)}
+main{max-width:960px;margin:0 auto;padding:20px 16px 40px}
+.hero{text-align:center;padding:14px 0 6px}
+.hero h1{font-size:30px;margin:10px 0 6px}
+.hero .tag{display:inline-block;background:linear-gradient(90deg,#2fb871,#4a90e2);color:#fff;font-weight:900;padding:6px 16px;border-radius:99px;font-size:14px}
+.hero p{color:var(--muted);font-weight:700;max-width:640px;margin:10px auto 0;font-size:15px;line-height:1.5}
+.howto{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0 4px}
+.step{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:14px 16px}
+.step .n{font-weight:900;font-size:13px;color:#fff;background:#273449;border-radius:99px;padding:2px 10px;display:inline-block}
+.step h3{margin:8px 0 4px;font-size:15px}
+.step p{margin:0;font-size:13px;font-weight:700;color:var(--muted);line-height:1.45}
+.section-title{font-size:20px;margin:26px 0 10px;display:flex;align-items:center;gap:8px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{display:block;background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;text-decoration:none;color:inherit;border-top:6px solid var(--c,#2fb871);position:relative;transition:transform .12s}
+.card:hover{transform:translateY(-3px)}
+.card .icon{font-size:30px}
+.card h3{margin:8px 0 2px;font-size:18px}
+.card .fr{font-style:italic;color:var(--muted);font-weight:700;font-size:13px;margin:0}
+.card .desc{font-size:13.5px;font-weight:700;color:var(--muted);margin:8px 0 0;line-height:1.45}
+.card .soon{position:absolute;top:14px;right:14px;background:#eef0f5;color:var(--muted);font-weight:900;font-size:11px;padding:4px 10px;border-radius:99px}
+.card .live{position:absolute;top:14px;right:14px;background:#e6f7ee;color:#1f9d5d;font-weight:900;font-size:11px;padding:4px 10px;border-radius:99px}
+.card .bar{height:8px;background:#e8eef5;border-radius:99px;overflow:hidden;margin-top:12px}
+.card .bar i{display:block;height:100%;width:0;background:var(--c,#2fb871);border-radius:99px;transition:width .4s}
+.card .cnt{font-size:12px;font-weight:800;color:var(--muted);margin-top:6px}
+.special{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+.special .card{border-top-color:#ffc93c}
+.special .card:nth-child(2){border-top-color:#273449}
+footer{max-width:960px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px;font-weight:700}
+@media(max-width:700px){
+  .grid,.special,.howto{grid-template-columns:1fr}
+  .hero h1{font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <img class="logo" src="logo.png" alt="МУДРО" onerror="this.outerHTML='<span class=\'logo-fallback\'>🦉</span>'">
+  <div class="brand">Интерактивная школа «МУДРО»<small>тренажёры DELF · уровень A1</small></div>
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="pfill"></div></div>
+    <div class="progress-text" id="ptext">Прогресс: 0%</div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <span class="tag">Подготовка к DELF A1</span>
+    <h1>Тренажёры французского языка</h1>
+    <p>Готовимся к экзамену DELF A1 в игровом формате: аудирование, чтение, письмо и говорение. Это не экзамен, а качественная подготовка — с подсказками и объяснением каждого ответа. Занимайся сам или с преподавателем!</p>
+  </section>
+
+  <section class="howto">
+    <div class="step"><span class="n">1</span><h3>Выбери блок</h3><p>Начни с автооценки или сразу открой тренажёр по навыку.</p></div>
+    <div class="step"><span class="n">2</span><h3>Решай с подсказками</h3><p>💡 Подсказка открывается по кнопке, ✅ Проверить сразу объясняет ответ.</p></div>
+    <div class="step"><span class="n">3</span><h3>Следи за прогрессом</h3><p>Звёздочки и полоса прогресса показывают, сколько заданий пройдено.</p></div>
+  </section>
+
+  <h2 class="section-title">🎯 Тренажёры по навыкам</h2>
+  <div class="grid" id="modules"></div>
+
+  <h2 class="section-title">🚀 Диагностика и экзамен</h2>
+  <div class="special">
+    <a class="card" href="autoevaluation.html" style="--c:#ffc93c">
+      <span class="icon">🪞</span>
+      <h3>Автооценка</h3>
+      <p class="fr">Autoévaluation · 4 блока</p>
+      <p class="desc">Честно оцени себя по 4 навыкам: аудирование, чтение, письмо, говорение. Пройди задания каждого блока и отметь смайликом свою уверенность!</p>
+      <div class="bar"><i id="aeFill"></i></div>
+      <div class="cnt" id="aeCnt">Блоки 1–2 работают · 3–4 скоро</div>
+    </a>
+    <a class="card" href="blancs.html" style="--c:#273449">
+      <span class="icon">⏱️</span>
+      <h3>Пробный экзамен</h3>
+      <p class="fr">DELF Blanc · экзамен-режим</p>
+      <p class="desc">Полные пробники в формате настоящего экзамена: таймер, без подсказок, результат в конце.</p>
+    </a>
+  </div>
+</main>
+
+<footer>© Интерактивная школа «МУДРО» · подготовка к DELF A1</footer>
+
+<script>
+var AE_KEY = "mudro_ae_results";
+function load(key){
+  try { return JSON.parse(localStorage.getItem(key)) || {}; } catch(e) { return {}; }
+}
+function countByPrefix(obj, prefix){
+  var n = 0;
+  for(var k in obj){ if(obj.hasOwnProperty(k) && k.indexOf(prefix) === 0) n++; }
+  return n;
+}
+var MODULES = [
+  { prefix:"co", total:9, page:"autoevaluation.html#block-co", badge:"live", badgeText:"в автооценке",
+    name:"Аудирование", fr:"Compréhension de l'oral", icon:"🎧", color:"#2fb871",
+    desc:"Слушай записи и отвечай на вопросы: сообщение на автоответчике, объявление в парке, диалоги. Слушать можно сколько угодно раз!" },
+  { prefix:"ce", total:9, page:"autoevaluation.html#block-ce", badge:"live", badgeText:"в автооценке",
+    name:"Чтение", fr:"Compréhension des écrits", icon:"📖", color:"#4a90e2",
+    desc:"Правила парка, объявление в колледже. Учимся искать ключевые слова и отвечать по цитате из текста." },
+  { prefix:"pe", total:0, page:"production-ecrite.html", badge:"soon", badgeText:"скоро",
+    name:"Письмо", fr:"Production écrite", icon:"✍️", color:"#f39c12",
+    desc:"Учимся писать открытки, заполнять анкеты и рассказывать о себе на французском." },
+  { prefix:"po", total:0, page:"production-orale.html", badge:"soon", badgeText:"скоро",
+    name:"Говорение", fr:"Production orale", icon:"🗣️", color:"#e84393",
+    desc:"Тренируемся представляться, отвечать на вопросы и вести простые диалоги." }
+];
+
+var grid = document.getElementById("modules");
+MODULES.forEach(function(m){
+  var done = countByPrefix(load(AE_KEY), m.prefix);
+  var pct = m.total ? Math.round(done / m.total * 100) : 0;
+  var a = document.createElement("a");
+  a.className = "card";
+  a.href = m.page;
+  a.style.setProperty("--c", m.color);
+  var badge = m.total ? '<span class="'+m.badge+'">'+m.badgeText+'</span>' : '<span class="soon">скоро</span>';
+  a.innerHTML =
+    '<span class="icon">'+m.icon+'</span>'+badge+
+    '<h3>'+m.name+'</h3><p class="fr">'+m.fr+'</p>'+
+    '<p class="desc">'+m.desc+'</p>'+
+    (m.total ? '<div class="bar"><i style="width:'+pct+'%"></i></div><div class="cnt">⭐ '+done+' из '+m.total+' заданий</div>' : '');
+  grid.appendChild(a);
+});
+
+function updateHeader(){
+  var ae = load(AE_KEY);
+  var allKeys = Object.keys(ae).length;
+  var total = 18;
+  var pct = total ? Math.round(allKeys / total * 100) : 0;
+  document.getElementById("pfill").style.width = pct + "%";
+  document.getElementById("ptext").textContent = "Прогресс: " + pct + "%";
+  document.getElementById("aeFill").style.width = pct + "%";
+  document.getElementById("aeCnt").textContent = "⭐ " + allKeys + " из " + total + " заданий · блоки 3–4 скоро";
+}
+updateHeader();
+</script>
+</body>
+</html>

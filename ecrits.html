@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>МУДРО · DELF A1 — Compréhension des écrits</title>
+<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-700-normal.css">
+<style>
+:root{
+  --ce:#4a90e2; --ce-dark:#2f6fb5; --ce-soft:#e8f1fb;
+  --ink:#273449; --muted:#7a8699; --bg:#f4f8fc; --card:#fff;
+  --yellow:#ffc93c; --yellow-soft:#fff6dd; --red:#ff6b6b; --red-soft:#ffecec;
+  --radius:20px; --shadow:0 6px 20px rgba(39,52,73,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--ink)}
+header{position:sticky;top:0;background:#fff;box-shadow:var(--shadow);z-index:10;display:flex;align-items:center;gap:12px;padding:10px 20px}
+.home{text-decoration:none;font-size:20px;background:var(--ce-soft);border:2px solid var(--ce);border-radius:50%;width:42px;height:42px;flex:0 0 42px;display:flex;align-items:center;justify-content:center}
+.logo{height:42px;width:auto}
+.logo-fallback{font-size:34px}
+.brand{font-weight:900;font-size:17px;line-height:1.15}
+.brand small{display:block;font-weight:700;color:var(--muted);font-size:12px}
+.progress-wrap{margin-left:auto;text-align:right;min-width:150px}
+.progress-bar{height:10px;background:#e8eef5;border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--ce),#89c4f4);border-radius:99px;transition:width .4s}
+.progress-text{font-size:12px;font-weight:800;color:var(--muted)}
+main{max-width:860px;margin:0 auto;padding:20px 16px 40px}
+.skill-badge{display:inline-block;background:var(--ce);color:#fff;font-weight:900;padding:6px 14px;border-radius:99px;font-size:14px}
+h1{font-size:26px;margin:10px 0 8px}
+.intro{background:var(--ce-soft);border:2px dashed var(--ce);border-radius:var(--radius);padding:12px 16px;font-size:15px;font-weight:700}
+.intro b{color:var(--ce-dark)}
+.exercise{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-top:22px;border-top:6px solid var(--ce)}
+.ex-head{display:flex;gap:12px;align-items:flex-start}
+.ex-num{flex:0 0 40px;height:40px;background:var(--ce);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px}
+.ex-head h2{margin:0;font-size:18px}
+.consigne{margin:4px 0 0;font-style:italic;font-size:14.5px}
+.ex-score{margin-left:auto;background:var(--ce-soft);color:var(--ce-dark);font-weight:900;padding:6px 12px;border-radius:99px;white-space:nowrap}
+.ex-done{border:2px solid var(--ce);background:var(--ce-soft);color:var(--ce-dark);font-weight:800;padding:8px 12px;border-radius:12px;margin-top:12px;font-size:14px;text-align:center}
+.text-toggle{background:var(--ce-soft);color:var(--ce-dark);border:2px solid var(--ce);border-radius:14px;padding:12px 16px;margin:12px 0;cursor:pointer;font-family:inherit;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px;width:100%}
+.text-toggle:hover{background:var(--ce);color:#fff}
+.text-content{display:none;background:#f7fafc;border-left:4px solid var(--ce);border-radius:0 14px 14px 0;padding:14px 18px;margin:0 0 12px;white-space:pre-wrap;font-size:14.5px;line-height:1.55}
+.text-content.open{display:block}
+.text-content strong{color:var(--ce-dark);text-decoration:underline wavy}
+.instr-ru{color:var(--muted);font-size:14px;margin:6px 0 0;font-weight:700}
+.question{border-top:2px dashed #e3ebf2;margin-top:18px;padding-top:14px}
+.q-fr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800;font-size:16px;margin:0}
+.qnum{background:var(--yellow);border-radius:8px;padding:2px 9px;font-weight:900}
+.q-text{flex:1}
+.pts{color:var(--muted);font-weight:700;font-size:12px}
+.opts{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.opt{display:flex;align-items:center;gap:10px;background:#f7fafc;border:2px solid #e3ebf2;border-radius:14px;padding:10px 12px;cursor:pointer;font-weight:700}
+.opt input{display:none}
+.letter{flex:0 0 28px;height:28px;border-radius:50%;background:#fff;border:2px solid #dfe7ef;display:flex;align-items:center;justify-content:center;font-weight:900;color:var(--muted)}
+.opt.sel{border-color:var(--ce);background:var(--ce-soft)}
+.opt.sel .letter{background:var(--ce);border-color:var(--ce);color:#fff}
+.opt.good{border-color:var(--ce);background:var(--ce-soft)}
+.opt.good .letter{background:var(--ce);border-color:var(--ce);color:#fff}
+.opt.bad{border-color:var(--red);background:var(--red-soft)}
+.opt.bad .letter{background:var(--red);border-color:var(--red);color:#fff}
+.opts-img{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.opt-img{position:relative;border:2px solid #e3ebf2;border-radius:16px;overflow:hidden;cursor:pointer;background:#fff}
+.opt-img input{display:none}
+.opt-img img{width:100%;height:130px;object-fit:cover;display:block}
+.opt-img .letter{position:absolute;top:8px;left:8px}
+.opt-img .cap{display:block;font-weight:700;font-size:12.5px;padding:8px;text-align:center}
+.opt-img.sel{border-color:var(--ce);box-shadow:0 0 0 3px var(--ce-soft)}
+.opt-img.good{border-color:var(--ce);box-shadow:0 0 0 3px var(--ce)}
+.opt-img.bad{border-color:var(--red);box-shadow:0 0 0 3px var(--red)}
+.q-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.hint-btn{background:var(--yellow-soft);color:#8a6d1a;border:2px solid var(--yellow);font-family:inherit;font-weight:800;border-radius:99px;cursor:pointer;padding:10px 18px;font-size:14.5px}
+.check-btn{background:var(--ce);color:#fff;font-family:inherit;font-weight:800;border:none;border-radius:99px;cursor:pointer;padding:10px 18px;font-size:14.5px}
+.btn:active{transform:scale(.96)}
+.warn{color:var(--red);font-weight:800;font-size:13px;margin:6px 0 0}
+.hint-box{background:var(--yellow-soft);border:2px dashed var(--yellow);border-radius:14px;padding:10px 14px;margin-top:10px;font-size:14px;font-weight:700}
+.hint-more{color:var(--muted);font-size:12.5px;margin:4px 0 0}
+.explain{border-radius:14px;padding:10px 14px;margin-top:10px;font-size:14.5px;font-weight:700}
+.explain.ok{background:var(--ce-soft);border:2px solid var(--ce)}
+.explain.badx{background:var(--red-soft);border:2px solid var(--red)}
+.autoeval{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-top:26px}
+.autoeval h3{margin:0 0 6px}
+.ae-row{display:flex;align-items:center;gap:10px;border-top:2px dashed #e3ebf2;padding:10px 0;font-weight:700;font-size:14.5px}
+.ae-smiles{margin-left:auto;display:flex;gap:6px}
+.ae-btn{font-size:22px;background:#f7fafc;border:2px solid #e3ebf2;border-radius:12px;padding:4px 9px;cursor:pointer}
+.ae-btn.on{border-color:var(--yellow);background:var(--yellow-soft);transform:scale(1.12)}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px;font-weight:700;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.reset{background:none;border:2px solid #dfe7ef;border-radius:99px;padding:6px 14px;font-weight:800;color:var(--muted);cursor:pointer;font-family:inherit}
+@media(max-width:640px){
+  .opts-img{grid-template-columns:1fr}
+  .opt-img img{height:180px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="home" href="index.html" title="Главная">🏠</a>
+  <img class="logo" src="logo.png" alt="МУДРО" onerror="this.outerHTML='<span class=\'logo-fallback\'>🦉</span>'">
+  <div class="brand">Интерактивная школа «МУДРО»<small>тренажёры DELF · уровень A1</small></div>
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="pfill"></div></div>
+    <div class="progress-text" id="ptext">Прогресс: 0 из 0</div>
+  </div>
+</header>
+
+<main>
+  <span class="skill-badge"> Compréhension des écrits</span>
+  <h1>📖 Чтение · DELF A1</h1>
+  <p class="intro">Это <b>тренажёр</b>: нажимай «📄 Показать текст», читай вопрос, ищи ключевое слово в тексте, выбирай ответ. <b>💡 Подсказка</b> — по кнопке, <b>✅ Проверить</b> — с объяснением и цитатой!</p>
+
+  <div id="app"></div>
+
+  <section class="autoeval">
+    <h3>🪞 Автооценка — как ты себя чувствуешь?</h3>
+    <div id="ae-rows"></div>
+  </section>
+</main>
+
+<footer>
+  <span>© Интерактивная школа «МУДРО» · подготовка к DELF A1</span>
+  <button class="reset" id="resetBtn">🔄 Сбросить прогресс</button>
+</footer>
+
+<script>
+var DATA = {
+  exercises: [
+    {
+      id:"ce1", num:1,
+      title_ru:"Правила парка «Эоль»",
+      consigne_fr:"Vous êtes à l'entrée d'un parc en France. Lisez le règlement et répondez aux questions.",
+      instruction_ru:"Читай вопросы ПЕРЕД текстом! Ищи ключевые слова — не нужно понимать всё подряд.",
+      texte_fr:"<b>RÈGLEMENT INTÉRIEUR DU PARC ÉOLE</b>\n1. Respectez les horaires : de 9 h à 18 h en hiver, de 7 h 30 à <b>21 h en été</b>.\n2. Ne jetez pas de déchets par terre, utilisez les poubelles.\n3. Pour manger, utilisez les aires de pique-nique.\n4. Marcher sur les pelouses est autorisé.\n5. Les animaux doivent être <b>tenus en laisse</b>.\n6. Les <b>vélos et les trottinettes sont interdits</b> dans le parc, même sur les allées.\n7. Les jeux de ballon sont autorisés <b>uniquement dans les zones indiquées</b>.",
+      questions:[
+        { id:"ce1q1", type:"qcm",
+          q_fr:"En été, le parc reste ouvert jusqu'à...",
+          options:["18 h.", "19 h 30.", "21 h."],
+          correct:2,
+          hints:["Ищи в тексте слово «été» (лето) — рядом будут часы.","Смотри пункт 1: «de 7 h 30 à 21 h en été»."],
+          explain:"В пункте 1: «de 7 h 30 à 21 h en été» → ответ C. 18 h — это зимние часы!"
+        },
+        { id:"ce1q2", type:"qcm-image",
+          q_fr:"Vous pouvez venir au parc avec un animal...",
+          options:[
+            {label:"petit", img:"assets/img/ce1q2a.png"},
+            {label:"dans un sac", img:"assets/img/ce1q2b.png"},
+            {label:"en laisse", img:"assets/img/ce1q2c.png"}
+          ],
+          correct:2,
+          hints:["Ищи слово «animal» или «animaux».","Пункт 5: «Les animaux doivent être tenus en laisse»."],
+          explain:"В пункте 5: «Les animaux doivent être tenus en laisse» → на поводке, ответ C. Размер и сумка не упоминаются — ловушка!"
+        },
+        { id:"ce1q3", type:"qcm-image",
+          q_fr:"Qu'est-ce qui est interdit dans le parc ?",
+          options:[
+            {label:"marcher", img:"assets/img/ce1q3a.png"},
+            {label:"les vélos", img:"assets/img/ce1q3b.png"},
+            {label:"pique-niquer", img:"assets/img/ce1q3c.png"}
+          ],
+          correct:1,
+          hints:["interdit = запрещено. Ищи это слово.","Пункт 6: «Les vélos et les trottinettes sont interdits»."],
+          explain:"В пункте 6: «Les vélos et les trottinettes sont interdits» → велосипеды запрещены, ответ B. Пикник и ходьба — разрешены!"
+        },
+        { id:"ce1q4", type:"qcm",
+          q_fr:"Vous pouvez jouer au ballon...",
+          options:["sur les allées.", "partout dans le parc.", "dans les zones indiquées."],
+          correct:2,
+          hints:["Ищи слово «ballon» в тексте.","Пункт 7: «uniquement dans les zones indiquées»."],
+          explain:"В пункте 7: «Les jeux de ballon sont autorisés uniquement dans les zones indiquées» → только в специальных зонах, ответ C."
+        }
+      ]
+    },
+    {
+      id:"ce2", num:2,
+      title_ru:"Объявление в колледже",
+      consigne_fr:"Vous êtes au collège en France. Lisez cette information sur le tableau d'affichage et répondez.",
+      instruction_ru:"Тут много чисел и названий мест — не пугайся! Сначала вопрос, потом ищи ключ в тексте.",
+      texte_fr:"<b>INFORMATION</b>\nNous informons les élèves que la bibliothèque du collège a changé d'emplacement. Elle est maintenant <b>beaucoup plus grande</b> et se trouve <b>derrière la cour de récréation, entre la salle 2 et la vie scolaire</b>. Elle est ouverte tous les jours de <b>9 h à 18 h</b>.\n<b>NOUVEAUTÉS :</b>\n• <b>Dix ordinateurs</b> sont à votre disposition dans la salle d'étude.\n• Vous pouvez maintenant garder les livres chez vous pendant <b>15 jours</b>.\n• Rappel : pour emprunter des livres, vous devez <b>vous inscrire à l'accueil</b> de la bibliothèque.",
+      questions:[
+        { id:"ce2q1", type:"qcm",
+          q_fr:"La nouvelle bibliothèque est plus...",
+          options:["petite.", "grande.", "colorée."],
+          correct:1,
+          hints:["Сравнивают старую и новую — ищи «plus».","«Elle est maintenant beaucoup plus grande»."],
+          explain:"В тексте: «Elle est maintenant beaucoup plus grande» → больше, ответ B. Про цвет ничего нет."
+        },
+        { id:"ce2q2", type:"qcm-image",
+          q_fr:"Quel chemin mène de l'entrée du collège à la bibliothèque ?",
+          options:[
+            {label:"Chemin A", img:"assets/img/ce2q2a.png"},
+            {label:"Chemin B", img:"assets/img/ce2q2b.png"},
+            {label:"Chemin C", img:"assets/img/ce2q2c.png"}
+          ],
+          correct:1,
+          hints:["Ищи предлоги места: derrière (позади), entre (между).","«derrière la cour de récréation, entre la salle 2 et la vie scolaire»."],
+          explain:"Библиотека за школьным двором (derrière la cour) между кабинетом 2 и vie scolaire → маршрут B."
+        },
+        { id:"ce2q3", type:"qcm",
+          q_fr:"À quelle heure ferme la bibliothèque ?",
+          options:["17 h.", "18 h.", "19 h."],
+          correct:1,
+          hints:["ferme = закрывается. Ищи часы работы.","«ouverte tous les jours de 9 h à 18 h»."],
+          explain:"В тексте: «ouverte tous les jours de 9 h à 18 h» → закрывается в 18:00, ответ B."
+        },
+        { id:"ce2q4", type:"qcm",
+          q_fr:"Combien de jours peut-on garder les livres ?",
+          options:["15 jours.", "20 jours.", "30 jours."],
+          correct:0,
+          hints:["Ищи число рядом со словом «jours».","«garder les livres chez vous pendant 15 jours»."],
+          explain:"В тексте: «garder les livres chez vous pendant 15 jours» → 15 дней, ответ A."
+        },
+        { id:"ce2q5", type:"qcm",
+          q_fr:"Que faut-il faire pour emprunter des livres ?",
+          options:["Payer dix euros.", "Remplir un formulaire sur ordinateur.", "S'inscrire à l'accueil de la bibliothèque."],
+          correct:2,
+          hints:["Ищи слово «pour» (чтобы) и глагол.","«pour emprunter des livres, vous devez vous inscrire à l'accueil»."],
+          explain:"В тексте: «pour emprunter des livres, vous devez vous inscrire à l'accueil de la bibliothèque» → записаться на ресепшене, ответ C. 10 компьютеров есть, но они не для регистрации!"
+        }
+      ]
+    }
+  ]
+};
+
+var AE_STATEMENTS = [
+  "Я понимаю правила и запреты (règlement).",
+  "Я понимаю информационные объявления.",
+  "Я могу найти путь по карте (entre, derrière).",
+  "Я понимаю часы и длительность."
+];
+var SMILES = ["😕","😐","😃"];
+var RES_KEY = "mudro_ce_results", AUTO_KEY = "mudro_ce_auto";
+var LETTERS = ["A","B","C"];
+
+var results = {}; try { results = JSON.parse(localStorage.getItem(RES_KEY)) || {}; } catch(e) { results = {}; }
+var autoState = {}; try { autoState = JSON.parse(localStorage.getItem(AUTO_KEY)) || {}; } catch(e) { autoState = {}; }
+var TOTAL = 0;
+DATA.exercises.forEach(function(ex){ TOTAL += ex.questions.length; });
+
+function el(tag, cls){ var d = document.createElement(tag); if(cls) d.className = cls; return d; }
+
+function getSel(wrap, q){
+  var r = wrap.querySelector("input[type=radio]:checked");
+  return r ? parseInt(r.value,10) : null;
+}
+function lockQuestion(wrap, q, sel, ok){
+  wrap.querySelectorAll("input,button").forEach(function(c){ c.disabled = true; });
+  wrap.querySelectorAll(".opt,.opt-img").forEach(function(l){
+    var idx = parseInt(l.dataset.i,10);
+    if(idx === q.correct) l.classList.add("good");
+    else if(sel === idx) l.classList.add("bad");
+  });
+  var exEl = wrap.querySelector(".explain");
+  exEl.hidden = false;
+  exEl.classList.add(ok ? "ok" : "badx");
+  exEl.innerHTML = (ok ? "🎉 <b>Верно! +1 балл.</b> " : "❌ <b>Пока неверно.</b> ") + q.explain;
+}
+function updateScore(ex){
+  var s = document.getElementById("score-" + ex.id);
+  if(!s) return;
+  var ok = 0;
+  ex.questions.forEach(function(q){ var r = results[q.id]; if(r && r.ok) ok++; });
+  s.textContent = "⭐ " + ok + " / " + ex.questions.length;
+  var allDone = ex.questions.every(function(q){ return results[q.id]; });
+  var banner = document.getElementById("done-" + ex.id);
+  if(banner) banner.hidden = !allDone;
+}
+function updateProgress(){
+  var done = Object.keys(results).length;
+  document.getElementById("pfill").style.width = (TOTAL ? (done/TOTAL*100) : 0) + "%";
+  document.getElementById("ptext").textContent = "Прогресс: " + done + " из " + TOTAL;
+}
+
+function buildQuestion(q, idx, ex){
+  var wrap = el("div","question");
+  var body = "";
+  if(q.type === "qcm-image"){
+    body = '<div class="opts-img">' + q.options.map(function(o,i){
+      return '<label class="opt-img" data-i="'+i+'"><input type="radio" name="'+q.id+'" value="'+i+'">'+
+             '<span class="letter">'+LETTERS[i]+'</span><img src="'+o.img+'" alt="'+o.label+'" onerror="this.src=\'https://placehold.co/300x200/e8f1fb/2f6fb5?text='+encodeURIComponent(o.label)+'\'">'+
+             '<span class="cap">'+o.label+'</span></label>';
+    }).join("") + '</div>';
+  } else {
+    body = '<div class="opts">' + q.options.map(function(o,i){
+      return '<label class="opt" data-i="'+i+'"><input type="radio" name="'+q.id+'" value="'+i+'">'+
+             '<span class="letter">'+LETTERS[i]+'</span><span>'+o+'</span></label>';
+    }).join("") + '</div>';
+  }
+  wrap.innerHTML =
+    '<p class="q-fr"><span class="qnum">'+(idx+1)+'</span><span class="q-text">'+q.q_fr+'</span><span class="pts">/ 1 балл</span></p>'+
+    body+
+    '<div class="q-actions"><button class="hint-btn">💡 Подсказка</button>'+
+    '<button class="check-btn">✅ Проверить</button></div>'+
+    '<p class="warn" hidden>Сначала выбери ответ! ✋</p>'+
+    '<div class="hint-box" hidden></div><div class="explain" hidden></div>';
+
+  wrap.querySelectorAll("input[type=radio]").forEach(function(r){
+    r.addEventListener("change", function(){
+      wrap.querySelectorAll(".opt,.opt-img").forEach(function(l){ l.classList.remove("sel"); });
+      r.closest("label").classList.add("sel");
+      wrap.querySelector(".warn").hidden = true;
+    });
+  });
+
+  var hintBox = wrap.querySelector(".hint-box");
+  wrap.querySelector(".hint-btn").addEventListener("click", function(){
+    var lvl = parseInt(hintBox.dataset.lvl || "0", 10) + 1;
+    if(lvl > q.hints.length) return;
+    hintBox.dataset.lvl = lvl; hintBox.hidden = false;
+    hintBox.innerHTML = q.hints.slice(0,lvl).map(function(h,i){
+      return '<p style="margin:4px 0">💡 <b>Подсказка '+(i+1)+':</b> '+h+'</p>';
+    }).join("") + (lvl < q.hints.length ? '<p class="hint-more">Нужна ещё помощь? Нажми «Подсказка» ещё раз 😉</p>' : "");
+  });
+
+  wrap.querySelector(".check-btn").addEventListener("click", function(){
+    var sel = getSel(wrap, q);
+    if(sel === null){ wrap.querySelector(".warn").hidden = false; return; }
+    var ok = sel === q.correct;
+    lockQuestion(wrap, q, sel, ok);
+    results[q.id] = { sel: sel, ok: ok };
+    localStorage.setItem(RES_KEY, JSON.stringify(results));
+    updateScore(ex); updateProgress();
+  });
+
+  var saved = results[q.id];
+  if(saved){
+    var r = wrap.querySelector('input[value="'+saved.sel+'"]');
+    if(r){ r.checked = true; r.closest("label").classList.add("sel"); }
+    lockQuestion(wrap, q, saved.sel, saved.ok);
+  }
+  return wrap;
+}
+
+var app = document.getElementById("app");
+DATA.exercises.forEach(function(ex){
+  var sec = el("section","exercise");
+  sec.innerHTML =
+    '<div class="ex-head"><div class="ex-num">'+ex.num+'</div>'+
+    '<div><h2>'+ex.title_ru+'</h2><p class="consigne">'+ex.consigne_fr+'</p></div>'+
+    '<span class="ex-score" id="score-'+ex.id+'"></span></div>'+
+    '<button class="text-toggle" data-id="'+ex.id+'">📄 Показать текст</button>'+
+    '<div class="text-content" id="txt-'+ex.id+'">'+ex.texte_fr.replace(/\n/g,'<br>')+'</div>'+
+    '<p class="instr-ru">💡 '+ex.instruction_ru+'</p>'+
+    '<div class="ex-done" id="done-'+ex.id+'" hidden>🎉 Упражнение пройдено! Молодец!</div>';
+  app.appendChild(sec);
+
+  sec.querySelector(".text-toggle").addEventListener("click", function(){
+    var tc = document.getElementById("txt-"+ex.id);
+    tc.classList.toggle("open");
+    this.textContent = tc.classList.contains("open") ? "📄 Скрыть текст" : "📄 Показать текст";
+  });
+
+  ex.questions.forEach(function(q,i){ sec.appendChild(buildQuestion(q,i,ex)); });
+  updateScore(ex);
+});
+
+var aeWrap = document.getElementById("ae-rows");
+AE_STATEMENTS.forEach(function(st, ri){
+  var row = el("div","ae-row");
+  row.innerHTML = '<span>'+st+'</span><span class="ae-smiles"></span>';
+  var smiles = row.querySelector(".ae-smiles");
+  SMILES.forEach(function(sm, si){
+    var b = el("button","ae-btn");
+    b.textContent = sm;
+    if(autoState[ri] === si) b.classList.add("on");
+    b.addEventListener("click", function(){
+      autoState[ri] = si;
+      localStorage.setItem(AUTO_KEY, JSON.stringify(autoState));
+      smiles.querySelectorAll(".ae-btn").forEach(function(x){ x.classList.remove("on"); });
+      b.classList.add("on");
+    });
+    smiles.appendChild(b);
+  });
+  aeWrap.appendChild(row);
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){
+  localStorage.removeItem(RES_KEY); localStorage.removeItem(AUTO_KEY);
+  location.reload();
+});
+updateProgress();
+</script>
+</body>
+</html>
