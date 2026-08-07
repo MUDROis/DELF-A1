@@ -38,11 +38,13 @@ h1{font-size:26px;margin:10px 0 8px}
 .consigne{margin:4px 0 0;font-style:italic;font-size:14.5px}
 .ex-score{margin-left:auto;background:var(--ce-soft);color:var(--ce-dark);font-weight:900;padding:6px 12px;border-radius:99px;white-space:nowrap}
 .ex-done{border:2px solid var(--ce);background:var(--ce-soft);color:var(--ce-dark);font-weight:800;padding:8px 12px;border-radius:12px;margin-top:12px;font-size:14px;text-align:center}
-.text-toggle{background:var(--ce-soft);color:var(--ce-dark);border:2px solid var(--ce);border-radius:14px;padding:12px 16px;margin:12px 0;cursor:pointer;font-family:inherit;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px;width:100%}
-.text-toggle:hover{background:var(--ce);color:#fff}
-.text-content{display:none;background:#f7fafc;border-left:4px solid var(--ce);border-radius:0 14px 14px 0;padding:14px 18px;margin:0 0 12px;white-space:pre-wrap;font-size:14.5px;line-height:1.55}
-.text-content.open{display:block}
+.text-content{display:block;background:#f7fafc;border:2px solid #dfe7ef;border-left:4px solid var(--ce);border-radius:0 14px 14px 0;padding:14px 18px;margin:12px 0 0;white-space:pre-wrap;font-size:14.5px;line-height:1.55}
 .text-content strong{color:var(--ce-dark);text-decoration:underline wavy}
+.trans-toggle{background:var(--yellow-soft);color:#8a6d1a;border:2px solid var(--yellow);border-radius:14px;padding:12px 16px;margin:12px 0;cursor:pointer;font-family:inherit;font-weight:800;font-size:14.5px;display:flex;align-items:center;gap:8px;width:100%}
+.trans-toggle:hover{background:var(--yellow);color:#fff}
+.trans-content{display:none;background:#fffdf5;border-left:4px solid var(--yellow);border-radius:0 14px 14px 0;padding:14px 18px;margin:0 0 12px;white-space:pre-wrap;font-size:14px;line-height:1.55}
+.trans-content.open{display:block}
+.trans-content strong{color:#8a6d1a}
 .instr-ru{color:var(--muted);font-size:14px;margin:6px 0 0;font-weight:700}
 .question{border-top:2px dashed #e3ebf2;margin-top:18px;padding-top:14px}
 .q-fr{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-weight:800;font-size:16px;margin:0}
@@ -107,7 +109,7 @@ footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font
 <main>
   <span class="skill-badge"> Compréhension des écrits</span>
   <h1>📖 Чтение · DELF A1</h1>
-  <p class="intro">Это <b>тренажёр</b>: нажимай «📄 Показать текст», читай вопрос, ищи ключевое слово в тексте, выбирай ответ. <b>💡 Подсказка</b> — по кнопке, <b>✅ Проверить</b> — с объяснением и цитатой!</p>
+  <p class="intro">Это <b>тренажёр</b>: сначала читай вопрос, потом текст, ищи ключевое слово и выбирай ответ. Непонятное смотри в переводе <b>🇷🇺</b>. <b>💡 Подсказка</b> — по кнопке, <b>✅ Проверить</b> — с объяснением и цитатой!</p>
 
   <div id="app"></div>
 
@@ -127,46 +129,47 @@ var DATA = {
   exercises: [
     {
       id:"ce1", num:1,
-      title_ru:"Правила парка «Эоль»",
+      title_ru:"Правила парка «Тийёль»",
       consigne_fr:"Vous êtes à l'entrée d'un parc en France. Lisez le règlement et répondez aux questions.",
       instruction_ru:"Читай вопросы ПЕРЕД текстом! Ищи ключевые слова — не нужно понимать всё подряд.",
-      texte_fr:"<b>RÈGLEMENT INTÉRIEUR DU PARC ÉOLE</b>\n1. Respectez les horaires : de 9 h à 18 h en hiver, de 7 h 30 à <b>21 h en été</b>.\n2. Ne jetez pas de déchets par terre, utilisez les poubelles.\n3. Pour manger, utilisez les aires de pique-nique.\n4. Marcher sur les pelouses est autorisé.\n5. Les animaux doivent être <b>tenus en laisse</b>.\n6. Les <b>vélos et les trottinettes sont interdits</b> dans le parc, même sur les allées.\n7. Les jeux de ballon sont autorisés <b>uniquement dans les zones indiquées</b>.",
+      texte_fr:"<b>RÈGLEMENT DU PARC DES TILLEULS</b>\n1. Le parc est ouvert de 9 h à 18 h en hiver et de <b>7 h 30 à 21 h en été</b>.\n2. Il faut jeter les déchets dans les poubelles.\n3. On mange uniquement sur les aires de pique-nique.\n4. Marcher sur les pelouses est permis.\n5. Les animaux doivent <b>rester en laisse</b>.\n6. <b>Il est interdit de faire du vélo ou de la trottinette</b> dans le parc.\n7. Le ballon se joue <b>uniquement dans les zones indiquées</b>.",
+      translation:"<b>ПРАВИЛА ПАРКА «ТИЙЁЛЬ»</b>\n1. Парк открыт с 9:00 до 18:00 зимой и с <b>7:30 до 21:00 летом</b>.\n2. Мусор нужно выбрасывать в урны.\n3. Есть можно только на площадках для пикника.\n4. Ходить по газонам разрешено.\n5. Животные должны быть <b>на поводке</b>.\n6. <b>В парке запрещено кататься на велосипеде или самокате</b>.\n7. В мяч можно играть <b>только в специальных зонах</b>.",
       questions:[
         { id:"ce1q1", type:"qcm",
           q_fr:"En été, le parc reste ouvert jusqu'à...",
           options:["18 h.", "19 h 30.", "21 h."],
           correct:2,
-          hints:["Ищи в тексте слово «été» (лето) — рядом будут часы.","Смотри пункт 1: «de 7 h 30 à 21 h en été»."],
-          explain:"В пункте 1: «de 7 h 30 à 21 h en été» → ответ C. 18 h — это зимние часы!"
+          hints:["Ищи в тексте слово «été» (лето) — рядом будут часы.","Смотри пункт 1: «7 h 30 à 21 h en été»."],
+          explain:"В пункте 1: «Le parc est ouvert… de 7 h 30 à 21 h en été» → ответ C. 18 h — это зимние часы!"
         },
         { id:"ce1q2", type:"qcm-image",
           q_fr:"Vous pouvez venir au parc avec un animal...",
           options:[
-            {label:"petit", img:"assets/img/ce1q2a.png"},
-            {label:"dans un sac", img:"assets/img/ce1q2b.png"},
-            {label:"en laisse", img:"assets/img/ce1q2c.png"}
+            {label:"petit", img:"assets/img/ce1q2a.svg"},
+            {label:"dans un sac", img:"assets/img/ce1q2b.svg"},
+            {label:"en laisse", img:"assets/img/ce1q2c.svg"}
           ],
           correct:2,
-          hints:["Ищи слово «animal» или «animaux».","Пункт 5: «Les animaux doivent être tenus en laisse»."],
-          explain:"В пункте 5: «Les animaux doivent être tenus en laisse» → на поводке, ответ C. Размер и сумка не упоминаются — ловушка!"
+          hints:["Ищи слово «animal» или «animaux».","Пункт 5: «Les animaux doivent rester en laisse»."],
+          explain:"В пункте 5: «Les animaux doivent rester en laisse» → на поводке, ответ C. Размер и сумка не упоминаются — ловушка!"
         },
         { id:"ce1q3", type:"qcm-image",
           q_fr:"Qu'est-ce qui est interdit dans le parc ?",
           options:[
-            {label:"marcher", img:"assets/img/ce1q3a.png"},
-            {label:"les vélos", img:"assets/img/ce1q3b.png"},
-            {label:"pique-niquer", img:"assets/img/ce1q3c.png"}
+            {label:"marcher", img:"assets/img/ce1q3a.svg"},
+            {label:"les vélos", img:"assets/img/ce1q3b.svg"},
+            {label:"pique-niquer", img:"assets/img/ce1q3c.svg"}
           ],
           correct:1,
-          hints:["interdit = запрещено. Ищи это слово.","Пункт 6: «Les vélos et les trottinettes sont interdits»."],
-          explain:"В пункте 6: «Les vélos et les trottinettes sont interdits» → велосипеды запрещены, ответ B. Пикник и ходьба — разрешены!"
+          hints:["interdit = запрещено. Ищи это слово.","Пункт 6: «Il est interdit de faire du vélo ou de la trottinette»."],
+          explain:"В пункте 6: «Il est interdit de faire du vélo ou de la trottinette» → велосипеды запрещены, ответ B. Пикник и ходьба — разрешены!"
         },
         { id:"ce1q4", type:"qcm",
           q_fr:"Vous pouvez jouer au ballon...",
           options:["sur les allées.", "partout dans le parc.", "dans les zones indiquées."],
           correct:2,
           hints:["Ищи слово «ballon» в тексте.","Пункт 7: «uniquement dans les zones indiquées»."],
-          explain:"В пункте 7: «Les jeux de ballon sont autorisés uniquement dans les zones indiquées» → только в специальных зонах, ответ C."
+          explain:"В пункте 7: «Le ballon se joue uniquement dans les zones indiquées» → только в специальных зонах, ответ C."
         }
       ]
     },
@@ -175,7 +178,8 @@ var DATA = {
       title_ru:"Объявление в колледже",
       consigne_fr:"Vous êtes au collège en France. Lisez cette information sur le tableau d'affichage et répondez.",
       instruction_ru:"Тут много чисел и названий мест — не пугайся! Сначала вопрос, потом ищи ключ в тексте.",
-      texte_fr:"<b>INFORMATION</b>\nNous informons les élèves que la bibliothèque du collège a changé d'emplacement. Elle est maintenant <b>beaucoup plus grande</b> et se trouve <b>derrière la cour de récréation, entre la salle 2 et la vie scolaire</b>. Elle est ouverte tous les jours de <b>9 h à 18 h</b>.\n<b>NOUVEAUTÉS :</b>\n• <b>Dix ordinateurs</b> sont à votre disposition dans la salle d'étude.\n• Vous pouvez maintenant garder les livres chez vous pendant <b>15 jours</b>.\n• Rappel : pour emprunter des livres, vous devez <b>vous inscrire à l'accueil</b> de la bibliothèque.",
+      texte_fr:"<b>INFORMATION AUX ÉLÈVES</b>\nLa bibliothèque du collège a déménagé. Elle est maintenant <b>beaucoup plus grande</b> et se trouve <b>derrière la cour de récréation, entre la salle 2 et la vie scolaire</b>. Elle ouvre tous les jours de <b>9 h à 18 h</b>.\n<b>NOUVEAUTÉS :</b>\n• <b>Dix ordinateurs</b> sont disponibles dans la salle d'étude.\n• Vous pouvez garder les livres <b>15 jours</b> à la maison.\n• Rappel : pour emprunter un livre, il faut <b>s'inscrire à l'accueil</b> de la bibliothèque.",
+      translation:"<b>ИНФОРМАЦИЯ ДЛЯ УЧЕНИКОВ</b>\nБиблиотека колледжа переехала. Теперь она <b>намного больше</b> и находится <b>за школьным двором, между кабинетом 2 и службой vie scolaire</b>. Она открыта каждый день с <b>9:00 до 18:00</b>.\n<b>НОВОЕ:</b>\n• В учебном кабинете доступны <b>десять компьютеров</b>.\n• Книги можно держать дома <b>15 дней</b>.\n• Напоминаем: чтобы взять книгу, нужно <b>записаться на ресепшене</b> библиотеки.",
       questions:[
         { id:"ce2q1", type:"qcm",
           q_fr:"La nouvelle bibliothèque est plus...",
@@ -187,9 +191,9 @@ var DATA = {
         { id:"ce2q2", type:"qcm-image",
           q_fr:"Quel chemin mène de l'entrée du collège à la bibliothèque ?",
           options:[
-            {label:"Chemin A", img:"assets/img/ce2q2a.png"},
-            {label:"Chemin B", img:"assets/img/ce2q2b.png"},
-            {label:"Chemin C", img:"assets/img/ce2q2c.png"}
+            {label:"Chemin A", img:"assets/img/ce2q2a.svg"},
+            {label:"Chemin B", img:"assets/img/ce2q2b.svg"},
+            {label:"Chemin C", img:"assets/img/ce2q2c.svg"}
           ],
           correct:1,
           hints:["Ищи предлоги места: derrière (позади), entre (между).","«derrière la cour de récréation, entre la salle 2 et la vie scolaire»."],
@@ -199,22 +203,22 @@ var DATA = {
           q_fr:"À quelle heure ferme la bibliothèque ?",
           options:["17 h.", "18 h.", "19 h."],
           correct:1,
-          hints:["ferme = закрывается. Ищи часы работы.","«ouverte tous les jours de 9 h à 18 h»."],
-          explain:"В тексте: «ouverte tous les jours de 9 h à 18 h» → закрывается в 18:00, ответ B."
+          hints:["ferme = закрывается. Ищи часы работы.","«ouvre tous les jours de 9 h à 18 h»."],
+          explain:"В тексте: «Elle ouvre tous les jours de 9 h à 18 h» → закрывается в 18:00, ответ B."
         },
         { id:"ce2q4", type:"qcm",
           q_fr:"Combien de jours peut-on garder les livres ?",
           options:["15 jours.", "20 jours.", "30 jours."],
           correct:0,
-          hints:["Ищи число рядом со словом «jours».","«garder les livres chez vous pendant 15 jours»."],
-          explain:"В тексте: «garder les livres chez vous pendant 15 jours» → 15 дней, ответ A."
+          hints:["Ищи число рядом со словом «jours».","«garder les livres 15 jours à la maison»."],
+          explain:"В тексте: «Vous pouvez garder les livres 15 jours à la maison» → 15 дней, ответ A."
         },
         { id:"ce2q5", type:"qcm",
           q_fr:"Que faut-il faire pour emprunter des livres ?",
           options:["Payer dix euros.", "Remplir un formulaire sur ordinateur.", "S'inscrire à l'accueil de la bibliothèque."],
           correct:2,
-          hints:["Ищи слово «pour» (чтобы) и глагол.","«pour emprunter des livres, vous devez vous inscrire à l'accueil»."],
-          explain:"В тексте: «pour emprunter des livres, vous devez vous inscrire à l'accueil de la bibliothèque» → записаться на ресепшене, ответ C. 10 компьютеров есть, но они не для регистрации!"
+          hints:["Ищи слово «pour» (чтобы) и глагол.","«il faut s'inscrire à l'accueil»."],
+          explain:"В тексте: «pour emprunter un livre, il faut s'inscrire à l'accueil de la bibliothèque» → записаться на ресепшене, ответ C. 10 компьютеров есть, но они не для регистрации!"
         }
       ]
     }
@@ -337,17 +341,22 @@ DATA.exercises.forEach(function(ex){
     '<div class="ex-head"><div class="ex-num">'+ex.num+'</div>'+
     '<div><h2>'+ex.title_ru+'</h2><p class="consigne">'+ex.consigne_fr+'</p></div>'+
     '<span class="ex-score" id="score-'+ex.id+'"></span></div>'+
-    '<button class="text-toggle" data-id="'+ex.id+'">📄 Показать текст</button>'+
     '<div class="text-content" id="txt-'+ex.id+'">'+ex.texte_fr.replace(/\n/g,'<br>')+'</div>'+
+    (ex.translation ?
+     '<button class="trans-toggle" data-id="'+ex.id+'">🇷🇺 Показать перевод</button>'+
+     '<div class="trans-content" id="trans-'+ex.id+'">'+ex.translation.replace(/\n/g,'<br>')+'</div>' : '')+
     '<p class="instr-ru">💡 '+ex.instruction_ru+'</p>'+
     '<div class="ex-done" id="done-'+ex.id+'" hidden>🎉 Упражнение пройдено! Молодец!</div>';
   app.appendChild(sec);
 
-  sec.querySelector(".text-toggle").addEventListener("click", function(){
-    var tc = document.getElementById("txt-"+ex.id);
-    tc.classList.toggle("open");
-    this.textContent = tc.classList.contains("open") ? "📄 Скрыть текст" : "📄 Показать текст";
-  });
+  var transBtn = sec.querySelector(".trans-toggle");
+  if(transBtn){
+    transBtn.addEventListener("click", function(){
+      var tc = document.getElementById("trans-"+ex.id);
+      tc.classList.toggle("open");
+      this.textContent = tc.classList.contains("open") ? "🙈 Скрыть перевод" : "🇷🇺 Показать перевод";
+    });
+  }
 
   ex.questions.forEach(function(q,i){ sec.appendChild(buildQuestion(q,i,ex)); });
   updateScore(ex);
