@@ -8,48 +8,372 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-400-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-700-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-800-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-400-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-700-normal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-800-normal.css">
 <style>
-:root{--c:#f39c12;--ink:#273449;--muted:#7a8699;--bg:#fbf7ef;--radius:20px;--shadow:0 6px 20px rgba(39,52,73,.08)}
+:root{
+  --pe:#f0932b; --pe-dark:#c9761a; --pe-soft:#fdf1e0;
+  --ink:#273449; --muted:#7a8699; --bg:#fdf8f0; --card:#fff;
+  --yellow:#ffc93c; --yellow-soft:#fff6dd; --red:#ff6b6b; --red-soft:#ffecec;
+  --green:#2fb871; --green-soft:#e6f7ee;
+  --radius:20px; --shadow:0 6px 20px rgba(39,52,73,.08);
+}
 *{box-sizing:border-box}
 body{margin:0;font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--ink)}
-header{position:sticky;top:0;background:#fff;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;padding:10px 20px}
-.home{text-decoration:none;font-size:20px;background:#f4efe3;border:2px solid #e7dcc2;border-radius:50%;width:42px;height:42px;flex:0 0 42px;display:flex;align-items:center;justify-content:center}
-.brand{font-weight:900;font-size:17px}
+header{position:sticky;top:0;background:#fff;box-shadow:var(--shadow);z-index:10;display:flex;align-items:center;gap:12px;padding:10px 20px}
+.logo{height:42px;width:auto}
+.logo-fallback{font-size:34px}
+.brand{font-weight:900;font-size:17px;line-height:1.15}
 .brand small{display:block;font-weight:700;color:var(--muted);font-size:12px}
-main{max-width:640px;margin:0 auto;padding:40px 16px}
-.soon-box{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:32px;text-align:center;border-top:6px solid var(--c)}
-.icon{font-size:56px}
-h1{font-size:24px;margin:10px 0 4px}
-.fr{font-style:italic;color:var(--muted);font-weight:700;margin:0}
-.desc{color:var(--muted);font-weight:700;font-size:15px;margin:14px 0 0;line-height:1.5}
-ul.list{text-align:left;background:var(--bg);border-radius:14px;padding:14px 14px 14px 34px;margin:16px 0 0;font-weight:700;font-size:14.5px;line-height:1.7}
-.badge{display:inline-block;background:#fff6dd;color:#8a6d1a;font-weight:900;font-size:13px;padding:5px 14px;border-radius:99px;margin-top:14px}
-footer{max-width:640px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px;font-weight:700}
+.progress-wrap{margin-left:auto;text-align:right;min-width:150px}
+.progress-bar{height:10px;background:#eee5d8;border-radius:99px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--pe),#ffc97a);border-radius:99px;transition:width .4s}
+.progress-text{font-size:12px;font-weight:800;color:var(--muted)}
+main{max-width:860px;margin:0 auto;padding:20px 16px 40px}
+.skill-badge{display:inline-block;background:var(--pe);color:#fff;font-weight:900;padding:6px 14px;border-radius:99px;font-size:14px}
+h1{font-size:26px;margin:10px 0 8px}
+.intro{background:var(--pe-soft);border:2px dashed var(--pe);border-radius:var(--radius);padding:12px 16px;font-size:15px;font-weight:700}
+.intro b{color:var(--pe-dark)}
+.exercise{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-top:22px;border-top:6px solid var(--pe)}
+.ex-head{display:flex;gap:12px;align-items:flex-start}
+.ex-num{flex:0 0 40px;height:40px;background:var(--pe);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px}
+.ex-head h2{margin:0;font-size:18px}
+.consigne{margin:4px 0 0;font-style:italic;font-size:14.5px}
+.ex-score{margin-left:auto;background:var(--pe-soft);color:var(--pe-dark);font-weight:900;padding:6px 12px;border-radius:99px;white-space:nowrap}
+.instr-ru{color:var(--muted);font-size:14px;margin:10px 0 0;font-weight:700}
+/* --- formulaire --- */
+.form-card{background:#fffaf2;border:3px solid var(--pe);border-radius:16px;padding:16px 18px;margin-top:14px}
+.form-title{display:inline-block;background:#fff;border:2px solid var(--ink);border-radius:8px;padding:4px 12px;font-weight:900;letter-spacing:.5px;margin-bottom:10px}
+.field{margin-bottom:10px}
+.field label{display:block;font-weight:800;font-size:14px;margin-bottom:4px}
+.field input{width:100%;font-family:inherit;font-size:15px;font-weight:700;padding:10px 12px;border:2px solid #e5d9c6;border-radius:12px;background:#fff;outline:none;transition:border .2s}
+.field input:focus{border-color:var(--pe)}
+.field.good input{border-color:var(--green);background:var(--green-soft)}
+.field.bad input{border-color:var(--red);background:var(--red-soft)}
+.field-msg{font-size:12.5px;font-weight:800;margin-top:4px;min-height:16px}
+.field-msg.ok{color:var(--green)}
+.field-msg.err{color:var(--red)}
+.nom-example{font-weight:800;font-size:15px;color:var(--muted);padding:10px 0}
+/* --- message --- */
+.mail{background:#fffaf2;border:2px solid #eadfcd;border-radius:16px;padding:14px 16px;margin-top:14px}
+.mail-head{display:flex;align-items:center;gap:10px;border-bottom:2px dashed #e5d9c6;padding-bottom:10px;margin-bottom:10px;font-weight:800;font-size:14.5px}
+.avatar{flex:0 0 40px;height:40px;border-radius:50%;background:var(--pe);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px}
+.mail textarea{width:100%;min-height:180px;border:none;background:repeating-linear-gradient(#fffaf2,#fffaf2 27px,#e8dcc8 28px);line-height:28px;font-family:inherit;font-size:15px;font-weight:700;resize:vertical;outline:none}
+.word-count{display:inline-block;background:var(--pe-soft);color:var(--pe-dark);font-weight:900;border-radius:99px;padding:6px 14px;margin-top:8px;font-size:14px}
+.word-count.ok{background:var(--green-soft);color:var(--green)}
+/* --- chips --- */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.chip{border:2px solid #e5d9c6;border-radius:99px;padding:6px 12px;font-weight:800;font-size:13px;background:#fff;color:var(--muted)}
+.chip.on{border-color:var(--green);background:var(--green-soft);color:var(--green)}
+/* --- buttons & blocks --- */
+.btn{font-family:inherit;font-weight:800;border:none;border-radius:99px;cursor:pointer;padding:10px 18px;font-size:14.5px;transition:transform .1s}
+.btn:active{transform:scale(.96)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.btn-main{background:var(--pe);color:#fff}
+.btn-hint{background:var(--yellow-soft);color:#8a6d1a;border:2px solid var(--yellow)}
+.btn-ghost{background:#fff;color:var(--pe-dark);border:2px solid var(--pe)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.hint-box{background:var(--yellow-soft);border:2px dashed var(--yellow);border-radius:14px;padding:10px 14px;margin-top:10px;font-size:14px;font-weight:700}
+.explain{border-radius:14px;padding:10px 14px;margin-top:10px;font-size:14.5px;font-weight:700}
+.explain.ok{background:var(--green-soft);border:2px solid var(--green)}
+.explain.badx{background:var(--red-soft);border:2px solid var(--red)}
+.model{background:#fff;border:2px solid var(--green);border-radius:14px;padding:12px 16px;margin-top:10px;font-size:14.5px;line-height:1.6;white-space:pre-wrap}
+/* --- checklist & autoeval --- */
+.checklist{margin-top:14px}
+.ck-row{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-top:2px dashed #eee5d8;font-weight:700;font-size:14px;cursor:pointer}
+.ck-row input{width:20px;height:20px;accent-color:var(--pe);margin-top:1px;cursor:pointer}
+.autoeval{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-top:26px}
+.autoeval h3{margin:0 0 6px}
+.ae-row{display:flex;align-items:center;gap:10px;border-top:2px dashed #eee5d8;padding:10px 0;font-weight:700;font-size:14.5px}
+.ae-smiles{margin-left:auto;display:flex;gap:6px}
+.ae-btn{font-size:22px;background:#fffaf2;border:2px solid #e5d9c6;border-radius:12px;padding:4px 9px;cursor:pointer}
+.ae-btn.on{border-color:var(--yellow);background:var(--yellow-soft);transform:scale(1.12)}
+footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px;font-weight:700;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.reset{background:none;border:2px solid #e5d9c6;border-radius:99px;padding:6px 14px;font-weight:800;color:var(--muted);cursor:pointer;font-family:inherit}
 </style>
 </head>
 <body>
 
 <header>
-  <a class="home" href="index.html" title="Главная">🏠</a>
+  <img class="logo" src="logo.png" alt="МУДРО" onerror="this.outerHTML='<span class=\'logo-fallback\'>🦉</span>'">
   <div class="brand">Интерактивная школа «МУДРО»<small>тренажёры DELF · уровень A1</small></div>
+  <div class="progress-wrap">
+    <div class="progress-bar"><div class="progress-fill" id="pfill"></div></div>
+    <div class="progress-text" id="ptext">Прогресс: 0 из 6</div>
+  </div>
 </header>
 
 <main>
-  <div class="soon-box">
-    <div class="icon">✍️</div>
-    <h1>Письмо · Production écrite</h1>
-    <p class="fr">Production écrite</p>
-    <p class="desc">Тренажёр письменной речи появится здесь совсем скоро.</p>
-    <ul class="list">
-      <li>Пишем открытки и короткие письма другу</li>
-      <li>Заполняем анкеты (имя, возраст, адрес)</li>
-      <li>Рассказываем о своих выходных простыми фразами</li>
-      <li>Пишем приглашения на праздник</li>
-    </ul>
-    <div class="badge">🚧 Скоро</div>
-  </div>
+  <span class="skill-badge">✏️ Production écrite</span>
+  <h1>Письмо · DELF A1</h1>
+  <p class="intro">Это <b>тренажёр</b>: анкета проверяется автоматически ✅, а сообщение анализирует <b>умный помощник</b> — он покажет, все ли 4 пункта задания ты написал. Оценку ставит учитель, а здесь — тренируйся смело! 😊</p>
+
+  <!-- ============ EXERCICE 1 : FORMULAIRE ============ -->
+  <section class="exercise">
+    <div class="ex-head">
+      <div class="ex-num">1</div>
+      <div><h2>Заполни анкету школьной активности</h2>
+      <p class="consigne">Vous êtes à l'école en France. Vous voulez participer à une activité après la classe. Vous remplissez cette fiche.</p></div>
+      <span class="ex-score" id="score-form">⭐ 0 / 5</span>
+    </div>
+    <p class="instr-ru">💡 Заполни все поля по-французски и нажми «Проверить». Nom уже заполнен как пример: Nom = ФАМИЛИЯ!</p>
+
+    <div class="form-card">
+      <span class="form-title">ACTIVITÉ SCOLAIRE</span>
+      <div class="field"><label>Nom :</label><div class="nom-example">IVANOVA (пример)</div></div>
+      <div class="field" data-f="prenom"><label>Prénom :</label><input id="in-prenom" placeholder="Marie…" autocomplete="off"><div class="field-msg"></div></div>
+      <div class="field" data-f="classe"><label>Classe :</label><input id="in-classe" placeholder="6e, CM2…" autocomplete="off"><div class="field-msg"></div></div>
+      <div class="field" data-f="adresse"><label>Adresse :</label><input id="in-adresse" placeholder="12, rue des Fleurs…" autocomplete="off"><div class="field-msg"></div></div>
+      <div class="field" data-f="tel"><label>Numéro de téléphone des parents :</label><input id="in-tel" placeholder="06 12 34 56 78" autocomplete="off"><div class="field-msg"></div></div>
+      <div class="field" data-f="activite"><label>Activité choisie :</label><input id="in-activite" placeholder="danse, football, théâtre…" autocomplete="off"><div class="field-msg"></div></div>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-hint" id="hint1">💡 Подсказка</button>
+      <button class="btn btn-main" id="checkForm">✅ Проверить анкету</button>
+    </div>
+    <div class="hint-box" id="hintBox1" hidden></div>
+    <div class="explain" id="formExplain" hidden></div>
+  </section>
+
+  <!-- ============ EXERCICE 2 : MESSAGE ============ -->
+  <section class="exercise">
+    <div class="ex-head">
+      <div class="ex-num">2</div>
+      <div><h2>Расскажи другу о каникулах</h2>
+      <p class="consigne">Vous êtes en vacances. Vous écrivez un message à un(e) ami(e) français(e) : où vous êtes, avec qui, quelles activités vous faites et quel temps il fait. (40 mots minimum)</p></div>
+      <span class="ex-score" id="score-msg">🔥 не готово</span>
+    </div>
+
+    <div class="mail">
+      <div class="mail-head"><span class="avatar">M</span><div>À : monami@mail.fr<br><span style="color:var(--muted);font-weight:700">Objet : Mes vacances</span></div></div>
+      <textarea id="msg" placeholder="Salut ! …"></textarea>
+    </div>
+    <span class="word-count" id="wcount">Nombre de mots : 0 (minimum 40)</span>
+
+    <p class="instr-ru">🔍 Умные маркеры — помощник сам найдёт в твоём тексте пункты задания:</p>
+    <div class="chips" id="chips"></div>
+
+    <div class="actions">
+      <button class="btn btn-hint" id="hint2">💡 Подсказка</button>
+      <button class="btn btn-ghost" id="showModel">📩 Показать модель ответа</button>
+      <button class="btn btn-main" id="checkMsg">✅ Готово ли сообщение?</button>
+    </div>
+    <div class="hint-box" id="hintBox2" hidden></div>
+    <div class="model" id="modelBox" hidden></div>
+    <div class="explain" id="msgExplain" hidden></div>
+
+    <div class="checklist" id="checklist">
+      <p class="instr-ru">🪞 Отметь сам(а), что ты умеешь (автооценка):</p>
+    </div>
+  </section>
+
+  <section class="autoeval">
+    <h3>🪞 Автооценка — как ты себя чувствуешь?</h3>
+    <div id="ae-rows"></div>
+  </section>
 </main>
 
-<footer>© Интерактивная школа «МУДРО» · подготовка к DELF A1</footer>
+<footer>
+  <span>© Интерактивная школа «МУДРО» · подготовка к DELF A1</span>
+  <button class="reset" id="resetBtn">🔄 Сбросить прогресс</button>
+</footer>
+
+<script>
+/* =====================================================================
+   МУДРО · DELF A1 · production-ecrite.html
+   КОНТЕНТ редактируется в объектах FORM_FIELDS, MARKERS, HINTS, MODEL.
+===================================================================== */
+var FORM_FIELDS = [
+  { id:"prenom",   ok:function(v){ return v.trim().length>1; },
+    err:"Заполни имя (Prénom = ИМЯ, не фамилия!).", good:"Отлично, имя написано!" },
+  { id:"classe",   ok:function(v){ return v.trim().length>0; },
+    err:"Напиши свой класс (например, 6e или CM2).", good:"Класс указан — верно!" },
+  { id:"adresse",  ok:function(v){ return /\d/.test(v) && v.trim().length>3; },
+    err:"Адрес начинается с номера дома: «12, rue…» — добавь цифру!", good:"Адрес с номером дома — супер!" },
+  { id:"tel",      ok:function(v){ return (v.match(/\d/g)||[]).length===10; },
+    err:"Во Франции в номере 10 цифр: 06 12 34 56 78. Проверь!", good:"Номер из 10 цифр — правильно!" },
+  { id:"activite", ok:function(v){ return v.trim().length>1; },
+    err:"Выбери активность: danse, football, théâtre, dessin…", good:"Активность выбрана — отлично!" }
+];
+var MARKERS = [
+  { key:"ou",    label:"📍 Où ? (где ты)",        re:/(à la mer|à la montagne|à la campagne|en ville|en france|chez (ma|mon|mes)|à [a-zà-ÿ]*[a-zà-ÿ])/i },
+  { key:"avec",  label:"👥 Avec qui ? (с кем)",   re:/avec/i },
+  { key:"act",   label:"🎾 Activités (что делаешь)", re:/je (nage|joue|fais|visite|mange|danse|regarde|lis|vais|aime|adore)|on va/i },
+  { key:"meteo", label:"🌦 Météo (погода)",       re:/il fait|il pleut|il y a du soleil|chaud|froid|beau|nuageux|du vent/i },
+  { key:"conn",  label:"🔗 Et / alors (связки)",  re:/\bet\b|\balors\b|\bmais\b|parce que/i },
+  { key:"form",  label:"👋 Привет и прощание",    re:/salut|bonjour|coucou|à bientôt|a bientot|bisous/i }
+];
+var HINTS1 = [
+  "Nom = фамилия, Prénom = имя. Адрес начинается с цифры. Телефон — 10 цифр.",
+  "Активность пиши как в словаре: danse, football, théâtre, piscine, dessin…"
+];
+var HINTS2 = [
+  "Проверь 4 пункта задания: где? с кем? что делаешь? какая погода? + привет и прощание.",
+  "«Расти» предложения: добавь «et», «alors», прилагательные — и наберёшь 40 слов!"
+];
+var MODEL = "Salut Lucas !\nJe suis à Nice avec ma famille. Il fait beau et chaud. Je nage dans la mer et je joue au ballon sur la plage. Je visite la ville avec mon frère. Alors, je suis très content ! Et toi ?\nÀ bientôt !\nSacha";
+var CK_ITEMS = [
+  "Je peux respecter la situation et la longueur demandées.",
+  "Je peux écrire des phrases simples pour donner des informations.",
+  "Je peux écrire des phrases simples sur mes activités.",
+  "Je peux écrire des phrases simples sur la météo.",
+  "Je peux conjuguer les verbes au présent.",
+  "Je peux relier les mots avec « et », « alors »."
+];
+var AE_STATEMENTS = [
+  "Я могу заполнить анкету / форму.",
+  "Я могу написать сообщение другу (40+ слов).",
+  "Я пишу о погоде и активностях в présent."
+];
+var SMILES = ["😕","😐","😃"];
+var LS = "mudro_pe_state";
+var state = {}; try { state = JSON.parse(localStorage.getItem(LS)) || {}; } catch(e) { state = {}; }
+state.form = state.form || {}; state.ck = state.ck || {}; state.ae = state.ae || {};
+
+function save(){ localStorage.setItem(LS, JSON.stringify(state)); }
+function el(t,c){ var d=document.createElement(t); if(c)d.className=c; return d; }
+function countWords(t){ var a=t.trim().split(/\s+/).filter(Boolean); return t.trim()? a.length : 0; }
+
+/* ---------- прогресс ---------- */
+function formScore(){ var n=0; FORM_FIELDS.forEach(function(f){ if(state.form[f.id]===true) n++; }); return n; }
+function msgReady(){
+  var w = countWords(document.getElementById("msg").value);
+  var all = MARKERS.every(function(m){ return m.re.test(document.getElementById("msg").value); });
+  return (w>=40 && all);
+}
+function updateProgress(){
+  var done = formScore() + (state.msgReady?1:0);
+  document.getElementById("pfill").style.width = (done/6*100)+"%";
+  document.getElementById("ptext").textContent = "Прогресс: "+done+" из 6";
+  document.getElementById("score-form").textContent = "⭐ "+formScore()+" / 5";
+  document.getElementById("score-msg").textContent = state.msgReady ? "🎉 готово!" : "🔥 не готово";
+}
+
+/* ---------- EX 1: formulaire ---------- */
+document.getElementById("checkForm").addEventListener("click", function(){
+  var okAll = true, msgs = [];
+  FORM_FIELDS.forEach(function(f){
+    var wrap = document.querySelector('.field[data-f="'+f.id+'"]');
+    var val = document.getElementById("in-"+f.id).value;
+    var ok = f.ok(val);
+    state.form[f.id] = ok;
+    wrap.classList.remove("good","bad"); wrap.classList.add(ok?"good":"bad");
+    var m = wrap.querySelector(".field-msg");
+    m.textContent = ok ? "✅ "+f.good : "❌ "+f.err;
+    m.className = "field-msg "+(ok?"ok":"err");
+    if(!ok){ okAll=false; msgs.push(f.err); }
+  });
+  var ex = document.getElementById("formExplain");
+  ex.hidden = false;
+  ex.className = "explain "+(okAll?"ok":"badx");
+  ex.innerHTML = okAll
+    ? "🎉 <b>5 / 5!</b> Анкета заполнена идеально: имя, класс, адрес с номером, телефон из 10 цифр и активность. Так и на экзамене!"
+    : "❌ <b>Пока "+formScore()+" / 5.</b> Исправь: "+msgs.join(" ");
+  save(); updateProgress();
+});
+
+/* ---------- EX 2: message ---------- */
+var msgEl = document.getElementById("msg");
+var chipsWrap = document.getElementById("chips");
+MARKERS.forEach(function(m){
+  var c = el("span","chip"); c.id = "chip-"+m.key; c.textContent = m.label;
+  chipsWrap.appendChild(c);
+});
+function updateChips(){
+  var t = msgEl.value;
+  MARKERS.forEach(function(m){
+    document.getElementById("chip-"+m.key).classList.toggle("on", m.re.test(t));
+  });
+  var w = countWords(t);
+  var wc = document.getElementById("wcount");
+  wc.textContent = "Nombre de mots : "+w+" (minimum 40)"+(w>=40?" ✅":"");
+  wc.classList.toggle("ok", w>=40);
+}
+msgEl.addEventListener("input", function(){ updateChips(); });
+
+document.getElementById("checkMsg").addEventListener("click", function(){
+  var w = countWords(msgEl.value);
+  var missing = MARKERS.filter(function(m){ return !m.re.test(msgEl.value); });
+  var ok = (w>=40 && missing.length===0);
+  state.msgReady = ok; save(); updateProgress();
+  var ex = document.getElementById("msgExplain");
+  ex.hidden = false;
+  ex.className = "explain "+(ok?"ok":"badx");
+  if(ok){
+    ex.innerHTML = "🎉 <b>Сообщение готово!</b> "+w+" слов, все пункты на месте: где, с кем, активности, погода, связки и приветствие. Покажи учителю — это отличная работа!";
+  } else {
+    var parts = [];
+    if(w<40) parts.push("мало слов ("+w+" из 40) — добавь предложения с «et» и «alors»");
+    if(missing.length) parts.push("не хватает: "+missing.map(function(m){return m.label;}).join(", "));
+    ex.innerHTML = "❌ <b>Почти!</b> Что исправить: "+parts.join("; ")+". Сверься с подсказкой 💡 или моделью 📩.";
+  }
+});
+
+document.getElementById("showModel").addEventListener("click", function(){
+  var b = document.getElementById("modelBox");
+  b.hidden = !b.hidden;
+  b.innerHTML = "<b>📩 Модель (~"+countWords(MODEL)+" слов):</b><br>"+MODEL;
+});
+
+/* ---------- подсказки (2 уровня) ---------- */
+function wireHint(btnId, boxId, hints){
+  var box = document.getElementById(boxId);
+  document.getElementById(btnId).addEventListener("click", function(){
+    var lvl = parseInt(box.dataset.lvl||"0",10)+1;
+    if(lvl>hints.length) return;
+    box.dataset.lvl = lvl; box.hidden = false;
+    box.innerHTML = hints.slice(0,lvl).map(function(h,i){
+      return '<p style="margin:4px 0">💡 <b>Подсказка '+(i+1)+':</b> '+h+'</p>';
+    }).join("") + (lvl<hints.length?'<p style="color:var(--muted);font-size:12.5px;margin:4px 0">Нужна ещё? Нажми «Подсказка» ещё раз 😉</p>':"");
+  });
+}
+wireHint("hint1","hintBox1",HINTS1);
+wireHint("hint2","hintBox2",HINTS2);
+
+/* ---------- чек-лист самопроверки ---------- */
+var ckWrap = document.getElementById("checklist");
+CK_ITEMS.forEach(function(item, i){
+  var l = el("label","ck-row");
+  var cb = document.createElement("input"); cb.type="checkbox";
+  if(state.ck[i]) cb.checked = true;
+  cb.addEventListener("change", function(){ state.ck[i]=cb.checked; save(); });
+  l.appendChild(cb); l.appendChild(document.createTextNode(item));
+  ckWrap.appendChild(l);
+});
+
+/* ---------- автооценка смайликами ---------- */
+var aeWrap = document.getElementById("ae-rows");
+AE_STATEMENTS.forEach(function(st, ri){
+  var row = el("div","ae-row");
+  row.innerHTML = '<span>'+st+'</span><span class="ae-smiles"></span>';
+  var sm = row.querySelector(".ae-smiles");
+  SMILES.forEach(function(s, si){
+    var b = el("button","ae-btn"); b.textContent = s;
+    if(state.ae[ri]===si) b.classList.add("on");
+    b.addEventListener("click", function(){
+      state.ae[ri]=si; save();
+      sm.querySelectorAll(".ae-btn").forEach(function(x){x.classList.remove("on");});
+      b.classList.add("on");
+    });
+    sm.appendChild(b);
+  });
+  aeWrap.appendChild(row);
+});
+
+document.getElementById("resetBtn").addEventListener("click", function(){
+  localStorage.removeItem(LS); location.reload();
+});
+
+/* восстановление анкеты */
+FORM_FIELDS.forEach(function(f){
+  if(state.form[f.id]!==undefined){
+    var wrap = document.querySelector('.field[data-f="'+f.id+'"]');
+    wrap.classList.add(state.form[f.id]?"good":"bad");
+  }
+});
+updateChips(); updateProgress();
+</script>
 </body>
 </html>

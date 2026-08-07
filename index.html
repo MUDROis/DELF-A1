@@ -144,9 +144,8 @@ MODULES.forEach(function(m){
   a.className = "card";
   a.href = m.page;
   a.style.setProperty("--c", m.color);
-  var badge = m.total ? '<span class="'+m.badge+'">'+m.badgeText+'</span>' : '<span class="soon">скоро</span>';
   a.innerHTML =
-    '<span class="icon">'+m.icon+'</span>'+badge+
+    '<span class="icon">'+m.icon+'</span>'+
     '<h3>'+m.name+'</h3><p class="fr">'+m.fr+'</p>'+
     '<p class="desc">'+m.desc+'</p>'+
     (m.total ? '<div class="bar"><i style="width:'+pct+'%"></i></div><div class="cnt">⭐ '+done+' из '+m.total+' заданий</div>' : '');
