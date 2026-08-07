@@ -53,9 +53,7 @@ main{max-width:960px;margin:0 auto;padding:20px 16px 40px}
 .card .bar{height:8px;background:#e8eef5;border-radius:99px;overflow:hidden;margin-top:12px}
 .card .bar i{display:block;height:100%;width:0;background:var(--c,#2fb871);border-radius:99px;transition:width .4s}
 .card .cnt{font-size:12px;font-weight:800;color:var(--muted);margin-top:6px}
-.special{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
-.special .card{border-top-color:#ffc93c}
-.special .card:nth-child(2){border-top-color:#273449}
+.special{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
 footer{max-width:960px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px;font-weight:700}
 @media(max-width:700px){
   .grid,.special,.howto{grid-template-columns:1fr}
@@ -87,10 +85,7 @@ footer{max-width:960px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font
     <div class="step"><span class="n">3</span><h3>Следи за прогрессом</h3><p>Звёздочки и полоса прогресса показывают, сколько заданий пройдено.</p></div>
   </section>
 
-  <h2 class="section-title">🎯 Тренажёры по навыкам</h2>
-  <div class="grid" id="modules"></div>
-
-  <h2 class="section-title">🚀 Диагностика и экзамен</h2>
+  <h2 class="section-title">🪞 Автооценка</h2>
   <div class="special">
     <a class="card" href="autoevaluation.html" style="--c:#ffc93c">
       <span class="icon">🪞</span>
@@ -100,6 +95,13 @@ footer{max-width:960px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font
       <div class="bar"><i id="aeFill"></i></div>
       <div class="cnt" id="aeCnt">Блоки 1–2 работают · 3–4 скоро</div>
     </a>
+  </div>
+
+  <h2 class="section-title">🎯 Тренажёры по навыкам</h2>
+  <div class="grid" id="modules"></div>
+
+  <h2 class="section-title">⏱️ Экзамен</h2>
+  <div class="special">
     <a class="card" href="blancs.html" style="--c:#273449">
       <span class="icon">⏱️</span>
       <h3>Пробный экзамен</h3>
