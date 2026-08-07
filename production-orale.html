@@ -8,362 +8,50 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-400-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-700-normal.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/cyrillic-800-normal.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-400-normal.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-700-normal.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/fontsource/css/nunito@latest/latin-800-normal.css">
 <style>
-:root{
-  --po:#ef5b6e; --po-dark:#c93a4e; --po-soft:#fdecee;
-  --ink:#273449; --muted:#7a8699; --bg:#fdf4f5; --card:#fff;
-  --yellow:#ffc93c; --yellow-soft:#fff6dd; --green:#2fb871; --green-soft:#e6f7ee;
-  --radius:20px; --shadow:0 6px 20px rgba(39,52,73,.08);
-}
+:root{--c:#e84393;--ink:#273449;--muted:#7a8699;--bg:#fdf3f7;--radius:20px;--shadow:0 6px 20px rgba(39,52,73,.08)}
 *{box-sizing:border-box}
 body{margin:0;font-family:'Nunito',system-ui,sans-serif;background:var(--bg);color:var(--ink)}
-header{position:sticky;top:0;background:#fff;box-shadow:var(--shadow);z-index:10;display:flex;align-items:center;gap:12px;padding:10px 20px}
+header{position:sticky;top:0;background:#fff;box-shadow:var(--shadow);display:flex;align-items:center;gap:12px;padding:10px 20px}
+.home{text-decoration:none;font-size:20px;background:#fbe9f1;border:2px solid #f3cfe0;border-radius:50%;width:42px;height:42px;flex:0 0 42px;display:flex;align-items:center;justify-content:center}
 .logo{height:42px;width:auto}
 .logo-fallback{font-size:34px}
-.brand{font-weight:900;font-size:17px;line-height:1.15}
+.brand{font-weight:900;font-size:17px}
 .brand small{display:block;font-weight:700;color:var(--muted);font-size:12px}
-main{max-width:860px;margin:0 auto;padding:20px 16px 40px}
-.skill-badge{display:inline-block;background:var(--po);color:#fff;font-weight:900;padding:6px 14px;border-radius:99px;font-size:14px}
-h1{font-size:26px;margin:10px 0 8px}
-.intro{background:var(--po-soft);border:2px dashed var(--po);border-radius:var(--radius);padding:12px 16px;font-size:15px;font-weight:700}
-.intro b{color:var(--po-dark)}
-.exercise{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-top:22px;border-top:6px solid var(--po)}
-.ex-head{display:flex;gap:12px;align-items:flex-start}
-.ex-num{flex:0 0 40px;height:40px;background:var(--po);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:20px}
-.ex-head h2{margin:0;font-size:18px}
-.consigne{margin:4px 0 0;font-style:italic;font-size:14.5px}
-.ex-pts{margin-left:auto;background:var(--po-soft);color:var(--po-dark);font-weight:900;padding:6px 12px;border-radius:99px;white-space:nowrap}
-.instr-ru{color:var(--muted);font-size:14px;margin:10px 0 0;font-weight:700}
-.qcard{background:#fffafb;border:2px solid #f3d8dc;border-radius:16px;padding:14px 16px;margin-top:12px}
-.q-fr{font-weight:900;font-size:17px;margin:0 0 8px;color:var(--po-dark)}
-.btn{font-family:inherit;font-weight:800;border:none;border-radius:99px;cursor:pointer;padding:9px 16px;font-size:14px;transition:transform .1s}
-.btn:active{transform:scale(.96)}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.btn-main{background:var(--po);color:#fff}
-.btn-hint{background:var(--yellow-soft);color:#8a6d1a;border:2px solid var(--yellow)}
-.btn-ghost{background:#fff;color:var(--po-dark);border:2px solid var(--po)}
-.btn-rec{background:var(--po);color:#fff}
-.btn-stop{background:#fff;color:var(--muted);border:2px solid #dfe7ef}
-.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;align-items:center}
-audio{width:100%;margin-top:8px;height:38px}
-.hint-box{background:var(--yellow-soft);border:2px dashed var(--yellow);border-radius:14px;padding:10px 14px;margin-top:10px;font-size:14px;font-weight:700}
-.support{background:var(--green-soft);border:2px dashed var(--green);border-radius:14px;padding:10px 14px;margin-top:10px;font-size:14px;font-weight:700}
-/* карточки слов */
-.word-cards{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.wcard{background:var(--po-soft);border:2px solid var(--po);border-radius:14px;padding:12px 22px;font-weight:900;font-size:16px;letter-spacing:1px;cursor:pointer;color:var(--po-dark)}
-.wcard.open{background:var(--po);color:#fff}
-.idea{background:#fffafb;border:2px solid #f3d8dc;border-radius:14px;padding:12px 16px;margin-top:10px;font-size:14.5px;font-weight:700}
-/* рынок */
-.market{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
-.prod{background:#fffafb;border:2px solid #f3d8dc;border-radius:16px;padding:12px;text-align:center;font-weight:800;font-size:13.5px}
-.prod .emo{font-size:44px;display:block}
-.prod .price{color:var(--po-dark);font-weight:900}
-.timer{background:var(--po-soft);color:var(--po-dark);border-radius:99px;padding:6px 14px;font-weight:900}
-/* автооценка и финал */
-.autoeval{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:18px;margin-top:26px}
-.autoeval h3{margin:0 0 6px}
-.ae-row{display:flex;align-items:center;gap:10px;border-top:2px dashed #f3d8dc;padding:10px 0;font-weight:700;font-size:14.5px}
-.ae-smiles{margin-left:auto;display:flex;gap:6px}
-.ae-btn{font-size:22px;background:#fffafb;border:2px solid #f3d8dc;border-radius:12px;padding:4px 9px;cursor:pointer}
-.ae-btn.on{border-color:var(--yellow);background:var(--yellow-soft);transform:scale(1.12)}
-.final{background:#eef1fb;border:3px solid #5b6cf9;border-radius:var(--radius);padding:18px;margin-top:26px}
-.final h3{margin:0 0 8px;color:#3a4bc9}
-.final input{width:90px;font-family:inherit;font-weight:900;font-size:18px;padding:8px;border:2px solid #5b6cf9;border-radius:12px;text-align:center}
-.final-verdict{margin-top:10px;font-weight:800;font-size:15px;border-radius:14px;padding:10px 14px}
-footer{max-width:860px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px;font-weight:700;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-.reset{background:none;border:2px solid #e5d9c6;border-radius:99px;padding:6px 14px;font-weight:800;color:var(--muted);cursor:pointer;font-family:inherit}
-@media(max-width:640px){.market{grid-template-columns:repeat(2,1fr)}}
+main{max-width:640px;margin:0 auto;padding:40px 16px}
+.soon-box{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:32px;text-align:center;border-top:6px solid var(--c)}
+.icon{font-size:56px}
+h1{font-size:24px;margin:10px 0 4px}
+.fr{font-style:italic;color:var(--muted);font-weight:700;margin:0}
+.desc{color:var(--muted);font-weight:700;font-size:15px;margin:14px 0 0;line-height:1.5}
+ul.list{text-align:left;background:var(--bg);border-radius:14px;padding:14px 14px 14px 34px;margin:16px 0 0;font-weight:700;font-size:14.5px;line-height:1.7}
+.badge{display:inline-block;background:#fff6dd;color:#8a6d1a;font-weight:900;font-size:13px;padding:5px 14px;border-radius:99px;margin-top:14px}
+footer{max-width:640px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px;font-weight:700}
 </style>
 </head>
 <body>
 
 <header>
+  <a class="home" href="index.html" title="Главная">🏠</a>
   <img class="logo" src="logo.png" alt="МУДРО" onerror="this.outerHTML='<span class=\'logo-fallback\'>🦉</span>'">
   <div class="brand">Интерактивная школа «МУДРО»<small>тренажёры DELF · уровень A1</small></div>
 </header>
 
 <main>
-  <span class="skill-badge">🎤 Production orale</span>
-  <h1>Говорение · DELF A1</h1>
-  <p class="intro">Это <b>тренажёр</b>: нажимай 🎙, записывай свой ответ, слушай себя и улучшай! Фразы-опоры — под кнопкой «💬 Опора», подсказки — под «💡». Оценивает тебя учитель, а здесь — репетируй смело! 😊</p>
-
-  <!-- EX 1 -->
-  <section class="exercise">
-    <div class="ex-head">
-      <div class="ex-num">1</div>
-      <div><h2>Ответь на вопросы (Entretien dirigé)</h2>
-      <p class="consigne">Vous répondez aux questions suivantes à l'oral.</p></div>
-      <span class="ex-pts">/ 3 points</span>
-    </div>
-    <p class="instr-ru">💡 Отвечай полными предложениями! Запиши каждый ответ и послушай себя.</p>
-    <div id="ex1cards"></div>
-  </section>
-
-  <!-- EX 2 -->
-  <section class="exercise">
-    <div class="ex-head">
-      <div class="ex-num">2</div>
-      <div><h2>Задай вопросы по идее (Échange d'informations)</h2>
-      <p class="consigne">Vous posez des questions à l'examinateur à l'aide des mots sur les cartes. Utilisez l'idée, pas seulement le mot !</p></div>
-      <span class="ex-pts">/ 3 points</span>
-    </div>
-    <p class="instr-ru">🃏 Нажми на карточку — откроется идея и примеры вопросов. Не читай просто слово — разви идею в 1–2 вопроса!</p>
-    <div class="word-cards" id="wcards"></div>
-    <div id="ideaBox"></div>
-    <div class="actions">
-      <button class="btn btn-rec" data-rec="ex2">🎙 Записать</button>
-      <button class="btn btn-stop" data-stop="ex2" disabled>⏹ Стоп</button>
-    </div>
-    <audio id="play-ex2" controls hidden></audio>
-  </section>
-
-  <!-- EX 3 -->
-  <section class="exercise">
-    <div class="ex-head">
-      <div class="ex-num">3</div>
-      <div><h2>Сыграй диалог: на рынке (Dialogue simulé)</h2>
-      <p class="consigne">Vous êtes en vacances en France. Pour un pique-nique, vous allez au marché : vous demandez les prix et les quantités. Vous avez 20 euros. L'examinateur joue le rôle du vendeur.</p></div>
-      <span class="ex-pts">/ 4 points</span>
-    </div>
-    <div class="actions">
-      <button class="btn btn-ghost" id="timerBtn">⏱ 1 минута на подготовку</button>
-      <span class="timer" id="timerVal" hidden></span>
-    </div>
-    <div class="market" id="market"></div>
-    <div class="actions">
-      <button class="btn btn-hint" id="hint3">💡 Подсказка</button>
-      <button class="btn btn-ghost" id="sup3">💬 Фразы-опоры</button>
-      <button class="btn btn-rec" data-rec="ex3">🎙 Записать</button>
-      <button class="btn btn-stop" data-stop="ex3" disabled>⏹ Стоп</button>
-    </div>
-    <div class="hint-box" id="hintBox3" hidden></div>
-    <div class="support" id="supBox3" hidden></div>
-    <audio id="play-ex3" controls hidden></audio>
-  </section>
-
-  <section class="autoeval">
-    <h3>🪞 Автооценка — как ты себя чувствуешь?</h3>
-    <div id="ae-rows"></div>
-  </section>
-
-  <section class="final">
-    <h3>🏁 Твой финальный балл (Autoévaluation complète)</h3>
-    <p style="margin:0;font-weight:700">Попроси учителя поставить итоговый балл за весь тест (все 4 части):</p>
-    <div class="actions"><input type="number" id="finalScore" min="0" max="40" placeholder="0"> <span style="font-weight:900">/ 40 points</span></div>
-    <div class="final-verdict" id="verdict" hidden></div>
-  </section>
+  <div class="soon-box">
+    <div class="icon">🗣️</div>
+    <h1>Говорение · DELF A1</h1>
+    <p class="fr">Production orale</p>
+    <p class="desc">Тренажёр устной речи появится здесь совсем скоро.</p>
+    <ul class="list">
+      <li>Представляемся и рассказываем о себе</li>
+      <li>Отвечаем на вопросы о семье и друзьях</li>
+      <li>Сыграем диалоги: рынок, кафе, билеты</li>
+    </ul>
+    <div class="badge">🚧 Скоро</div>
+  </div>
 </main>
 
-<footer>
-  <span>© Интерактивная школа «МУДРО» · подготовка к DELF A1</span>
-  <button class="reset" id="resetBtn">🔄 Сбросить прогресс</button>
-</footer>
-
-<script>
-/* =====================================================================
-   МУДРО · DELF A1 · production-orale.html
-   КОНТЕНТ редактируется в объектах EX1, EX2, MARKET, SUPPORT3, HINTS.
-===================================================================== */
-var EX1 = [
-  { q:"Quel âge as-tu ?",
-    support:["J'ai dix ans.","J'ai neuf ans et demi."],
-    hints:["Отвечай полным предложением: не «dix», а «J'ai dix ans».","Добавь деталь: «J'ai dix ans et j'habite à…» — экзаменаторы любят детали!"] },
-  { q:"Où habites-tu ? Avec qui ?",
-    support:["J'habite à Moscou avec ma famille.","J'habite dans une maison avec mes parents et mon chat."],
-    hints:["Два вопроса в одном: ГДЕ и С КЕМ. Не забудь обе части!","Схема: J'habite à + город / dans une maison + avec + кто."] },
-  { q:"Quelles sont tes activités préférées ?",
-    support:["J'aime jouer au football et dessiner.","Mes activités préférées sont la danse et les jeux vidéo."],
-    hints:["Используй: J'aime + инфинитив / nom. Можно 2 активности с «et».","Бонус-фраза: «…et j'adore nager !»"] }
-];
-var EX2 = [
-  { word:"ÉCOLE", idea:"Расспроси про школу экзаменатора.",
-    qs:["Tu aimes l'école ?","Quelle est ta matière préférée ?"] },
-  { word:"ANIMAL", idea:"Расспроси про животных.",
-    qs:["Tu as un animal ?","Comment il s'appelle ?"] },
-  { word:"VACANCES", idea:"Расспроси про каникулы.",
-    qs:["Où est-ce que tu vas en vacances ?","Qu'est-ce que tu fais en vacances ?"] }
-];
-var MARKET = [
-  { emo:"🍅", name:"les tomates", price:"3 € le kilo" },
-  { emo:"🥕", name:"les carottes", price:"2 € le kilo" },
-  { emo:"🥔", name:"les pommes de terre", price:"1,5 € le kilo" },
-  { emo:"🥬", name:"la salade", price:"1 €" },
-  { emo:"🍎", name:"les pommes", price:"4 € le kilo" },
-  { emo:"🍌", name:"les bananes", price:"2,5 € le kilo" }
-];
-var SUPPORT3 = {
-  client:["Bonjour ! Je voudrais un kilo de tomates, s'il vous plaît.","C'est combien, les carottes ?","Ça fait combien en tout ?","Voici 20 euros."],
-  vendeur:["Bonjour ! Vous désirez ?","Trois euros le kilo.","Et avec ceci ?","Voilà votre monnaie !"]
-};
-var HINTS3 = [
-  "Начни с приветствия: «Bonjour !» Потом: «Je voudrais…» + продукт + количество (un kilo de…, trois…).",
-  "Обязательно спроси цену: «C'est combien ?» и посчитай итог: «Ça fait combien en tout ?» У тебя 20 евро — хватит ли? 😉"
-];
-var AE_STATEMENTS = [
-  "Я могу ответить на вопросы о себе.",
-  "Я могу задать личные вопросы по идее.",
-  "Я могу попросить продукт на рынке.",
-  "Я справляюсь с количествами, ценами и деньгами."
-];
-var SMILES = ["😕","😐","😃"];
-var LS = "mudro_po_state";
-var state = {}; try { state = JSON.parse(localStorage.getItem(LS)) || {}; } catch(e) { state = {}; }
-state.ae = state.ae || {};
-function save(){ localStorage.setItem(LS, JSON.stringify(state)); }
-function el(t,c){ var d=document.createElement(t); if(c)d.className=c; return d; }
-
-/* ---------- EX 1: карточки вопросов ---------- */
-var ex1wrap = document.getElementById("ex1cards");
-EX1.forEach(function(item, i){
-  var card = el("div","qcard");
-  card.innerHTML = '<p class="q-fr">'+(i+1)+'. '+item.q+'</p>'+
-    '<div class="actions">'+
-    '<button class="btn btn-ghost" data-sup="'+i+'">💬 Опора</button>'+
-    '<button class="btn btn-hint" data-hint="'+i+'">💡 Подсказка</button>'+
-    '<button class="btn btn-rec" data-rec="ex1-'+i+'">🎙 Записать</button>'+
-    '<button class="btn btn-stop" data-stop="ex1-'+i+'" disabled>⏹ Стоп</button></div>'+
-    '<div class="support" id="sup-ex1-'+i+'" hidden></div>'+
-    '<div class="hint-box" id="hint-ex1-'+i+'" hidden></div>'+
-    '<audio id="play-ex1-'+i+'" controls hidden></audio>';
-  ex1wrap.appendChild(card);
-  card.querySelector('[data-sup]').addEventListener("click", function(){
-    var b = document.getElementById("sup-ex1-"+i);
-    b.hidden = !b.hidden;
-    b.innerHTML = "<b>💬 Фразы-опоры:</b><br>• " + item.support.join("<br>• ");
-  });
-  card.querySelector('[data-hint]').addEventListener("click", function(){
-    var b = document.getElementById("hint-ex1-"+i);
-    var lvl = parseInt(b.dataset.lvl||"0",10)+1;
-    if(lvl>item.hints.length) return;
-    b.dataset.lvl = lvl; b.hidden = false;
-    b.innerHTML = item.hints.slice(0,lvl).map(function(h,j){
-      return '<p style="margin:4px 0">💡 <b>Подсказка '+(j+1)+':</b> '+h+'</p>';
-    }).join("");
-  });
-});
-
-/* ---------- EX 2: карточки слов ---------- */
-var wcards = document.getElementById("wcards"), ideaBox = document.getElementById("ideaBox");
-EX2.forEach(function(item, i){
-  var c = el("button","wcard"); c.textContent = item.word;
-  c.addEventListener("click", function(){
-    wcards.querySelectorAll(".wcard").forEach(function(x){x.classList.remove("open");});
-    c.classList.add("open");
-    ideaBox.innerHTML = '<div class="idea">🃏 <b>'+item.word+'</b> → '+item.idea+
-      '<br><b>Примеры вопросов:</b><br>• '+item.qs.join("<br>• ")+'</div>';
-  });
-  wcards.appendChild(c);
-});
-
-/* ---------- EX 3: рынок ---------- */
-var mk = document.getElementById("market");
-MARKET.forEach(function(p){
-  var d = el("div","prod");
-  d.innerHTML = '<span class="emo">'+p.emo+'</span>'+p.name+'<br><span class="price">'+p.price+'</span>';
-  mk.appendChild(d);
-});
-document.getElementById("sup3").addEventListener("click", function(){
-  var b = document.getElementById("supBox3");
-  b.hidden = !b.hidden;
-  b.innerHTML = "<b>🛒 Покупатель:</b><br>• " + SUPPORT3.client.join("<br>• ") +
-                "<br><br><b>🧑‍🌾 Продавец (для партнёра):</b><br>• " + SUPPORT3.vendeur.join("<br>• ");
-});
-document.getElementById("hint3").addEventListener("click", function(){
-  var b = document.getElementById("hintBox3");
-  var lvl = parseInt(b.dataset.lvl||"0",10)+1;
-  if(lvl>HINTS3.length) return;
-  b.dataset.lvl = lvl; b.hidden = false;
-  b.innerHTML = HINTS3.slice(0,lvl).map(function(h,j){
-    return '<p style="margin:4px 0">💡 <b>Подсказка '+(j+1)+':</b> '+h+'</p>';
-  }).join("");
-});
-
-/* ---------- таймер 1 мин ---------- */
-var tInt = null;
-document.getElementById("timerBtn").addEventListener("click", function(){
-  var val = document.getElementById("timerVal");
-  val.hidden = false;
-  var s = 60;
-  if(tInt) clearInterval(tInt);
-  val.textContent = "⏱ 0:" + (s<10?"0":"") + s;
-  tInt = setInterval(function(){
-    s--;
-    if(s<=0){ clearInterval(tInt); val.textContent = "🎙 Action ! Говори!"; return; }
-    val.textContent = "⏱ 0:" + (s<10?"0":"") + s;
-  },1000);
-});
-
-/* ---------- запись голоса (MediaRecorder) ---------- */
-function setupRec(key){
-  var recBtn = document.querySelector('[data-rec="'+key+'"]');
-  var stopBtn = document.querySelector('[data-stop="'+key+'"]');
-  var player = document.getElementById("play-"+key);
-  if(!recBtn) return;
-  var rec = null, chunks = [];
-  recBtn.addEventListener("click", function(){
-    if(!navigator.mediaDevices){ alert("Нужен браузер с доступом к микрофону 🙂"); return; }
-    navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){
-      rec = new MediaRecorder(stream); chunks = [];
-      rec.ondataavailable = function(e){ chunks.push(e.data); };
-      rec.onstop = function(){
-        player.src = URL.createObjectURL(new Blob(chunks,{type:"audio/webm"}));
-        player.hidden = false;
-        stream.getTracks().forEach(function(t){ t.stop(); });
-      };
-      rec.start();
-      recBtn.disabled = true; recBtn.textContent = "🔴 Идёт запись…";
-      stopBtn.disabled = false;
-    }).catch(function(){ alert("Разреши доступ к микрофону, пожалуйста 🎙"); });
-  });
-  stopBtn.addEventListener("click", function(){
-    if(rec && rec.state !== "inactive") rec.stop();
-    recBtn.disabled = false; recBtn.textContent = "🎙 Записать";
-    stopBtn.disabled = true;
-  });
-}
-["ex2","ex3"].forEach(setupRec);
-EX1.forEach(function(_,i){ setupRec("ex1-"+i); });
-
-/* ---------- автооценка ---------- */
-var aeWrap = document.getElementById("ae-rows");
-AE_STATEMENTS.forEach(function(st, ri){
-  var row = el("div","ae-row");
-  row.innerHTML = '<span>'+st+'</span><span class="ae-smiles"></span>';
-  var sm = row.querySelector(".ae-smiles");
-  SMILES.forEach(function(s, si){
-    var b = el("button","ae-btn"); b.textContent = s;
-    if(state.ae[ri]===si) b.classList.add("on");
-    b.addEventListener("click", function(){
-      state.ae[ri]=si; save();
-      sm.querySelectorAll(".ae-btn").forEach(function(x){x.classList.remove("on");});
-      b.classList.add("on");
-    });
-    sm.appendChild(b);
-  });
-  aeWrap.appendChild(row);
-});
-
-/* ---------- финальный балл ---------- */
-document.getElementById("finalScore").addEventListener("input", function(){
-  var v = parseInt(this.value,10);
-  var box = document.getElementById("verdict");
-  if(isNaN(v) || v<0 || v>40){ box.hidden = true; return; }
-  box.hidden = false;
-  if(v>=30){ box.style.background="var(--green-soft)"; box.style.color="var(--green)";
-    box.innerHTML = "🌟 <b>Bravo !</b> "+v+"/40 — это уверенный уровень DELF A1. Ты справишься с экзаменом без проблем!";
-  } else if(v>=20){ box.style.background="var(--yellow-soft)"; box.style.color="#8a6d1a";
-    box.innerHTML = "💪 <b>Pas mal !</b> "+v+"/40 — неплохо! Повтори темы, где были ошибки, и будет ещё лучше.";
-  } else { box.style.background="var(--po-soft)"; box.style.color="var(--po-dark)";
-    box.innerHTML = "🌱 <b>Courage !</b> "+v+"/40 — пока мало. Пройди тренажёры ещё раз — и всё получится!";
-  }
-});
-
-document.getElementById("resetBtn").addEventListener("click", function(){
-  localStorage.removeItem(LS); location.reload();
-});
-</script>
+<footer>© Интерактивная школа «МУДРО» · подготовка к DELF A1</footer>
 </body>
 </html>

@@ -54,6 +54,7 @@ main{max-width:960px;margin:0 auto;padding:20px 16px 40px}
 .card .bar i{display:block;height:100%;width:0;background:var(--c,#2fb871);border-radius:99px;transition:width .4s}
 .card .cnt{font-size:12px;font-weight:800;color:var(--muted);margin-top:6px}
 .special{display:grid;grid-template-columns:1fr;gap:14px;margin-top:14px}
+.soon-line{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:22px;text-align:center;font-weight:800;color:var(--muted);border:3px dashed #dfe3ea;font-size:15px;line-height:1.6}
 footer{max-width:960px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px;font-weight:700}
 @media(max-width:700px){
   .grid,.special,.howto{grid-template-columns:1fr}
@@ -98,7 +99,9 @@ footer{max-width:960px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font
   </div>
 
   <h2 class="section-title">🎯 Тренажёры по навыкам</h2>
-  <div class="grid" id="modules"></div>
+  <div class="special">
+    <div class="soon-line">🚧 Тренажёры по навыкам появятся здесь постепенно.<br><span style="font-weight:700;color:#aab2bf;font-size:13px">А пока все задания по аудированию, чтению, письму и говорению — в автооценке ☝️</span></div>
+  </div>
 
   <h2 class="section-title">⏱️ Экзамен</h2>
   <div class="special">
@@ -118,51 +121,15 @@ var AE_KEY = "mudro_ae_results";
 function load(key){
   try { return JSON.parse(localStorage.getItem(key)) || {}; } catch(e) { return {}; }
 }
-function countByPrefix(obj, prefix){
-  var n = 0;
-  for(var k in obj){ if(obj.hasOwnProperty(k) && k.indexOf(prefix) === 0) n++; }
-  return n;
-}
-var MODULES = [
-  { prefix:"co", total:9, page:"autoevaluation.html#block-co", badge:"live", badgeText:"в автооценке",
-    name:"Аудирование", fr:"Compréhension de l'oral", icon:"🎧", color:"#2fb871",
-    desc:"Слушай записи и отвечай на вопросы: сообщение на автоответчике, объявление в парке, диалоги. Слушать можно сколько угодно раз!" },
-  { prefix:"ce", total:9, page:"autoevaluation.html#block-ce", badge:"live", badgeText:"в автооценке",
-    name:"Чтение", fr:"Compréhension des écrits", icon:"📖", color:"#4a90e2",
-    desc:"Правила парка, объявление в колледже. Учимся искать ключевые слова и отвечать по цитате из текста." },
-  { prefix:"pe", total:0, page:"production-ecrite.html", badge:"soon", badgeText:"скоро",
-    name:"Письмо", fr:"Production écrite", icon:"✍️", color:"#f39c12",
-    desc:"Учимся писать открытки, заполнять анкеты и рассказывать о себе на французском." },
-  { prefix:"po", total:0, page:"production-orale.html", badge:"soon", badgeText:"скоро",
-    name:"Говорение", fr:"Production orale", icon:"🗣️", color:"#e84393",
-    desc:"Тренируемся представляться, отвечать на вопросы и вести простые диалоги." }
-];
-
-var grid = document.getElementById("modules");
-MODULES.forEach(function(m){
-  var done = countByPrefix(load(AE_KEY), m.prefix);
-  var pct = m.total ? Math.round(done / m.total * 100) : 0;
-  var a = document.createElement("a");
-  a.className = "card";
-  a.href = m.page;
-  a.style.setProperty("--c", m.color);
-  a.innerHTML =
-    '<span class="icon">'+m.icon+'</span>'+
-    '<h3>'+m.name+'</h3><p class="fr">'+m.fr+'</p>'+
-    '<p class="desc">'+m.desc+'</p>'+
-    (m.total ? '<div class="bar"><i style="width:'+pct+'%"></i></div><div class="cnt">⭐ '+done+' из '+m.total+' заданий</div>' : '');
-  grid.appendChild(a);
-});
-
+var TOTAL = 35;
 function updateHeader(){
   var ae = load(AE_KEY);
   var allKeys = Object.keys(ae).length;
-  var total = 18;
-  var pct = total ? Math.round(allKeys / total * 100) : 0;
+  var pct = TOTAL ? Math.round(allKeys / TOTAL * 100) : 0;
   document.getElementById("pfill").style.width = pct + "%";
   document.getElementById("ptext").textContent = "Прогресс: " + pct + "%";
   document.getElementById("aeFill").style.width = pct + "%";
-  document.getElementById("aeCnt").textContent = "⭐ " + allKeys + " из " + total + " заданий · блоки 3–4 скоро";
+  document.getElementById("aeCnt").textContent = "⭐ " + allKeys + " из " + TOTAL + " заданий · 4 блока";
 }
 updateHeader();
 </script>

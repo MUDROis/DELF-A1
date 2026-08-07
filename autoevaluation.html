@@ -14,6 +14,7 @@
 :root{
   --ink:#273449; --muted:#7a8699; --bg:#f4f6fb; --card:#fff;
   --yellow:#ffc93c; --yellow-soft:#fff6dd; --red:#ff6b6b; --red-soft:#ffecec;
+  --green:#2fb871; --green-soft:#e6f7ee;
   --radius:20px; --shadow:0 6px 20px rgba(39,52,73,.08);
 }
 *{box-sizing:border-box}
@@ -111,6 +112,51 @@ h1{font-size:26px;margin:10px 0 8px}
 .ae-smiles{margin-left:auto;display:flex;gap:6px}
 .ae-btn{font-size:21px;background:#f7fafc;border:2px solid #e3ebf2;border-radius:12px;padding:4px 9px;cursor:pointer;transition:transform .1s}
 .ae-btn.on{border-color:var(--yellow);background:var(--yellow-soft);transform:scale(1.15)}
+/* ---- письмо: анкета ---- */
+.form-card{background:#fffaf2;border:2px solid var(--c);border-radius:16px;padding:14px 16px;margin-top:12px}
+.form-title{display:inline-block;background:#fff;border:2px solid var(--ink);border-radius:8px;padding:3px 11px;font-weight:900;letter-spacing:.5px;margin-bottom:10px;font-size:14px}
+.field{margin-bottom:10px}
+.field label{display:block;font-weight:800;font-size:14px;margin-bottom:4px}
+.field input{width:100%;font-family:inherit;font-size:15px;font-weight:700;padding:9px 12px;border:2px solid #dfe7ef;border-radius:12px;background:#fff;outline:none}
+.field input:focus{border-color:var(--c)}
+.field.good input{border-color:var(--green);background:var(--green-soft)}
+.field.bad input{border-color:var(--red);background:var(--red-soft)}
+.field-msg{font-size:12.5px;font-weight:800;margin-top:4px;min-height:16px}
+.field-msg.ok{color:var(--green)}
+.field-msg.err{color:var(--red)}
+.nom-example{font-weight:800;font-size:15px;color:var(--muted);padding:10px 0}
+/* ---- письмо: сообщение ---- */
+.mail{background:#fffaf2;border:2px solid #eadfcd;border-radius:16px;padding:12px 14px;margin-top:12px}
+.mail-head{display:flex;align-items:center;gap:10px;border-bottom:2px dashed #e5d9c6;padding-bottom:8px;margin-bottom:8px;font-weight:800;font-size:14px}
+.avatar{flex:0 0 36px;height:36px;border-radius:50%;background:var(--c);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:18px}
+.mail textarea{width:100%;min-height:160px;border:none;background:repeating-linear-gradient(#fffaf2,#fffaf2 27px,#e8dcc8 28px);line-height:28px;font-family:inherit;font-size:14.5px;font-weight:700;resize:vertical;outline:none}
+.word-count{display:inline-block;background:var(--soft);color:var(--dark);font-weight:900;border-radius:99px;padding:5px 13px;margin-top:8px;font-size:13px}
+.word-count.ok{background:var(--green-soft);color:var(--green)}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:10px}
+.chip{border:2px solid #dfe7ef;border-radius:99px;padding:5px 11px;font-weight:800;font-size:12.5px;background:#fff;color:var(--muted)}
+.chip.on{border-color:var(--green);background:var(--green-soft);color:var(--green)}
+/* ---- устная речь ---- */
+.qcard{background:#fff;border:2px solid var(--soft);border-radius:16px;padding:12px 14px;margin-top:12px}
+.qcard .q-fr{font-weight:900;font-size:16px;margin:0 0 8px;color:var(--dark)}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;align-items:center}
+.btn-main{background:var(--c);color:#fff}
+.btn-ghost{background:#fff;color:var(--dark);border:2px solid var(--c)}
+.btn-rec{background:var(--c);color:#fff}
+.btn-stop{background:#fff;color:var(--muted);border:2px solid #dfe7ef}
+.done-toggle{background:#fff;color:var(--green);border:2px solid var(--green)}
+.done-toggle.done{background:var(--green);color:#fff}
+audio{width:100%;margin-top:6px;height:36px}
+.support{background:var(--green-soft);border:2px dashed var(--green);border-radius:14px;padding:10px 14px;margin-top:10px;font-size:14px;font-weight:700}
+.word-cards{display:flex;gap:9px;flex-wrap:wrap;margin-top:10px}
+.wcard{background:var(--soft);border:2px solid var(--c);border-radius:14px;padding:11px 20px;font-weight:900;font-size:15px;letter-spacing:1px;cursor:pointer;color:var(--dark)}
+.wcard.open{background:var(--c);color:#fff}
+.idea{background:#fff;border:2px solid var(--soft);border-radius:14px;padding:11px 15px;margin-top:10px;font-size:14px;font-weight:700}
+.market{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:10px}
+.prod{background:#fff;border:2px solid var(--soft);border-radius:16px;padding:11px;text-align:center;font-weight:800;font-size:13px}
+.prod .emo{font-size:40px;display:block}
+.prod .price{color:var(--dark);font-weight:900}
+.timer{background:var(--soft);color:var(--dark);border-radius:99px;padding:6px 14px;font-weight:900}
+@media(max-width:640px){.market{grid-template-columns:repeat(2,1fr)}}
 footer{max-width:880px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font-size:13px;font-weight:700;display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap}
 .reset{background:none;border:2px solid #dfe7ef;border-radius:99px;padding:6px 14px;font-weight:800;color:var(--muted);cursor:pointer;font-family:inherit}
 @media(max-width:640px){
@@ -137,7 +183,7 @@ footer{max-width:880px;margin:0 auto;padding:0 16px 40px;color:var(--muted);font
 <main>
   <span class="skill-badge">Autoévaluation</span>
   <h1>🪞 Автооценка · DELF A1</h1>
-  <p class="intro">Пройди <b>4 блока</b>, как на настоящем экзамене: аудирование, чтение, письмо и устная речь. Это не экзамен — можно слушать запись несколько раз и открывать подсказки! В конце каждого блока отметь смайликом, как ты себя чувствуешь. Блоки 3 и 4 скоро появятся. 😊</p>
+  <p class="intro">Пройди <b>4 блока</b>, как на настоящем экзамене: аудирование, чтение, письмо и устная речь. Это не экзамен — можно слушать запись несколько раз и открывать подсказки! В конце каждого блока отметь смайликом, как ты себя чувствуешь. 😊</p>
 
   <div id="blocks"></div>
 </main>
@@ -347,26 +393,118 @@ var BLOCKS = [
   {
     id:"pe", num:3, name:"Письмо", fr:"Production écrite", icon:"✍️",
     color:"#f39c12", dark:"#b37400", soft:"#fdf3e0",
-    intro:"",
+    intro:"Заполни анкету и напиши короткое сообщение другу. Это тренировка — анкета проверяется автоматически, а сообщение анализирует умный помощник.",
     statements:[
       "Я могу написать короткое письмо или открытку.",
       "Я могу заполнить анкету (имя, возраст, адрес).",
       "Я могу написать, что я делал(а) на выходных.",
       "Я могу написать приглашение на праздник."
     ],
-    exercises:[]
+    exercises:[
+      {
+        id:"pe1", num:1, type:"form",
+        title_ru:"Заполни анкету школьной активности",
+        consigne_fr:"Vous êtes à l'école en France. Vous voulez participer à une activité après la classe. Vous remplissez cette fiche.",
+        instruction_ru:"Заполни все поля по-французски и нажми «Проверить». Nom уже заполнен как пример: Nom = ФАМИЛИЯ!",
+        fields:[
+          { id:"prenom", label:"Prénom :", placeholder:"Marie…",
+            ok:function(v){ return v.trim().length>1; },
+            err:"Заполни имя (Prénom = ИМЯ, не фамилия!).", good:"Отлично, имя написано!" },
+          { id:"classe", label:"Classe :", placeholder:"6e, CM2…",
+            ok:function(v){ return v.trim().length>0; },
+            err:"Напиши свой класс (например, 6e или CM2).", good:"Класс указан — верно!" },
+          { id:"adresse", label:"Adresse :", placeholder:"12, rue des Fleurs…",
+            ok:function(v){ return /\d/.test(v) && v.trim().length>3; },
+            err:"Адрес начинается с номера дома: «12, rue…» — добавь цифру!", good:"Адрес с номером дома — супер!" },
+          { id:"tel", label:"Numéro de téléphone des parents :", placeholder:"06 12 34 56 78",
+            ok:function(v){ return (v.match(/\d/g)||[]).length===10; },
+            err:"Во Франции в номере 10 цифр: 06 12 34 56 78. Проверь!", good:"Номер из 10 цифр — правильно!" },
+          { id:"activite", label:"Activité choisie :", placeholder:"danse, football, théâtre…",
+            ok:function(v){ return v.trim().length>1; },
+            err:"Выбери активность: danse, football, théâtre, dessin…", good:"Активность выбрана — отлично!" }
+        ]
+      },
+      {
+        id:"pe2", num:2, type:"message", minWords:40,
+        title_ru:"Расскажи другу о каникулах",
+        consigne_fr:"Vous êtes en vacances. Vous écrivez un message à un(e) ami(e) français(e) : où vous êtes, avec qui, quelles activités vous faites et quel temps il fait. (40 mots minimum)",
+        instruction_ru:"Умные маркеры — помощник сам найдёт в твоём тексте пункты задания. Минимум 40 слов!",
+        markers:[
+          { key:"ou", label:"📍 Où ? (где ты)", re:/(à la mer|à la montagne|à la campagne|en ville|en france|chez (ma|mon|mes)|à [a-zà-ÿ]*[a-zà-ÿ])/i },
+          { key:"avec", label:"👥 Avec qui ? (с кем)", re:/avec/i },
+          { key:"act", label:"🎾 Activités (что делаешь)", re:/je (nage|joue|fais|visite|mange|danse|regarde|lis|vais|aime|adore)|on va/i },
+          { key:"meteo", label:"🌦 Météo (погода)", re:/il fait|il pleut|il y a du soleil|chaud|froid|beau|nuageux|du vent/i },
+          { key:"conn", label:"🔗 Et / alors (связки)", re:/\bet\b|\balors\b|\bmais\b|parce que/i },
+          { key:"form", label:"👋 Привет и прощание", re:/salut|bonjour|coucou|à bientôt|a bientot|bisous/i }
+        ]
+      }
+    ]
   },
   {
     id:"po", num:4, name:"Говорение", fr:"Production orale", icon:"🗣️",
     color:"#e84393", dark:"#c02672", soft:"#fdeef5",
-    intro:"",
+    intro:"Запиши свой голос 🎙, послушай себя и отметь «✅ Я ответил(а)». Это не экзамен — репетируй столько, сколько нужно!",
     statements:[
       "Я могу представиться и рассказать о себе.",
       "Я могу отвечать на вопросы о семье и друзьях.",
       "Я могу заказать еду в кафе или купить билет.",
       "Я могу рассказать о своих любимых занятиях."
     ],
-    exercises:[]
+    exercises:[
+      {
+        id:"po1", num:1, type:"oral-q",
+        title_ru:"Ответь на вопросы (Entretien dirigé)",
+        consigne_fr:"Vous répondez aux questions suivantes à l'oral.",
+        instruction_ru:"Отвечай полными предложениями! Запиши каждый ответ, послушай себя и отметь «Я ответил(а)».",
+        questions:[
+          { q:"Quel âge as-tu ?",
+            support:["J'ai dix ans.","J'ai neuf ans et demi."],
+            hints:["Отвечай полным предложением: не «dix», а «J'ai dix ans».","Добавь деталь: «J'ai dix ans et j'habite à…» — экзаменаторы любят детали!"] },
+          { q:"Où habites-tu ? Avec qui ?",
+            support:["J'habite à Moscou avec ma famille.","J'habite dans une maison avec mes parents et mon chat."],
+            hints:["Два вопроса в одном: ГДЕ и С КЕМ. Не забудь обе части!","Схема: J'habite à + город / dans une maison + avec + кто."] },
+          { q:"Quelles sont tes activités préférées ?",
+            support:["J'aime jouer au football et dessiner.","Mes activités préférées sont la danse et les jeux vidéo."],
+            hints:["Используй: J'aime + инфинитив / nom. Можно 2 активности с «et».","Бонус-фраза: «…et j'adore nager !»"] }
+        ]
+      },
+      {
+        id:"po2", num:2, type:"oral-words",
+        title_ru:"Задай вопросы по идее (Échange d'informations)",
+        consigne_fr:"Vous posez des questions à l'examinateur à l'aide des mots sur les cartes. Utilisez l'idée, pas seulement le mot !",
+        instruction_ru:"Нажми на карточку — откроется идея и примеры вопросов. Не читай просто слово — разви идею в 1–2 вопроса!",
+        words:[
+          { word:"ÉCOLE", idea:"Расспроси про школу экзаменатора.",
+            qs:["Tu aimes l'école ?","Quelle est ta matière préférée ?"] },
+          { word:"ANIMAL", idea:"Расспроси про животных.",
+            qs:["Tu as un animal ?","Comment il s'appelle ?"] },
+          { word:"VACANCES", idea:"Расспроси про каникулы.",
+            qs:["Où est-ce que tu vas en vacances ?","Qu'est-ce que tu fais en vacances ?"] }
+        ]
+      },
+      {
+        id:"po3", num:3, type:"oral-market",
+        title_ru:"Сыграй диалог: на рынке (Dialogue simulé)",
+        consigne_fr:"Vous êtes en vacances en France. Pour un pique-nique, vous allez au marché : vous demandez les prix et les quantités. Vous avez 20 euros. L'examinateur joue le rôle du vendeur.",
+        instruction_ru:"1 минута на подготовку, потом сыграй диалог и запиши себя!",
+        market:[
+          { emo:"🍅", name:"les tomates", price:"3 € le kilo" },
+          { emo:"🥕", name:"les carottes", price:"2 € le kilo" },
+          { emo:"🥔", name:"les pommes de terre", price:"1,5 € le kilo" },
+          { emo:"🥬", name:"la salade", price:"1 €" },
+          { emo:"🍎", name:"les pommes", price:"4 € le kilo" },
+          { emo:"🍌", name:"les bananes", price:"2,5 € le kilo" }
+        ],
+        support:{
+          client:["Bonjour ! Je voudrais un kilo de tomates, s'il vous plaît.","C'est combien, les carottes ?","Ça fait combien en tout ?","Voici 20 euros."],
+          vendeur:["Bonjour ! Vous désirez ?","Trois euros le kilo.","Et avec ceci ?","Voilà votre monnaie !"]
+        },
+        hints:[
+          "Начни с приветствия: «Bonjour !» Потом: «Je voudrais…» + продукт + количество (un kilo de…, trois…).",
+          "Обязательно спроси цену: «C'est combien ?» и посчитай итог: «Ça fait combien en tout ?» У тебя 20 евро — хватит ли? 😉"
+        ]
+      }
+    ]
   }
 ];
 
@@ -378,8 +516,24 @@ var RES_KEY = "mudro_ae_results", AUTO_KEY = "mudro_ae_auto";
 var results = {}; try { results = JSON.parse(localStorage.getItem(RES_KEY)) || {}; } catch(e) { results = {}; }
 var autoState = {}; try { autoState = JSON.parse(localStorage.getItem(AUTO_KEY)) || {}; } catch(e) { autoState = {}; }
 
+function normalize(ex){
+  if(ex.type === "form"){
+    ex.items = ex.fields.map(function(f,i){ return { id: ex.id+"-f"+(i+1) }; });
+  } else if(ex.type === "message"){
+    ex.items = ex.markers.map(function(m,i){ return { id: ex.id+"-m"+(i+1) }; })
+      .concat([{ id: ex.id+"-w" }]);
+  } else if(ex.type === "oral-q"){
+    ex.items = ex.questions.map(function(q,i){ return { id: ex.id+"-q"+(i+1) }; });
+  } else if(ex.type === "oral-words" || ex.type === "oral-market"){
+    ex.items = [{ id: ex.id }];
+  } else {
+    ex.items = ex.questions;
+  }
+}
+BLOCKS.forEach(function(b){ b.exercises.forEach(normalize); });
+
 var TOTAL = 0;
-BLOCKS.forEach(function(b){ TOTAL += b.exercises.reduce(function(s,ex){ return s + ex.questions.length; }, 0); });
+BLOCKS.forEach(function(b){ TOTAL += b.exercises.reduce(function(s,ex){ return s + ex.items.length; }, 0); });
 
 /* ---------- TTS ---------- */
 var frVoice = null;
@@ -445,9 +599,9 @@ function updateScore(ex){
   var s = document.getElementById("score-" + ex.id);
   if(!s) return;
   var ok = 0;
-  ex.questions.forEach(function(q){ var r = results[q.id]; if(r && r.ok) ok++; });
-  s.textContent = "⭐ " + ok + " / " + ex.questions.length;
-  var allDone = ex.questions.every(function(q){ return results[q.id]; });
+  ex.items.forEach(function(it){ var r = results[it.id]; if(r && r.ok) ok++; });
+  s.textContent = "⭐ " + ok + " / " + ex.items.length;
+  var allDone = ex.items.every(function(it){ return results[it.id]; });
   var banner = document.getElementById("done-" + ex.id);
   if(banner) banner.hidden = !allDone;
 }
@@ -456,9 +610,9 @@ function updateBlockScore(b){
   if(!s) return;
   var ok = 0, n = 0;
   b.exercises.forEach(function(ex){
-    ex.questions.forEach(function(q){
+    ex.items.forEach(function(it){
       n++;
-      var r = results[q.id]; if(r && r.ok) ok++;
+      var r = results[it.id]; if(r && r.ok) ok++;
     });
   });
   s.textContent = "⭐ " + ok + " / " + n;
@@ -599,11 +753,310 @@ function buildExercise(ex, b){
   banner.textContent = "🎉 Упражнение пройдено! Молодец!";
   sec.appendChild(banner);
 
-  ex.questions.forEach(function(q,i){
-    q.__block = b;
-    sec.appendChild(buildQuestion(q,i,ex));
-  });
+  if(ex.type){
+    buildCustom(ex, b, sec);
+  } else {
+    ex.questions.forEach(function(q,i){
+      q.__block = b;
+      sec.appendChild(buildQuestion(q,i,ex));
+    });
+  }
   return sec;
+}
+
+/* ---------- кастомные типы: анкета, сообщение, устная речь ---------- */
+var TEXTS_KEY = "mudro_ae_texts";
+var texts = {}; try { texts = JSON.parse(localStorage.getItem(TEXTS_KEY)) || {}; } catch(e) { texts = {}; }
+
+function setResult(id, ok){
+  if(ok) results[id] = { ok: true };
+  else delete results[id];
+  localStorage.setItem(RES_KEY, JSON.stringify(results));
+}
+
+function wireRecord(rec, stop, audio){
+  var recObj = null, chunks = [];
+  rec.addEventListener("click", function(){
+    if(!navigator.mediaDevices){ alert("Нужен браузер с доступом к микрофону 🙂"); return; }
+    navigator.mediaDevices.getUserMedia({audio:true}).then(function(stream){
+      recObj = new MediaRecorder(stream); chunks = [];
+      recObj.ondataavailable = function(e){ chunks.push(e.data); };
+      recObj.onstop = function(){
+        audio.src = URL.createObjectURL(new Blob(chunks,{type:"audio/webm"}));
+        audio.hidden = false;
+        stream.getTracks().forEach(function(t){ t.stop(); });
+      };
+      recObj.start();
+      rec.disabled = true; rec.textContent = "🔴 Идёт запись…";
+      stop.disabled = false;
+    }).catch(function(){ alert("Разреши доступ к микрофону, пожалуйста 🎙"); });
+  });
+  stop.addEventListener("click", function(){
+    if(recObj && recObj.state !== "inactive") recObj.stop();
+    rec.disabled = false; rec.textContent = "🎙 Записать";
+    stop.disabled = true;
+  });
+}
+
+function buildCustom(ex, b, sec){
+  if(ex.type === "form") return buildForm(ex, b, sec);
+  if(ex.type === "message") return buildMessage(ex, b, sec);
+  if(ex.type === "oral-q") return buildOralQ(ex, b, sec);
+  if(ex.type === "oral-words") return buildWords(ex, b, sec);
+  if(ex.type === "oral-market") return buildMarket(ex, b, sec);
+}
+
+function buildForm(ex, b, sec){
+  var card = el("div","form-card");
+  card.innerHTML = '<span class="form-title">ACTIVITÉ SCOLAIRE</span>'+
+    '<div class="field"><label>Nom :</label><div class="nom-example">IVANOVA (пример)</div></div>';
+  ex.fields.forEach(function(f){
+    var d = el("div","field");
+    d.dataset.f = f.id;
+    d.innerHTML = '<label>'+f.label+'</label><input id="'+ex.id+'-in-'+f.id+'" placeholder="'+f.placeholder+'" autocomplete="off"><div class="field-msg"></div>';
+    card.appendChild(d);
+  });
+  var act = el("div","q-actions");
+  var btn = el("button","btn check-btn");
+  btn.textContent = "✅ Проверить анкету";
+  act.appendChild(btn);
+  card.appendChild(act);
+  var expl = el("div","explain"); expl.hidden = true;
+  card.appendChild(expl);
+  sec.appendChild(card);
+
+  btn.addEventListener("click", function(){
+    var okAll = true, msgs = [];
+    ex.fields.forEach(function(f, i){
+      var d = card.querySelector('.field[data-f="'+f.id+'"]');
+      var inp = d.querySelector("input");
+      var ok = f.ok(inp.value);
+      setResult(ex.id+"-f"+(i+1), ok);
+      d.classList.remove("good","bad"); d.classList.add(ok?"good":"bad");
+      var m = d.querySelector(".field-msg");
+      m.textContent = ok ? "✅ "+f.good : "❌ "+f.err;
+      m.className = "field-msg "+(ok?"ok":"err");
+      if(!ok){ okAll = false; msgs.push(f.err); }
+    });
+    expl.hidden = false;
+    expl.className = "explain "+(okAll?"ok":"badx");
+    expl.innerHTML = okAll
+      ? "🎉 <b>5 / 5!</b> Анкета заполнена идеально: имя, класс, адрес с номером, телефон из 10 цифр и активность. Так и на экзамене!"
+      : "❌ <b>Исправь:</b> "+msgs.join(" ");
+    updateScore(ex); updateBlockScore(b); updateProgress();
+  });
+
+  ex.fields.forEach(function(f, i){
+    if(results[ex.id+"-f"+(i+1)]){
+      card.querySelector('.field[data-f="'+f.id+'"]').classList.add("good");
+    }
+  });
+}
+
+function buildMessage(ex, b, sec){
+  var mail = el("div","mail");
+  mail.innerHTML = '<div class="mail-head"><span class="avatar">M</span><div>À : monami@mail.fr<br><span style="color:var(--muted);font-weight:700">Objet : Mes vacances</span></div></div>'+
+    '<textarea id="'+ex.id+'-txt" placeholder="Salut ! …"></textarea>';
+  sec.appendChild(mail);
+  var wc = el("span","word-count"); wc.id = ex.id+"-wc";
+  sec.appendChild(wc);
+  var chips = el("div","chips");
+  var chipEls = {};
+  ex.markers.forEach(function(m){
+    var c = el("span","chip"); c.id = ex.id+"-chip-"+m.key; c.textContent = m.label;
+    chipEls[m.key] = c;
+    chips.appendChild(c);
+  });
+  sec.appendChild(chips);
+  var act = el("div","q-actions");
+  var btn = el("button","btn check-btn");
+  btn.textContent = "✅ Готово ли сообщение?";
+  act.appendChild(btn);
+  sec.appendChild(act);
+  var expl = el("div","explain"); expl.hidden = true;
+  sec.appendChild(expl);
+
+  var ta = mail.querySelector("textarea");
+  if(texts[ex.id]) ta.value = texts[ex.id];
+
+  function countWords(t){ var a=t.trim().split(/\s+/).filter(Boolean); return t.trim()? a.length : 0; }
+  function updateChips(){
+    var t = ta.value;
+    ex.markers.forEach(function(m){
+      chipEls[m.key].classList.toggle("on", m.re.test(t));
+    });
+    var w = countWords(t);
+    wc.textContent = "Nombre de mots : "+w+" (minimum "+ex.minWords+")"+(w>=ex.minWords?" ✅":"");
+    wc.classList.toggle("ok", w>=ex.minWords);
+  }
+  ta.addEventListener("input", function(){
+    texts[ex.id] = ta.value;
+    localStorage.setItem(TEXTS_KEY, JSON.stringify(texts));
+    updateChips();
+  });
+
+  btn.addEventListener("click", function(){
+    var w = countWords(ta.value);
+    ex.markers.forEach(function(m, i){ setResult(ex.id+"-m"+(i+1), m.re.test(ta.value)); });
+    setResult(ex.id+"-w", w>=ex.minWords);
+    var ok = (w>=ex.minWords) && ex.markers.every(function(m){ return m.re.test(ta.value); });
+    expl.hidden = false;
+    expl.className = "explain "+(ok?"ok":"badx");
+    if(ok){
+      expl.innerHTML = "🎉 <b>Сообщение готово!</b> "+w+" слов, все пункты на месте. Покажи учителю — это отличная работа!";
+    } else {
+      var missing = ex.markers.filter(function(m){ return !m.re.test(ta.value); });
+      var parts = [];
+      if(w<ex.minWords) parts.push("мало слов ("+w+" из "+ex.minWords+") — добавь предложения с «et» и «alors»");
+      if(missing.length) parts.push("не хватает: "+missing.map(function(m){return m.label;}).join(", "));
+      expl.innerHTML = "❌ <b>Что исправить:</b> "+parts.join("; ");
+    }
+    updateScore(ex); updateBlockScore(b); updateProgress();
+  });
+
+  updateChips();
+}
+
+function buildOralQ(ex, b, sec){
+  ex.questions.forEach(function(item, i){
+    var card = el("div","qcard");
+    card.innerHTML = '<p class="q-fr">'+(i+1)+'. '+item.q+'</p>';
+    var act = el("div","actions");
+    var sup = el("button","btn btn-ghost"); sup.textContent = "💬 Опора";
+    var hint = el("button","btn hint-btn"); hint.textContent = "💡 Подсказка";
+    var rec = el("button","btn btn-rec"); rec.textContent = "🎙 Записать";
+    var stop = el("button","btn btn-stop"); stop.disabled = true; stop.textContent = "⏹ Стоп";
+    var done = el("button","btn done-toggle"); done.textContent = "✅ Я ответил(а)";
+    act.appendChild(sup); act.appendChild(hint); act.appendChild(rec); act.appendChild(stop); act.appendChild(done);
+    card.appendChild(act);
+    var supBox = el("div","support"); supBox.hidden = true; card.appendChild(supBox);
+    var hintBox = el("div","hint-box"); hintBox.hidden = true; card.appendChild(hintBox);
+    var audio = el("audio"); audio.controls = true; audio.hidden = true; card.appendChild(audio);
+    sec.appendChild(card);
+
+    sup.addEventListener("click", function(){
+      supBox.hidden = !supBox.hidden;
+      supBox.innerHTML = "<b>💬 Фразы-опоры:</b><br>• "+item.support.join("<br>• ");
+    });
+    hint.addEventListener("click", function(){
+      var lvl = parseInt(hintBox.dataset.lvl||"0",10)+1;
+      if(lvl>item.hints.length) return;
+      hintBox.dataset.lvl = lvl; hintBox.hidden = false;
+      hintBox.innerHTML = item.hints.slice(0,lvl).map(function(h,j){
+        return '<p style="margin:4px 0">💡 <b>Подсказка '+(j+1)+':</b> '+h+'</p>';
+      }).join("");
+    });
+    wireRecord(rec, stop, audio);
+
+    var r = results[ex.id+"-q"+(i+1)];
+    if(r){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
+    done.addEventListener("click", function(){
+      var has = !!results[ex.id+"-q"+(i+1)];
+      setResult(ex.id+"-q"+(i+1), !has);
+      if(!has){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
+      else { done.classList.remove("done"); done.textContent = "✅ Я ответил(а)"; }
+      updateScore(ex); updateBlockScore(b); updateProgress();
+    });
+  });
+}
+
+function buildWords(ex, b, sec){
+  var cards = el("div","word-cards");
+  var idea = el("div");
+  ex.words.forEach(function(item){
+    var c = el("button","wcard"); c.textContent = item.word;
+    c.addEventListener("click", function(){
+      cards.querySelectorAll(".wcard").forEach(function(x){ x.classList.remove("open"); });
+      c.classList.add("open");
+      idea.innerHTML = '<div class="idea">🃏 <b>'+item.word+'</b> → '+item.idea+'<br><b>Примеры вопросов:</b><br>• '+item.qs.join("<br>• ")+'</div>';
+    });
+    cards.appendChild(c);
+  });
+  sec.appendChild(cards);
+  sec.appendChild(idea);
+  var act = el("div","actions");
+  var rec = el("button","btn btn-rec"); rec.textContent = "🎙 Записать";
+  var stop = el("button","btn btn-stop"); stop.disabled = true; stop.textContent = "⏹ Стоп";
+  var done = el("button","btn done-toggle"); done.textContent = "✅ Я задал(а) вопрос";
+  act.appendChild(rec); act.appendChild(stop); act.appendChild(done);
+  sec.appendChild(act);
+  var audio = el("audio"); audio.controls = true; audio.hidden = true; sec.appendChild(audio);
+  wireRecord(rec, stop, audio);
+
+  var r = results[ex.id];
+  if(r){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
+  done.addEventListener("click", function(){
+    var has = !!results[ex.id];
+    setResult(ex.id, !has);
+    if(!has){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
+    else { done.classList.remove("done"); done.textContent = "✅ Я задал(а) вопрос"; }
+    updateScore(ex); updateBlockScore(b); updateProgress();
+  });
+}
+
+function buildMarket(ex, b, sec){
+  var tAct = el("div","actions");
+  var tBtn = el("button","btn btn-ghost"); tBtn.textContent = "⏱ 1 минута на подготовку";
+  var tVal = el("span","timer"); tVal.hidden = true;
+  tAct.appendChild(tBtn); tAct.appendChild(tVal);
+  sec.appendChild(tAct);
+
+  var mk = el("div","market");
+  ex.market.forEach(function(p){
+    var d = el("div","prod");
+    d.innerHTML = '<span class="emo">'+p.emo+'</span>'+p.name+'<br><span class="price">'+p.price+'</span>';
+    mk.appendChild(d);
+  });
+  sec.appendChild(mk);
+
+  var act = el("div","actions");
+  var hint = el("button","btn hint-btn"); hint.textContent = "💡 Подсказка";
+  var sup = el("button","btn btn-ghost"); sup.textContent = "💬 Фразы-опоры";
+  var rec = el("button","btn btn-rec"); rec.textContent = "🎙 Записать";
+  var stop = el("button","btn btn-stop"); stop.disabled = true; stop.textContent = "⏹ Стоп";
+  var done = el("button","btn done-toggle"); done.textContent = "✅ Я сыграл(а) диалог";
+  act.appendChild(hint); act.appendChild(sup); act.appendChild(rec); act.appendChild(stop); act.appendChild(done);
+  sec.appendChild(act);
+  var hintBox = el("div","hint-box"); hintBox.hidden = true; sec.appendChild(hintBox);
+  var supBox = el("div","support"); supBox.hidden = true; sec.appendChild(supBox);
+  var audio = el("audio"); audio.controls = true; audio.hidden = true; sec.appendChild(audio);
+
+  var tInt = null;
+  tBtn.addEventListener("click", function(){
+    tVal.hidden = false;
+    var s = 60;
+    if(tInt) clearInterval(tInt);
+    tVal.textContent = "⏱ 0:" + (s<10?"0":"") + s;
+    tInt = setInterval(function(){
+      s--;
+      if(s<=0){ clearInterval(tInt); tVal.textContent = "🎙 Action ! Говори!"; return; }
+      tVal.textContent = "⏱ 0:" + (s<10?"0":"") + s;
+    },1000);
+  });
+  hint.addEventListener("click", function(){
+    var lvl = parseInt(hintBox.dataset.lvl||"0",10)+1;
+    if(lvl>ex.hints.length) return;
+    hintBox.dataset.lvl = lvl; hintBox.hidden = false;
+    hintBox.innerHTML = ex.hints.slice(0,lvl).map(function(h,j){
+      return '<p style="margin:4px 0">💡 <b>Подсказка '+(j+1)+':</b> '+h+'</p>';
+    }).join("");
+  });
+  sup.addEventListener("click", function(){
+    supBox.hidden = !supBox.hidden;
+    supBox.innerHTML = "<b>🛒 Покупатель:</b><br>• "+ex.support.client.join("<br>• ")+
+      "<br><br><b>🧑‍🌾 Продавец (для партнёра):</b><br>• "+ex.support.vendeur.join("<br>• ");
+  });
+  wireRecord(rec, stop, audio);
+
+  var r = results[ex.id];
+  if(r){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
+  done.addEventListener("click", function(){
+    var has = !!results[ex.id];
+    setResult(ex.id, !has);
+    if(!has){ done.classList.add("done"); done.textContent = "✅ Отмечено"; }
+    else { done.classList.remove("done"); done.textContent = "✅ Я сыграл(а) диалог"; }
+    updateScore(ex); updateBlockScore(b); updateProgress();
+  });
 }
 
 /* ---------- страница ---------- */
@@ -663,7 +1116,7 @@ BLOCKS.forEach(function(b){
 });
 
 document.getElementById("resetBtn").addEventListener("click", function(){
-  localStorage.removeItem(RES_KEY); localStorage.removeItem(AUTO_KEY);
+  localStorage.removeItem(RES_KEY); localStorage.removeItem(AUTO_KEY); localStorage.removeItem(TEXTS_KEY);
   location.reload();
 });
 updateProgress();
