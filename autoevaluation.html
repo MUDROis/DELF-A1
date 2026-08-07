@@ -927,7 +927,7 @@ function buildOralQ(ex, b, sec){
     var rec = el("button","btn btn-rec"); rec.textContent = "🎙 Записать";
     var stop = el("button","btn btn-stop"); stop.disabled = true; stop.textContent = "⏹ Стоп";
     var done = el("button","btn done-toggle"); done.textContent = "✅ Я ответил(а)";
-    act.appendChild(sup); act.appendChild(hint); act.appendChild(rec); act.appendChild(stop); act.appendChild(done);
+    act.appendChild(hint); act.appendChild(sup); act.appendChild(rec); act.appendChild(stop); act.appendChild(done);
     card.appendChild(act);
     var supBox = el("div","support"); supBox.hidden = true; card.appendChild(supBox);
     var hintBox = el("div","hint-box"); hintBox.hidden = true; card.appendChild(hintBox);
